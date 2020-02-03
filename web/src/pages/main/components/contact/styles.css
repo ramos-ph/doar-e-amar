@@ -1,0 +1,136 @@
+section#fale-conosco {
+  background-color: #f5f5f5;
+}
+
+section#fale-conosco .header-legend {
+  font-size: 20px;
+  position: relative;
+  top: 5vh;
+  letter-spacing: 2px;
+  color: #999;
+  text-transform: uppercase;
+}
+
+section#fale-conosco .header-text {
+  font-size: 48px;
+  position: relative;
+  top: 5vh;
+  letter-spacing: 3px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+section#fale-conosco .info {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15vw;
+  flex-direction: row;
+  width: 100%;
+  height: 95vh;
+}
+
+section#fale-conosco form {
+  display: flex;
+  max-width: 32vw;
+  max-height: 68vh;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section#fale-conosco form legend {
+  color: #333;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+  position: relative;
+  top: 3vh;
+}
+
+section#fale-conosco form .inputs {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+}
+
+section#fale-conosco form .input {
+  width: 100%;
+  height: 42px;
+  padding: 0 10px;
+  margin-top: 10px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #ff6000;
+  font-weight: bold;
+  color: #ff6000;
+}
+
+section#fale-conosco form textarea {
+  height: 25vh !important;
+  width: 100%;
+  resize: none;
+  padding: 10px;
+}
+
+section#fale-conosco form .btn-submit {
+  background: #ff9000;
+  width: 40%;
+  height: 36px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 21px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+section#fale-conosco form .btn-submit:hover {
+  background: #ffa000;
+}
+
+section#fale-conosco .contact-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 32vw;
+  max-height: 50vh;
+  width: 100%;
+  height: 100%;
+  background: #ff6000;
+  border-radius: 20px;
+  box-shadow: 0 0 5px 0 #333;
+}
+
+section#fale-conosco .contact-info ul {
+  list-style: none;
+  padding: 0 20px;
+}
+
+section#fale-conosco .contact-info ul li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex: 1;
+  color: #fff;
+}
+
+section#fale-conosco .contact-info ul li img {
+  height: 48px;
+  width: 48px;
+  margin: 10px 20px;
+  border: 2px solid #fff;
+  border-radius: 24px;
+  padding: 5px;
+}
