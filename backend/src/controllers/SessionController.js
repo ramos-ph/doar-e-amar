@@ -18,11 +18,11 @@ module.exports = {
       const user = await User.create({
         email,
         senha,
-        cpf
+        cpfCnpj: cpf
       })
 
       user.senha = undefined
-      user.cpf = undefined
+      user.cpfCnpj = undefined
       user.doacoesRecebidas = undefined
 
       return res.status(201).json({

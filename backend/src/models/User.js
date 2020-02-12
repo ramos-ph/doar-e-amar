@@ -10,7 +10,7 @@ const UserSchema = new Schema(
   {
     nome: {
       type: String,
-      required: true
+      required: false
     },
     email: {
       type: String,
@@ -23,9 +23,9 @@ const UserSchema = new Schema(
     },
     avatar: {
       type: String,
-      required: true
+      required: false
     },
-    'cpf-cnpj': {
+    cpfCnpj: {
       type: String,
       required: true,
       select: false
