@@ -4,13 +4,34 @@ const OfferSchema = new Schema(
   {
     doacao: {
       type: Schema.Types.ObjectId,
+      required: true,
       ref: 'donations'
     },
-    dono: {
-      type: Schema.Types.ObjectId,
-      ref: 'users'
+    estado: {
+      type: String,
+      enum: [
+        'Pendente',
+        'Aceito',
+        'Entregue'
+      ],
+      required: true,
+      default: 'Pendente'
     },
-    recebido: Boolean
+    entregueEm: {
+      type: Date,
+      required: false
+    },
+    anuncio: {
+      type: Date,
+      required: true,
+      default: Date.now
+    },
+    recebido: Boolean,
+    recebedor: {
+      type: Schema.Types.ObjectId,
+      ref: 'users',
+      select: false
+    }
   },
   {
     timestamps: true

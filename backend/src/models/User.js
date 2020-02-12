@@ -8,7 +8,10 @@ require('dotenv').config({
 
 const UserSchema = new Schema(
   {
-    nome: String,
+    nome: {
+      type: String,
+      required: true
+    },
     email: {
       type: String,
       required: true
@@ -20,16 +23,12 @@ const UserSchema = new Schema(
     },
     avatar: {
       type: String,
-      required: false
+      required: true
     },
-    cpf: {
+    'cpf-cnpj': {
       type: String,
-      required: false,
+      required: true,
       select: false
-    },
-    cpnj: {
-      type: String,
-      required: false
     },
     endereco: {
       rua: {
@@ -47,42 +46,19 @@ const UserSchema = new Schema(
       select: false
     },
     telefone: {
-      fixo: {
-        type: String,
-        required: false,
-        select: false
-      },
-      celular: {
-        type: String,
-        required: false,
-        select: false
-      }
-    },
-    tipo: {
-      type: String,
-      enum: ['Usuário', 'Organização'],
-      default: 'Usuário',
-      required: true
-    },
-    doacoes: [{
-      type: Schema.Types.ObjectId,
-      ref: 'donations'
-    }],
-    doacoesRecebidas: [{
-      type: Schema.Types.ObjectId,
-      ref: 'donations',
-      select: false
-    }],
-    notificacoes: [{
-      type: Schema.Types.ObjectId,
-      ref: 'notifications',
-      select: false
-    }],
-    interesses: [{
       type: String,
       required: false,
       select: false
-    }]
+    },
+    tipo: {
+      type: String,
+      enum: [
+        'Pessoa física',
+        'Pessoa jurídica'
+      ],
+      default: 'Pessoa física',
+      required: true
+    }
   },
   {
     timestamps: true,

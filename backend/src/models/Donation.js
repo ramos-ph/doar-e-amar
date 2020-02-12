@@ -37,21 +37,10 @@ const DonationSchema = new Schema(
         required: true
       }
     },
-    anuncio: {
-      type: Date,
+    dono: {
+      type: Schema.Types.ObjectId,
       required: true,
-      default: Date.now
-    },
-    prazo: {
-      type: Date,
-      required: true,
-      default: function () {
-        const date = new Date(Date.now())
-
-        date.setDate(date.getDate() + 3)
-
-        return date
-      }
+      ref: 'users'
     },
     categoria: {
       type: String,
@@ -63,20 +52,10 @@ const DonationSchema = new Schema(
         'Acessórios para Pets',
         'Produtos de Limpeza',
         'Dinheiro',
-        'Brinquedos'
+        'Brinquedos',
+        'Outros'
       ],
       required: true
-    },
-    estado: {
-      type: String,
-      enum: [
-        'Pendente',
-        'Aceito',
-        'Expirado',
-        'Entregue'
-      ],
-      required: true,
-      default: 'Pendente'
     }
   },
   {
