@@ -1,7 +1,7 @@
 const router = require('express').Router()
-const AuthMiddleware = require('../middlewares/auth')
+const authorization = require('./authorizateToken')
 
-router.use(AuthMiddleware)
+router.use(authorization)
 
 router.get('/auth', (req, res) => {
   return res.status(200).send({ authorized: true, user: req.user_id })

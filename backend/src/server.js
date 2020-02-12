@@ -12,7 +12,7 @@ const http = require('http')
 const socketio = require('socket.io')
 
 // arquivos físicos
-const authorization = require('./controllers/AuthController')
+const authorization = require('./token')
 const donationRoutes = require('./routes/donation.routes')
 const sessionRoutes = require('./routes/session.routes')
 const firstAccessRoutes = require('./routes/firstAccess.routes')
