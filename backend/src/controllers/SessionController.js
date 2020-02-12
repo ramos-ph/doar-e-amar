@@ -22,8 +22,6 @@ module.exports = {
       })
 
       user.senha = undefined
-      user.cpfCnpj = undefined
-      user.doacoesRecebidas = undefined
 
       return res.status(201).json({
         user,
@@ -51,9 +49,6 @@ module.exports = {
       }
 
       user.senha = undefined
-      user.cpf = undefined
-      user.doacoesRecebidas = undefined
-      user.notificacoes = undefined
 
       return res.status(200).json({
         user,
