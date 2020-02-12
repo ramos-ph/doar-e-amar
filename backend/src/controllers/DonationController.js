@@ -12,7 +12,7 @@ module.exports = {
       const donations = await Donation.paginate(
         {
           $and: [
-            { _id: { $in: loggedUser.doacoes } }
+            { dono: loggedUser._id }
           ]
         },
         {
@@ -32,7 +32,7 @@ module.exports = {
   async store (req, res) {
     try {
       const userId = req.user_id
-      const { titulo, descricao, endereco, categoria, estado } = req.validated
+      const { titulo, descricao, endereco, categoria } = req.validated
 
       const loggedUser = await User.findById(userId)
 
@@ -42,11 +42,8 @@ module.exports = {
         foto: req.file.filename,
         endereco,
         categoria,
-        estado
+        dono: loggedUser._id
       })
-
-      loggedUser.doacoes.push(donation._id)
-      await loggedUser.save()
 
       return res.status(201).json(donation)
     } catch (err) {
