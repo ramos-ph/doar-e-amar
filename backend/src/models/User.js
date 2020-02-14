@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs')
 
 const { validateEmail } = require('./validators/strings')
 const { validateCommonUser, validateOrganization } = require('./validators/users')
+const { allowedTypes } = require('./utils/allowedEnums')
 
 require('dotenv').config({
   path: process.env.NODE_ENV === 'development' ? '.env.development' : '.env'
@@ -23,7 +24,8 @@ const UserSchema = new Schema(
       ],
       validate: function () {
         validateEmail(this.email)
-      }
+      },
+      unique: true
     },
     senha: {
       type: String,
@@ -45,7 +47,8 @@ const UserSchema = new Schema(
         },
         'O campo CPF é obrigatório'
       ],
-      select: false
+      select: false,
+      unique: true
     },
     cnpj: {
       type: String,
@@ -55,7 +58,8 @@ const UserSchema = new Schema(
         },
         'O campo CNPJ é obrigatório'
       ],
-      select: false
+      select: false,
+      unique: true
     },
     endereco: {
       rua: String,
@@ -70,12 +74,12 @@ const UserSchema = new Schema(
     },
     tipo: {
       type: String,
-      enum: [
-        'Pessoa física',
-        'Pessoa jurídica'
-      ],
+      enum: allowedTypes,
       default: 'Pessoa física',
-      required: true
+      required: [
+        true,
+        'O tipo de pessoa é obrigatório'
+      ]
     }
   },
   {

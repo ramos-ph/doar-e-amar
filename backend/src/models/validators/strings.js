@@ -5,5 +5,19 @@ module.exports = {
     if (!re.test(email)) {
       return false
     }
+  },
+
+  validatePostalCode (postalCode) {
+    const parts = postalCode.split('-')
+
+    if (parts.length !== 2) {
+      return false
+    }
+
+    const [region, sector] = parts
+
+    if (region.length !== 5 || sector.length !== 3) {
+      return false
+    }
   }
 }
