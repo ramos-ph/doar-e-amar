@@ -2,7 +2,7 @@ const { model, Schema } = require('mongoose')
 const mongoosePaginate = require('mongoose-paginate-v2')
 const bcrypt = require('bcryptjs')
 
-const { validateEmail } = require('./validators/strings')
+const { validateEmail, validateCpf } = require('./validators/strings')
 const { validateCommonUser, validateOrganization } = require('./validators/users')
 const { allowedTypes } = require('./utils/allowedEnums')
 
@@ -20,11 +20,11 @@ const UserSchema = new Schema(
       type: String,
       required: [
         true,
-        'O campo e-mail é obrigatório!'
+        'O campo e-mail é obrigatório'
       ],
       validate: {
-        validator: function () {
-          validateEmail(this.email)
+        validator: function (email) {
+          return validateEmail(email)
         },
         message: 'Insira um endereço de e-mail válido'
       },
@@ -34,7 +34,7 @@ const UserSchema = new Schema(
       type: String,
       required: [
         true,
-        'O campo senha é obrigatório!'
+        'O campo senha é obrigatório'
       ],
       select: false
     },
@@ -45,24 +45,28 @@ const UserSchema = new Schema(
     cpf: {
       type: String,
       required: [
-        function () {
-          return validateCommonUser(this.tipo)
+        function (tipo) {
+          return validateCommonUser(tipo)
         },
         'O campo CPF é obrigatório'
       ],
-      select: false,
-      unique: true
+      validate: {
+        validator: function (cpf) {
+          return validateCpf(cpf)
+        },
+        message: 'Insira um CPF válido'
+      },
+      select: false
     },
     cnpj: {
       type: String,
       required: [
-        function () {
-          return validateOrganization(this.tipo)
+        function (tipo) {
+          return validateOrganization(tipo)
         },
         'O campo CNPJ é obrigatório'
       ],
-      select: false,
-      unique: true
+      select: false
     },
     endereco: {
       rua: String,

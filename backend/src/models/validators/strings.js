@@ -7,6 +7,12 @@ module.exports = {
     }
   },
 
+  validateCpf (cpf) {
+    if (cpf.length !== 11) {
+      return false
+    }
+  },
+
   validatePostalCode (postalCode) {
     const parts = postalCode.split('-')
 
