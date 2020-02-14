@@ -22,8 +22,11 @@ const UserSchema = new Schema(
         true,
         'O campo e-mail é obrigatório!'
       ],
-      validate: function () {
-        validateEmail(this.email)
+      validate: {
+        validator: function () {
+          validateEmail(this.email)
+        },
+        message: 'Insira um endereço de e-mail válido'
       },
       unique: true
     },

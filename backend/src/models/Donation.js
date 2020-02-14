@@ -52,8 +52,11 @@ const DonationSchema = new Schema(
           true,
           'Um endereço de retirada válido precisa ser informado'
         ],
-        validate: function () {
-          return validatePostalCode(this.endereco.cep)
+        validate: {
+          validator: function () {
+            return validatePostalCode(this.endereco.cep)
+          },
+          message: 'Insira um CEP válido'
         }
       },
       cidade: {
