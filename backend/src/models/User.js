@@ -2,6 +2,9 @@ const { model, Schema } = require('mongoose')
 const mongoosePaginate = require('mongoose-paginate-v2')
 const bcrypt = require('bcryptjs')
 
+const { validateEmail } = require('./validators/strings')
+const { validateCommonUser, validateOrganization } = require('./validators/users')
+
 require('dotenv').config({
   path: process.env.NODE_ENV === 'development' ? '.env.development' : '.env'
 })
@@ -14,35 +17,50 @@ const UserSchema = new Schema(
     },
     email: {
       type: String,
-      required: true
+      required: [
+        true,
+        'O campo e-mail é obrigatório!'
+      ],
+      validate: function () {
+        validateEmail(this.email)
+      }
     },
     senha: {
       type: String,
-      required: true,
+      required: [
+        true,
+        'O campo senha é obrigatório!'
+      ],
       select: false
     },
     avatar: {
       type: String,
       required: false
     },
-    cpfCnpj: {
+    cpf: {
       type: String,
-      required: true,
+      required: [
+        function () {
+          return validateCommonUser(this.tipo)
+        },
+        'O campo CPF é obrigatório'
+      ],
+      select: false
+    },
+    cnpj: {
+      type: String,
+      required: [
+        function () {
+          return validateOrganization(this.tipo)
+        },
+        'O campo CNPJ é obrigatório'
+      ],
       select: false
     },
     endereco: {
-      rua: {
-        type: String,
-        required: false
-      },
-      numero: {
-        type: Number,
-        required: false
-      },
-      cep: {
-        type: String,
-        required: false
-      },
+      rua: String,
+      numero: Number,
+      cep: String,
       select: false
     },
     telefone: {
@@ -70,19 +88,16 @@ const UserSchema = new Schema(
 
 UserSchema.plugin(mongoosePaginate)
 
-// realiza a criptografia de senha ao salvar
 UserSchema.pre('save', async function (next) {
-  // se a senha já foi modificada
   if (!this.isModified('senha')) return next()
 
   const hash = await bcrypt.hash(this.senha, 10)
 
   this.senha = hash
 
-  next()
+  return next()
 })
 
-// vincula a url do avatar do usuário
 UserSchema.virtual('avatar_url').get(function () {
   if (!this.avatar) return 'none'
 
