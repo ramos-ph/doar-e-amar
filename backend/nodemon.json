@@ -1,5 +1,8 @@
 {
 	"execMap": {
 		"js": "node --inspect"
+	},
+	"env": {
+		"NODE_ENV": "development"
 	}
 }

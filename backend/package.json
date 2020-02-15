@@ -6,7 +6,7 @@
   "description": "API pública do TCC",
   "author": "Pedro Ramos",
   "scripts": {
-		"debug": "SET NODE_ENV=development&& nodemon --inspect src/server.js",
+		"debug": "nodemon src/server.js",
     "start": "node src/server.js"
   },
   "dependencies": {
