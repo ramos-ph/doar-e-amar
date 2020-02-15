@@ -8,6 +8,10 @@ module.exports = {
   },
 
   validateCpf (cpf) {
+    if (!Number(cpf)) {
+      return false
+    }
+
     if (cpf.length !== 11) {
       return false
     }
