@@ -68,7 +68,7 @@ module.exports = {
       const donation = await Donation.findOne({
         $and: [
           { _id: donationId },
-          { _id: { $in: loggedUser.doacoes } }
+          { dono: loggedUser._id }
         ]
       })
 
