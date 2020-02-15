@@ -32,7 +32,7 @@ module.exports = {
   async store (req, res) {
     try {
       const userId = req.user_id
-      const { titulo, descricao, endereco, categoria } = req.validated
+      const { titulo, descricao, rua, numero, cep, cidade, categoria } = req.body
 
       const loggedUser = await User.findById(userId)
 
@@ -40,7 +40,12 @@ module.exports = {
         titulo,
         descricao,
         foto: req.file.filename,
-        endereco,
+        endereco: {
+          rua,
+          numero,
+          cep,
+          cidade
+        },
         categoria,
         dono: loggedUser._id
       })
