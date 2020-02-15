@@ -10,6 +10,6 @@ const DonationController = require('../controllers/DonationController')
 router.get('/', DonationController.index)
 router.post('/', multer(multerConfig).single('foto'), DonationController.store)
 router.get('/:donationId', DonationController.show)
-router.delete('/:donationId/delete', DonationController.delete)
+router.delete('/:donationId', DonationController.delete)
 
 module.exports = router

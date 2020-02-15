@@ -83,16 +83,16 @@ module.exports = {
   async delete (req, res) {
     try {
       const userId = req.user_id
-      const { donationId } = req.validated
+      const { donationId } = req.params
 
       const loggedUser = await User.findById(userId)
 
       await Donation.findOneAndDelete({
-        $and: [{ _id: donationId }, { _id: { $in: loggedUser.doacoes } }]
+        $and: [
+          { _id: donationId },
+          { dono: loggedUser._id }
+        ]
       })
-
-      loggedUser.doacoes.splice(loggedUser.doacoes.indexOf(donationId), 1)
-      await loggedUser.save()
 
       return res
         .status(200)
