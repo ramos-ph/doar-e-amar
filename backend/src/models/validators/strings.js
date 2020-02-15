@@ -17,6 +17,16 @@ module.exports = {
     }
   },
 
+  validateCnpj (cnpj) {
+    if (!Number(cnpj)) {
+      return false
+    }
+
+    if (cnpj.length !== 14) {
+      return false
+    }
+  },
+
   validatePostalCode (postalCode) {
     const parts = postalCode.split('-')
 

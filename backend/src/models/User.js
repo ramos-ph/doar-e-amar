@@ -2,7 +2,7 @@ const { model, Schema } = require('mongoose')
 const mongoosePaginate = require('mongoose-paginate-v2')
 const bcrypt = require('bcryptjs')
 
-const { validateEmail, validateCpf } = require('./validators/strings')
+const { validateEmail, validateCpf, validateCnpj } = require('./validators/strings')
 const { validateCommonUser, validateOrganization } = require('./validators/users')
 const { allowedTypes } = require('./utils/allowedEnums')
 
@@ -66,6 +66,12 @@ const UserSchema = new Schema(
         },
         'O campo CNPJ é obrigatório'
       ],
+      validate: {
+        validator: function (cnpj) {
+          return validateCnpj(cnpj)
+        },
+        message: 'Insira um CNPJ válido'
+      },
       select: false
     },
     endereco: {
