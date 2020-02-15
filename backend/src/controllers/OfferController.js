@@ -13,7 +13,7 @@ module.exports = {
       if (loggedUser.tipo !== 'Pessoa jurídica') {
         return res
           .status(401)
-          .json({ message: 'Você não têm autorização para isso ' })
+          .json({ message: 'Você não têm autorização para isso' })
       }
 
       const offers = await Offer.paginate(
