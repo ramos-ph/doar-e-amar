@@ -78,33 +78,5 @@ module.exports = {
         .status(500)
         .json(err.toString() || err.message)
     }
-  },
-
-  async delete (req, res) {
-    try {
-      const userId = req.user_id
-      const { donationId } = req.params
-
-      const loggedUser = await User.findById(userId)
-
-      await Donation.findOneAndDelete({
-        $and: [
-          { _id: donationId },
-          { dono: loggedUser._id }
-        ]
-      })
-
-      return res
-        .status(200)
-        .send({
-          message: 'Item excluído com sucesso!',
-          donation: donationId,
-          deleted: true
-        })
-    } catch (err) {
-      return res
-        .status(500)
-        .json(err.toString() || err.message)
-    }
   }
 }
