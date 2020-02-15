@@ -3,6 +3,41 @@ const Donation = require('../models/Donation')
 const Offer = require('../models/Offer')
 
 module.exports = {
+  async index (req, res) {
+    try {
+      const userId = req.user_id
+      const { page = 1 } = req.query
+
+      const loggedUser = await User.findById(userId)
+
+      if (loggedUser.tipo !== 'Pessoa jurídica') {
+        return res
+          .status(401)
+          .json({ message: 'Você não têm autorização para isso ' })
+      }
+
+      const offers = await Offer.paginate(
+        {
+          $and: [
+            { estado: 'Pendente' },
+            { recebedor: { $eq: undefined } }
+          ]
+        },
+        {
+          page,
+          limit: 10,
+          populate: 'doacao'
+        }
+      )
+
+      return res.status(200).json(offers)
+    } catch (err) {
+      return res
+        .status(500)
+        .send(err.toString() || err.message)
+    }
+  },
+
   async store (req, res) {
     try {
       const userId = req.user_id

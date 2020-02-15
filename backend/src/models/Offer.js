@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose')
+const mongoosePaginate = require('mongoose-paginate-v2')
 
 const OfferSchema = new Schema(
   {
@@ -37,5 +38,7 @@ const OfferSchema = new Schema(
     timestamps: true
   }
 )
+
+OfferSchema.plugin(mongoosePaginate)
 
 module.exports = model('offers', OfferSchema)
