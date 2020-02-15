@@ -5,10 +5,10 @@ const multer = require('multer')
 const multerConfig = require('../config/multer.config')
 
 // controles do usuário
-const FirstAccessController = require('../controllers/FirstAccessController')
-const FirstAccess = require('../middlewares/firstAccess')
+const CommonUserController = require('../controllers/CommonUserController')
+const NGOController = require('../controllers/NGOController')
 
-// rotas públicas
-router.put('/', multer(multerConfig).single('avatar'), FirstAccess.store, FirstAccessController.store)
+router.put('/common', multer(multerConfig).single('avatar'), CommonUserController.update)
+router.put('/ngo', multer(multerConfig).single('avatar'), NGOController.update)
 
 module.exports = router

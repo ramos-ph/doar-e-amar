@@ -6,7 +6,6 @@ const SessionController = require('../controllers/SessionController')
 const SessionMiddleware = require('../middlewares/session')
 
 // rotas públicas
-router.post('/start', SessionMiddleware.show, SessionController.show)
-router.post('/create', SessionMiddleware.store, SessionController.store)
+router.post('/', SessionMiddleware.show, SessionController.show)
 
 module.exports = router

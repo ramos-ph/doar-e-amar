@@ -11,29 +11,6 @@ function generateToken (params = {}) {
 }
 
 module.exports = {
-  async store (req, res) {
-    try {
-      const { email, senha, cpf } = req.validated
-
-      const user = await User.create({
-        email,
-        senha,
-        cpfCnpj: cpf
-      })
-
-      user.senha = undefined
-
-      return res.status(201).json({
-        user,
-        token: generateToken({ id: user._id })
-      })
-    } catch (err) {
-      return res
-        .status(500)
-        .json(err.toString() || err.message)
-    }
-  },
-
   async show (req, res) {
     try {
       const { email, senha } = req.validated

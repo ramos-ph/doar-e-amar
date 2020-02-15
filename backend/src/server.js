@@ -14,8 +14,9 @@ const socketio = require('socket.io')
 // arquivos físicos
 const authorization = require('./token')
 const donationRoutes = require('./routes/donation.routes')
-const sessionRoutes = require('./routes/session.routes')
+const registerRoutes = require('./routes/register.routes')
 const firstAccessRoutes = require('./routes/firstAccess.routes')
+const sessionRoutes = require('./routes/session.routes')
 
 // inicializando o banco de dados
 mongoose.connect(
@@ -65,9 +66,10 @@ app.use(express.urlencoded({ extended: true }))
 
 // roteamento
 app.use('/public', express.static('public'))
+app.use('/api/sessions', sessionRoutes)
+app.use('/api/register', registerRoutes)
 app.use('/api/donations', authorization, donationRoutes)
 app.use('/api/first-access', authorization, firstAccessRoutes)
-app.use('/api/sessions', sessionRoutes)
 
 // inicializando o servidor HTTP
 server.listen(process.env.PORT, () => {
