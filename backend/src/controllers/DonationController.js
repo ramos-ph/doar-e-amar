@@ -75,10 +75,6 @@ module.exports = {
     }
   },
 
-  async update (req, res) {
-    return res.send()
-  },
-
   async delete (req, res) {
     try {
       const userId = req.user_id
