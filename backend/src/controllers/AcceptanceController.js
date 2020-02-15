@@ -12,10 +12,16 @@ module.exports = {
       if (loggedUser.tipo !== 'Pessoa jurídica') {
         return res
           .status(401)
-          .json({ message: 'Você não têm autorização para isso' })
+          .json({ message: 'Você não tem autorização para isso' })
       }
 
-      const offer = await Offer.findById(offerId)
+      const offer = await Offer.findById(offerId).select('+recebedor')
+
+      if (offer.recebedor) {
+        return res
+          .status(400)
+          .json({ message: 'Essa oferta já foi aceita' })
+      }
 
       offer.estado = 'Aceito'
       offer.recebido = false

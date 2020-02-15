@@ -12,10 +12,22 @@ module.exports = {
       if (loggedUser.tipo !== 'Pessoa jurídica') {
         return res
           .status(401)
-          .json({ message: 'Você não têm autorização para isso' })
+          .json({ message: 'Você não tem autorização para isso' })
       }
 
       const offer = await Offer.findById(offerId).select('+recebedor')
+
+      if (String(offer.recebedor._id) !== String(loggedUser._id)) {
+        return res
+          .status(400)
+          .json({ message: 'Você não tem autorização para isso' })
+      }
+
+      if (offer.estado === 'Entregue') {
+        return res
+          .status(400)
+          .json({ message: 'Esta doação já foi recebida' })
+      }
 
       offer.estado = 'Entregue'
       offer.recebido = true
