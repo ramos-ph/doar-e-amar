@@ -1,17 +1,31 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.ImageBackground`
   flex: 1;
   align-items: center;
-  justify-content: center;
-  padding: 0 20px;
+  justify-content: space-between;
+  padding: 60px 20px;
   background: #FFF;
 `;
 
+export const Wrapper = styled.View`
+  flex: 1;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Logo = styled.Image`
-  height: 80px;
+  height: 100px;
   resize-mode: contain;
   margin-bottom: 20px;
+`;
+
+export const Label = styled.Text`
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 200;
 `;
 
 export const SignIn = styled.TouchableOpacity`
@@ -19,8 +33,8 @@ export const SignIn = styled.TouchableOpacity`
   align-self: stretch;
   align-items: center;
   justify-content: center;
-  border-radius: 50px;
-  background:  #DB003F;
+  border-radius: 5px;
+  background:  #fff;
   margin-bottom: 15px;
 `;
 
@@ -28,7 +42,7 @@ export const SignInText = styled.Text`
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
-  color: #FFF;
+  color: #333;
 `;
 
 export const SignUp = styled.TouchableOpacity`
@@ -36,14 +50,14 @@ export const SignUp = styled.TouchableOpacity`
   align-self: stretch;  
   align-items: center;
   justify-content: center;
-  border-radius: 50px;
-  background: #FFF;
-  border: 1px solid #DB003F;
+  border-radius: 5px;
+  background: transparent;
+  border: 2px solid #fff;
 `;
 
 export const SignUpText = styled.Text`
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
-  color: #DB003F;
+  color: #fff;
 `;

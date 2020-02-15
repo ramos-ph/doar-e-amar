@@ -27,7 +27,7 @@ export default function Login({navigation}) {
 
   async function handleSubmit() {
     try {
-      const response = await api.post('/sessions/start', {
+      const response = await api.post('/sessions', {
         email,
         senha: password,
       });
