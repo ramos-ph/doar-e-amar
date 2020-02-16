@@ -13,7 +13,7 @@ export const Search = styled.TextInput`
   color: #222;
   border-radius: 4px;
   padding: 0 15px;
-  margin-bottom: 15px;
+  margin: 40px 0 15px;
 `;
 
 export const Title = styled.Text`

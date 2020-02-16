@@ -27,7 +27,6 @@ export const Label = styled.Text`
 
 export const Input = styled.TextInput`
   width: 100%;
-  z-index: -999;
   height: 52px;
   padding: 0 25px;
   background: #FFF;
