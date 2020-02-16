@@ -55,8 +55,8 @@ export default function DonationList() {
               </ItemContent>
 
               <Status style={{ backgroundColor: '#feca57' }}>
-                <StatusText>{donation.estado}</StatusText>
-                <ExpiresIn>Expira em: {donation.prazo.split('T')[0].split('-').reverse().join('/')}</ExpiresIn>
+                <StatusText>{donation.titulo}</StatusText>
+                <ExpiresIn>Expira em: {donation.descricao}</ExpiresIn>
               </Status>
             </Item>
           </Content>
