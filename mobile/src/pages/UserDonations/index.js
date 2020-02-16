@@ -25,7 +25,7 @@ export default function UserDonations() {
 
         <Info>
           <Name>{user && user.nome}</Name>
-          <Donations>Doações realizadas: {user && user.doacoes.length}</Donations>
+          <Donations>Doações realizadas: 0</Donations>
         </Info>
       </Header>
 
