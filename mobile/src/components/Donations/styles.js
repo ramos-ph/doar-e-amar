@@ -2,6 +2,9 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
 `;
 
 export const Content = styled.ScrollView.attrs({
@@ -74,7 +77,9 @@ export const StatusText = styled.Text`
 `;
 
 export const Empty = styled.Text`
-  font-size: 28px;
   color: #999;
+  font-size: 28px;
   font-weight: bold;
+  text-align: center;
+  margin: 0 15px;
 `;

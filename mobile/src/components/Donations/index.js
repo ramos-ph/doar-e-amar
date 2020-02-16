@@ -38,9 +38,9 @@ export default function DonationList() {
 
   return (
     <Container>
-      <Content>
-        {donations.length !== 0 ?
-          donations.reverse().map(donation => (
+      {donations.length !== 0 ?
+        donations.reverse().map(donation => (
+          <Content>
             <Item key={donation._id}>
               <ItemContent>
                 <Thumbnail source={{uri: donation.foto_url}} />
@@ -59,10 +59,10 @@ export default function DonationList() {
                 <ExpiresIn>Expira em: {donation.prazo.split('T')[0].split('-').reverse().join('/')}</ExpiresIn>
               </Status>
             </Item>
-          )) : (
-            <Empty>Você ainda não tem nenhuma doação</Empty>
-          )}
-      </Content>
+          </Content>
+        )) : (
+          <Empty>Você ainda não tem nenhuma doação :(</Empty>
+        )}
     </Container>
   );
 }
