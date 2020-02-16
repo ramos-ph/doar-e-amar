@@ -10,7 +10,7 @@ import hardwareBackPress from '../../utils/hardwareBackPress';
 function New({navigation}) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [avatar, setAvatar] = useState({});
+  const [picture, setPicture] = useState({});
 
   const category = navigation.getParam('category');
 
@@ -18,7 +18,7 @@ function New({navigation}) {
 
   function handleImagePick() {
     const options = {
-      title: 'Selecionar Avatar',
+      title: 'Selecionar foto',
       cancelButtonTitle: 'Cancelar',
       takePhotoButtonTitle: 'Tirar uma foto',
       chooseFromLibraryButtonTitle: 'Escolher da galeria',
@@ -35,7 +35,7 @@ function New({navigation}) {
           name: response.fileName
         };
 
-        setAvatar(source);
+        setPicture(source);
       }
     )
   }
@@ -47,10 +47,10 @@ function New({navigation}) {
   return (
     <Container behavior="padding" enabled>
       <PictureContainer onPress={handleImagePick}>
-      {!avatar.uri ? (
+      {!picture.uri ? (
         <Icon name="photo-camera" size={42} color="#999" />
         ) : (
-        <Picture source={{uri: avatar.uri}} />
+        <Picture source={{uri: picture.uri}} />
       )}
       </PictureContainer>
 

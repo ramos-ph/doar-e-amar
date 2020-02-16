@@ -9,7 +9,7 @@ export const Container = styled.KeyboardAvoidingView`
 `;
 
 export const Legend = styled.Text`
-  font-size: 18px;
+  font-size: 20px;
   color: #333;
   text-align: center;
   font-weight: bold;
@@ -31,7 +31,7 @@ export const Input = styled.TextInput`
   padding: 0 25px;
   background: #FFF;
   border: 1px solid #DDD;
-  border-radius: 26px;
+  border-radius: 5px;
   margin-bottom: 20px;
 `;
 
@@ -39,7 +39,7 @@ export const Button = styled.TouchableOpacity`
   width: 100%;
   height: 52px;
   background: #DB003F;
-  border-radius: 26px;
+  border-radius: 5px;
   align-items: center;
   justify-content: center;
 `;

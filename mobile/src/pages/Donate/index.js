@@ -3,9 +3,12 @@ import React from 'react';
 import Categories from '../../components/Categories';
 import Populars from '../../components/Populars';
 
+import hardwareBackPress from '../../utils/hardwareBackPress';
 import { Container, Search, Title } from './styles';
 
-export default function Donate() {
+export default function Donate({ navigation }) {
+  hardwareBackPress('Dashboard', navigation)
+
   return (
     <Container>
       <Search
