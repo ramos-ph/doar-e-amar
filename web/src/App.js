@@ -1,8 +1,22 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
+import './App.css'
 
-import Routes from './routes';
+import Header from './components/header'
+import Footer from './components/footer'
 
-const App = () => <Routes />;
+import Routes from './routes'
 
-export default App;
+const App = () => (
+  <>
+    <Header />
+
+    <Router>
+      <Routes />
+    </Router>
+
+    <Footer />
+  </>
+)
+
+export default App

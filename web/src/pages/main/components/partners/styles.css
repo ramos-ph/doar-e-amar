@@ -1,19 +1,25 @@
 section#parceiros .header-text {
   font-size: 52px;
-  position: relative;
-  top: -20vh;
+	position: relative;
+	top: 15vh;
   letter-spacing: 3px;
   color: #333;
   text-transform: uppercase;
 }
 
 section#parceiros ul {
+	position: relative;
+	top: 30vh;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+	justify-content: space-between;
   list-style: none;
-  width: 55vw;
+	width: 55vw;
 }
 
 section#parceiros ul li img {
