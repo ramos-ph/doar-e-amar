@@ -19,8 +19,7 @@ export default function Header () {
         </nav>
 
         <div className="signin-options">
-          <button id="signin" className="header-btn">Entrar</button>
-          <button id="signup" className="header-btn">Cadastre-se</button>
+          <button className="header-btn">Participar</button>
         </div>
       </div>
     </header>

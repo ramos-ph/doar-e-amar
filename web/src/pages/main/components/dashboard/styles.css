@@ -1,13 +1,54 @@
 section#painel {
-	background: url('../../../../assets/img/backgrounds/perry-grone-lbLgFFlADrY-unsplash.jpg') no-repeat;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	height: 100%;
+	background: url('../../../../assets/img/backgrounds/tim-marshall-cAtzHUz7Z8g-unsplash.jpg') no-repeat;
 	background-size: cover;
 	background-position-y: 50%;
 }
 
-section#painel .container h1 {
+section#painel h1 {
   color: #fff;
-  font-size: 70px;
+  font-size: 78px;
 	text-align: center;
-	position: relative;
-	top: 40vh;
+	font-weight: bolder;
+	letter-spacing: -2px;
+}
+
+section#painel p {
+	color: #fff;
+	font-size: 42px;
+	letter-spacing: 1px;
+}
+
+section#painel .buttons {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 50px;
+	width: 450px;
+	margin-top: 15px;
+}
+
+section#painel .buttons button {
+	height: 50px;
+
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+
+	background: #db2361;
+
+	border: none;
+	border-radius: 25px;
+
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+section#painel .buttons button:hover {
+	background: #f54982;
 }

@@ -20,6 +20,7 @@ section {
   height: 100%;
 }
 
+/* TODO: fundir atributos de .container para section */
 .container {
 	display: flex;
 	height: 100%;
