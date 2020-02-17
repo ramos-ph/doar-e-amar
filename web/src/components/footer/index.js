@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import './styles.css';
+import './styles.css'
 
-export default function Footer() {
+export default function Footer () {
   return (
     <footer>
       <h3>Desenvolvimento: PRIME TEC</h3>
     </footer>
-  );
+  )
 }

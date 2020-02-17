@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import './styles.css';
+import './styles.css'
 
-import email from '../../../../assets/img/icons/baseline_email_white_48dp.png';
-import call from '../../../../assets/img/icons/baseline_call_white_48dp.png';
-import room from '../../../../assets/img/icons/baseline_room_white_48dp.png';
+import email from '../../../../assets/img/icons/baseline_email_white_48dp.png'
+import call from '../../../../assets/img/icons/baseline_call_white_48dp.png'
+import room from '../../../../assets/img/icons/baseline_room_white_48dp.png'
 
-export default function SectionContact() {
+export default function SectionContact () {
   return (
     <section id="fale-conosco">
       <div className="container">
@@ -22,7 +22,7 @@ export default function SectionContact() {
               </li>
               <li>
                 <img src={call} alt="call" />
-                <strong>(11) 97126-6675</strong>
+                <strong>(11) 91234-5687</strong>
               </li>
               <li>
                 <img src={room} alt="room" />
@@ -47,5 +47,5 @@ export default function SectionContact() {
         </div>
       </div>
     </section>
-  );
+  )
 }

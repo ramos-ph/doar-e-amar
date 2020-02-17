@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 
-import './styles.css';
+import './styles.css'
 
-import downloading_updates from '../../../../assets/img/icons/downloading-updates-48.png';
+import downloadingUpdates from '../../../../assets/img/icons/downloading-updates-48.png'
 
-export default function SectionAbout() {
+export default function SectionAbout () {
   return (
     <section id="sobre">
       <div className="container">
@@ -19,11 +19,11 @@ export default function SectionAbout() {
           <a href="#sobre">
             <button>
               Saiba Mais
-              <img src={downloading_updates} alt="" />
+              <img src={downloadingUpdates} alt="" />
             </button>
           </a>
         </div>
       </div>
     </section>
-  );
+  )
 }

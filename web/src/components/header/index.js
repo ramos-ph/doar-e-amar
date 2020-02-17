@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import './styles.css';
+import './styles.css'
 
-import logo from '../../assets/img/doar-e-amar.png';
+import logo from '../../assets/img/doar-e-amar.png'
 
-export default function Header() {
+export default function Header () {
   return (
     <header>
       <div className="navbar">
-        <img src={logo} alt="Logo" title="Doar & Amar" />
+        <img src={logo} alt="Logo" title="Doar e Amar" />
 
         <nav role="navigation">
           <a className="nav-link" href="#painel">Início</a>
@@ -24,5 +24,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  );
+  )
 }
