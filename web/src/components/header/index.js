@@ -12,15 +12,13 @@ export default function Header () {
 
         <nav role="navigation">
           <a className="nav-link" href="#painel">Início</a>
-          <a className="nav-link" href="#doar">Faça sua doação</a>
+          <a className="nav-link" href="#doar">Notícias</a>
           <a className="nav-link" href="#sobre">Sobre nós</a>
           <a className="nav-link" href="#parceiros">Parceiros</a>
           <a className="nav-link" href="#fale-conosco">Fale Conosco</a>
-        </nav>
 
-        <div className="signin-options">
           <button className="header-btn">Participar</button>
-        </div>
+        </nav>
       </div>
     </header>
   )
