@@ -4,7 +4,7 @@ export const Container = styled.ImageBackground`
   flex: 1;
   align-items: center;
   justify-content: space-between;
-  padding: 60px 20px;
+  padding: 4% 20px;
   background: #FFF;
 `;
 
@@ -18,6 +18,7 @@ export const Wrapper = styled.View`
 export const Logo = styled.Image`
   height: 100px;
   resize-mode: contain;
+  margin-top: 40%;
   margin-bottom: 20px;
 `;
 

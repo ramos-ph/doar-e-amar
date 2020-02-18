@@ -15,15 +15,14 @@ export default function Start({ navigation }) {
         <Logo source={logo} />
         <Label>Porque há maior alegria em dar do que receber!</Label>
       </Wrapper>
-
      
-        <SignIn onPress={() => {navigation.navigate('Login')}}>
-          <SignInText>ENTRAR</SignInText>
-        </SignIn>
+      <SignIn onPress={() => {navigation.navigate('Login')}}>
+        <SignInText>ENTRAR</SignInText>
+      </SignIn>
 
-        <SignUp onPress={() => {navigation.navigate('Signup')}}>
-          <SignUpText>CADASTRE-SE</SignUpText>
-        </SignUp>
+      <SignUp onPress={() => {navigation.navigate('Signup')}}>
+        <SignUpText>CADASTRE-SE</SignUpText>
+      </SignUp>
     </Container>
   );
 }

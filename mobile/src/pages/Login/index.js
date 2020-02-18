@@ -1,11 +1,21 @@
 import React, {useState, useEffect} from 'react';
-import {Alert} from 'react-native';
+import {Alert, StatusBar} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-
-import {Container, Legend, Label, Input, Button, ButtonText} from './styles';
 
 import api from '../../services/api';
 import hardwareBackPress from '../../utils/hardwareBackPress';
+
+import cover from '../../assets/cover.jpg';
+
+import {
+  Container,
+  Content,
+  Legend,
+  Label,
+  Input,
+  Button,
+  ButtonText,
+} from './styles';
 
 export default function Login({navigation}) {
   const [email, setEmail] = useState('');
@@ -42,16 +52,19 @@ export default function Login({navigation}) {
       await AsyncStorage.setItem('token', token);
 
       return navigation.navigate('Dashboard');
-    } catch ({ response }) {
+    } catch ({response}) {
       Alert.alert('Erro', response.data.message);
     }
   }
 
   return (
-    <Container behavior="padding" enabled>
-      <Legend>Acesse sua conta</Legend>
+    <Container source={cover}>
+      <StatusBar barStyle="light-content" backgroundColor="#0000" />
 
-        <Label>SEU E-MAIL *</Label>        
+      <Content behavior="padding" enabled>
+        <Legend>Acesse sua conta</Legend>
+
+        <Label>SEU E-MAIL *</Label>
         <Input
           value={email}
           onChangeText={setEmail}
@@ -61,7 +74,7 @@ export default function Login({navigation}) {
           placeholder="Seu e-mail"
           placeholderTextColor="#DDD"
         />
-        <Label>SUA SENHA *</Label>      
+        <Label>SUA SENHA *</Label>
         <Input
           value={password}
           onChangeText={setPassword}
@@ -70,9 +83,10 @@ export default function Login({navigation}) {
           secureTextEntry={true}
         />
 
-      <Button onPress={handleSubmit}>
-        <ButtonText>ENTRAR</ButtonText>
-      </Button>
+        <Button onPress={handleSubmit}>
+          <ButtonText>ENTRAR</ButtonText>
+        </Button>
+      </Content>
     </Container>
   );
 }
