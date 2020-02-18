@@ -6,9 +6,9 @@ const StackNavigator = createStackNavigator({
   Map: {
     screen: MapScreen,
     navigationOptions: {
-      title: 'Encontrar ONGs'
-    }
-  }
+      title: 'Encontrar ONGs',
+    },
+  },
 });
 
 export default StackNavigator;

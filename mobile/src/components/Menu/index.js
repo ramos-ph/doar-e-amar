@@ -24,7 +24,10 @@ function Menu({translateY, navigation}) {
           <Label>Estatísticas</Label>
         </Item>
 
-        <Item onPress={() => {navigation.navigate('Map')}}>
+        <Item
+          onPress={() => {
+            navigation.navigate('Map');
+          }}>
           <Icon name="people" size={32} color="#FFF" />
           <Label>Encontrar ONGs</Label>
         </Item>

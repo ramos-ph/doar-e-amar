@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { Animated } from 'react-native';
+import {Animated} from 'react-native';
 
 export const Container = styled.View`
   flex: 1;
@@ -14,7 +14,7 @@ export const Content = styled(Animated.View)`
   right: 0;
   bottom: 0;
   align-self: stretch;
-  background: #FFF;
+  background: #fff;
   align-self: flex-end;
   border-top-right-radius: 35px;
   border-top-left-radius: 35px;
@@ -31,7 +31,7 @@ export const Title = styled.Text`
 `;
 
 export const Description = styled.Text.attrs({
-  numberOfLines: 6
+  numberOfLines: 6,
 })`
   font-size: 16px;
   color: #999;

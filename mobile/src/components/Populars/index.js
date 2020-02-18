@@ -11,7 +11,7 @@ import {
   Label,
   Item,
   Title,
-  Description
+  Description,
 } from './styles';
 
 export default function Populars() {
@@ -24,19 +24,22 @@ export default function Populars() {
 
         <Item>
           <Title>Artigos para Pets</Title>
-          <Description>Rações, petiscos e brinquedos em boas condições</Description>
+          <Description>
+            Rações, petiscos e brinquedos em boas condições
+          </Description>
         </Item>
       </Content>
 
       <Content>
-
         <Thumbnail source={alimentos}>
           <Label>Alimentos</Label>
         </Thumbnail>
 
         <Item>
           <Title>Alimentos</Title>
-          <Description>Alimentos não perecíveis com validade em até 3 meses</Description>
+          <Description>
+            Alimentos não perecíveis com validade em até 3 meses
+          </Description>
         </Item>
       </Content>
 

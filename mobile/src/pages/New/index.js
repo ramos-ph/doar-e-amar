@@ -2,7 +2,15 @@ import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ImagePicker from 'react-native-image-picker';
 
-import {Container, PictureContainer, Picture, Label, Input, Button, ButtonText} from './styles';
+import {
+  Container,
+  PictureContainer,
+  Picture,
+  Label,
+  Input,
+  Button,
+  ButtonText,
+} from './styles';
 
 import api from '../../services/api';
 import hardwareBackPress from '../../utils/hardwareBackPress';
@@ -28,30 +36,27 @@ function New({navigation}) {
       },
     };
 
-    ImagePicker.showImagePicker(options, (response) => {
-        const source = {
-          uri: response.uri,
-          type: response.type,
-          name: response.fileName
-        };
+    ImagePicker.showImagePicker(options, response => {
+      const source = {
+        uri: response.uri,
+        type: response.type,
+        name: response.fileName,
+      };
 
-        setPicture(source);
-      }
-    )
+      setPicture(source);
+    });
   }
 
-  async function handleSubmit() {
-    
-  }
+  async function handleSubmit() {}
 
   return (
     <Container behavior="padding" enabled>
       <PictureContainer onPress={handleImagePick}>
-      {!picture.uri ? (
-        <Icon name="photo-camera" size={42} color="#999" />
+        {!picture.uri ? (
+          <Icon name="photo-camera" size={42} color="#999" />
         ) : (
-        <Picture source={{uri: picture.uri}} />
-      )}
+          <Picture source={{uri: picture.uri}} />
+        )}
       </PictureContainer>
 
       <Label>Título *</Label>

@@ -6,16 +6,14 @@ import SignupScreen from '../pages/Signup';
 import FirstAccessScreen from '../pages/FirstAccess';
 
 const options = {
-  initialRouteName: 'Start'
-}
+  initialRouteName: 'Start',
+};
 
-const AuthNavigator = createSwitchNavigator(
-  {
-    Start: StartScreen,
-    Login: LoginScreen,
-    Signup: SignupScreen,
-    FirstAccess: FirstAccessScreen,
-  }
-)
+const AuthNavigator = createSwitchNavigator({
+  Start: StartScreen,
+  Login: LoginScreen,
+  Signup: SignupScreen,
+  FirstAccess: FirstAccessScreen,
+});
 
 export default createAppContainer(AuthNavigator, options);

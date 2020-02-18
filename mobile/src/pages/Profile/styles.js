@@ -12,7 +12,7 @@ export const Header = styled.View`
   align-self: stretch;
 
   height: 33%;
-  
+
   padding: 15px 25px;
 
   background: #fff;
@@ -40,7 +40,7 @@ export const Content = styled.View`
   flex: 1;
   align-items: flex-start;
   justify-content: flex-start;
-  
+
   width: 100%;
 
   background: #fff;
@@ -49,7 +49,7 @@ export const Content = styled.View`
 export const Image = styled.Image`
   flex: 0.67;
   width: 100%;
-  
+
   resize-mode: contain;
 `;
 

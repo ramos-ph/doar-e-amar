@@ -8,7 +8,7 @@ export const Container = styled.View`
 `;
 
 export const Content = styled.ScrollView.attrs({
-  showsVerticalScrollIndicator: false
+  showsVerticalScrollIndicator: false,
 })`
   padding: 10px;
 `;
@@ -31,7 +31,7 @@ export const ItemContent = styled.View`
 `;
 
 export const Thumbnail = styled.ImageBackground.attrs({
-  imageStyle: { borderRadius: 5 }
+  imageStyle: {borderRadius: 5},
 })`
   height: 86px;
   width: 86px;
@@ -48,7 +48,7 @@ export const Title = styled.Text`
 `;
 
 export const Description = styled.Text.attrs({
-  numberOfLines: 2
+  numberOfLines: 2,
 })`
   font-size: 16px;
   color: #999;
@@ -56,7 +56,7 @@ export const Description = styled.Text.attrs({
 
 export const ExpiresIn = styled.Text`
   font-size: 16px;
-  color: #FFF;
+  color: #fff;
   font-weight: bold;
 `;
 
@@ -64,6 +64,7 @@ export const Status = styled.View`
   height: 35px;
   align-items: center;
   justify-content: space-between;
+  background: #feca09;
   flex-direction: row;
   padding: 0 15px;
   border-bottom-left-radius: 10px;
@@ -72,7 +73,7 @@ export const Status = styled.View`
 
 export const StatusText = styled.Text`
   font-size: 16px;
-  color: #FFF;
+  color: #fff;
   font-weight: bold;
 `;
 

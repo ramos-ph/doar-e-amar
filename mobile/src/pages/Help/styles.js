@@ -51,7 +51,7 @@ export const AboutText = styled.Text`
 
 export const Contributors = styled.ScrollView.attrs({
   vertical: true,
-  showsVerticalScrollIndicator: false
+  showsVerticalScrollIndicator: false,
 })`
   align-self: center;
   margin: 20px 0;

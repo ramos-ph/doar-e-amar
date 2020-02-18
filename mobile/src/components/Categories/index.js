@@ -11,7 +11,7 @@ import {Container, Wrapper, Thumbnail, Label} from './styles';
 
 function Categories({navigation}) {
   function handlePress(category) {
-    navigation.navigate('New', { category });
+    navigation.navigate('New', {category});
   }
 
   return (

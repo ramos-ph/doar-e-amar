@@ -16,7 +16,7 @@ export const SelectedAvatar = styled.Image`
   width: 150px;
 
   margin-bottom: 50px;
-  
+
   border-radius: 75px;
 `;
 
@@ -52,7 +52,6 @@ export const Input = styled.TextInput`
 
   height: 52px;
 
-
   margin-bottom: 30px;
   padding: 0 25px;
 
@@ -69,9 +68,9 @@ export const Button = styled.TouchableOpacity`
 
   height: 52px;
 
-  background: #FFF;
+  background: #fff;
 
-  border: 1px solid #DB003F;
+  border: 1px solid #db003f;
   border-radius: 26px;
 `;
 
@@ -79,6 +78,6 @@ export const ButtonText = styled.Text`
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
-  
-  color: #DB003F;
+
+  color: #db003f;
 `;

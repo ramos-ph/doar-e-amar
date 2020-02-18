@@ -26,7 +26,7 @@ export const PictureContainer = styled.TouchableOpacity`
 export const Picture = styled.Image`
   height: 150px;
   width: 150px;
-  
+
   border-radius: 75px;
 `;
 
@@ -50,7 +50,7 @@ export const Input = styled.TextInput`
   margin-bottom: 15px;
   padding: 0 25px;
 
-  border: 1px solid #DDD;
+  border: 1px solid #ddd;
   border-radius: 26px;
 `;
 
@@ -65,14 +65,14 @@ export const Button = styled.TouchableOpacity`
 
   height: 52px;
 
-  background: #FFF;
+  background: #fff;
 
-  border: 1px solid #DB003F;
+  border: 1px solid #db003f;
   border-radius: 26px;
 `;
 
 export const ButtonText = styled.Text`
-  color: #DB003F;
+  color: #db003f;
 
   font-size: 16px;
   font-weight: bold;

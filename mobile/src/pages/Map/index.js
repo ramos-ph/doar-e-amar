@@ -21,7 +21,7 @@ function Map({navigation}) {
           latitude: -23.5442412,
           longitude: -46.921837,
           latitudeDelta: 0.01,
-          longitudeDelta: 0.01
+          longitudeDelta: 0.01,
         }}
         style={{flex: 1}}
       />

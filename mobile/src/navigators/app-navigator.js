@@ -1,6 +1,6 @@
 import React from 'react';
-import { View } from 'react-native';
-import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
+import {View} from 'react-native';
+import {createDrawerNavigator, DrawerItems} from 'react-navigation-drawer';
 
 import DashboardScreen from '../pages/Dashboard';
 import DonateScreen from '../pages/Donate';
@@ -64,7 +64,7 @@ const AppNavigator = createDrawerNavigator(
     initialRouteName: 'Dashboard',
 
     contentComponent: props => (
-      <View style={{ flex: 1, justifyContent: 'space-between' }}>
+      <View style={{flex: 1, justifyContent: 'space-between'}}>
         <DrawerItems {...props} />
         <DrawerFooter />
       </View>

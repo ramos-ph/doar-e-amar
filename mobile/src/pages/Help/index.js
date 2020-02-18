@@ -18,7 +18,7 @@ import {
   Contributors,
   Contributor,
   Avatar,
-  Name
+  Name,
 } from './styles';
 
 export default function Help() {
@@ -48,7 +48,9 @@ export default function Help() {
         </Item>
 
         <About>
-          <AboutText>TCC do curso técnico DS noturno da ETEC de Barueri</AboutText>
+          <AboutText>
+            TCC do curso técnico DS noturno da ETEC de Barueri
+          </AboutText>
           <AboutText>Elaborado por:</AboutText>
 
           <Contributors>

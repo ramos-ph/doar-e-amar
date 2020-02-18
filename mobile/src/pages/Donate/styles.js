@@ -3,13 +3,13 @@ import styled from 'styled-components/native';
 export const Container = styled.KeyboardAvoidingView`
   flex: 1;
   padding: 15px;
-  background: #FFF;
+  background: #fff;
 `;
 
 export const Search = styled.TextInput`
   align-self: stretch;
   height: 40px;
-  background: #DDD;
+  background: #ddd;
   color: #222;
   border-radius: 4px;
   padding: 0 15px;

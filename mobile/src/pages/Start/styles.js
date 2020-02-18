@@ -5,7 +5,7 @@ export const Container = styled.ImageBackground`
   align-items: center;
   justify-content: space-between;
   padding: 4% 20px;
-  background: #FFF;
+  background: #fff;
 `;
 
 export const Wrapper = styled.View`
@@ -35,7 +35,7 @@ export const SignIn = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  background:  #fff;
+  background: #fff;
   margin-bottom: 15px;
 `;
 
@@ -48,7 +48,7 @@ export const SignInText = styled.Text`
 
 export const SignUp = styled.TouchableOpacity`
   height: 55px;
-  align-self: stretch;  
+  align-self: stretch;
   align-items: center;
   justify-content: center;
   border-radius: 5px;

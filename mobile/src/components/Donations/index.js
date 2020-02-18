@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import api from '../../services/api';
@@ -15,7 +15,7 @@ import {
   ExpiresIn,
   Status,
   StatusText,
-  Empty
+  Empty,
 } from './styles';
 
 export default function DonationList() {
@@ -27,18 +27,18 @@ export default function DonationList() {
       const token = await AsyncStorage.getItem('token');
 
       const response = await api.get(`/donations?page=${page}`, {
-        headers: { authorization: `Bearer ${token}` }
+        headers: {authorization: `Bearer ${token}`},
       });
 
       setDonations(response.data.docs);
     }
 
     loadDonations();
-  }, []);
+  }, [page]);
 
   return (
     <Container>
-      {donations.length !== 0 ?
+      {donations.length !== 0 ? (
         donations.reverse().map(donation => (
           <Content>
             <Item key={donation._id}>
@@ -51,18 +51,18 @@ export default function DonationList() {
                 </Info>
 
                 <Title>Code</Title>
-
               </ItemContent>
 
-              <Status style={{ backgroundColor: '#feca57' }}>
+              <Status>
                 <StatusText>{donation.titulo}</StatusText>
                 <ExpiresIn>Expira em: {donation.descricao}</ExpiresIn>
               </Status>
             </Item>
           </Content>
-        )) : (
-          <Empty>Você ainda não tem nenhuma doação :(</Empty>
-        )}
+        ))
+      ) : (
+        <Empty>Você ainda não tem nenhuma doação :(</Empty>
+      )}
     </Container>
   );
 }

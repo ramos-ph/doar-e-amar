@@ -11,7 +11,7 @@ import {
   Image,
   Footer,
   Title,
-  Description
+  Description,
 } from './styles';
 
 import vestimentas from '../../assets/background-vestimentas.jpg';
@@ -45,7 +45,7 @@ export default function Profile() {
 
       <Content>
         <Label>Última doação:</Label>
-        <Image source={vestimentas}/>
+        <Image source={vestimentas} />
 
         <Footer>
           <Title>Caixa de camisetas</Title>

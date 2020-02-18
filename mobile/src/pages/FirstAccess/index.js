@@ -3,7 +3,16 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import ImagePicker from 'react-native-image-picker';
 import AsyncStorage from '@react-native-community/async-storage';
 
-import {Container, AvatarButton, SelectedAvatar, Avatar, Label, Input, Button, ButtonText} from './styles';
+import {
+  Container,
+  AvatarButton,
+  SelectedAvatar,
+  Avatar,
+  Label,
+  Input,
+  Button,
+  ButtonText,
+} from './styles';
 
 import api from '../../services/api';
 
@@ -26,16 +35,15 @@ function FirstAccess({navigation}) {
       },
     };
 
-    ImagePicker.showImagePicker(options, (response) => {
-        const source = {
-          uri: response.uri,
-          type: response.type,
-          name: response.fileName
-        };
+    ImagePicker.showImagePicker(options, response => {
+      const source = {
+        uri: response.uri,
+        type: response.type,
+        name: response.fileName,
+      };
 
-        setAvatar(source);
-      }
-    )
+      setAvatar(source);
+    });
   }
 
   async function handleSubmit() {
@@ -49,15 +57,15 @@ function FirstAccess({navigation}) {
       const response = await api.put('/first-access', data, {
         headers: {
           authorization: `Bearer ${token}`,
-        }
+        },
       });
 
       await AsyncStorage.setItem('user', JSON.stringify(response.data));
 
       return navigation.navigate('Dashboard');
-    } catch(err) {
-      console.log(err)
-      console.log(err.response)
+    } catch (err) {
+      console.log(err);
+      console.log(err.response);
     }
   }
 
@@ -69,7 +77,7 @@ function FirstAccess({navigation}) {
         </Avatar>
       ) : (
         <AvatarButton onPress={handleImagePick}>
-          <SelectedAvatar source={{ uri: avatar.uri }}/>
+          <SelectedAvatar source={{uri: avatar.uri}} />
         </AvatarButton>
       )}
 
