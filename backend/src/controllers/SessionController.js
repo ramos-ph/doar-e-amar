@@ -13,15 +13,11 @@ function generateToken (params = {}) {
 module.exports = {
   async show (req, res) {
     try {
-      const { email, senha } = req.validated
+      const { email, senha } = req.body
 
       const user = await User.findOne({ email }).select('+senha')
 
-      if (!user) {
-        return res.status(400).json({ message: 'Usuário não existe' })
-      }
-
-      if (!(await bcrypt.compare(senha, user.senha))) {
+      if (!user || !(await bcrypt.compare(senha, user.senha))) {
         return res.status(400).json({ message: 'Usuário ou senha inválidos' })
       }
 
