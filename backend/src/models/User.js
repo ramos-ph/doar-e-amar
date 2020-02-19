@@ -3,7 +3,6 @@ const mongoosePaginate = require('mongoose-paginate-v2')
 const bcrypt = require('bcryptjs')
 
 const { validateEmail, validateCpf, validateCnpj } = require('./validators/strings')
-const { validateCommonUser, validateOrganization } = require('./validators/users')
 const { allowedTypes } = require('./utils/allowedEnums')
 
 require('dotenv').config({
@@ -45,8 +44,8 @@ const UserSchema = new Schema(
     cpf: {
       type: String,
       required: [
-        function (tipo) {
-          return validateCommonUser(tipo)
+        function () {
+
         },
         'O campo CPF é obrigatório'
       ],
@@ -61,8 +60,8 @@ const UserSchema = new Schema(
     cnpj: {
       type: String,
       required: [
-        function (tipo) {
-          return validateOrganization(tipo)
+        function () {
+          return this.tipo === 'Pessoa jurídica'
         },
         'O campo CNPJ é obrigatório'
       ],
