@@ -45,7 +45,7 @@ const UserSchema = new Schema(
       type: String,
       required: [
         function () {
-
+          return this.tipo === 'Pessoa física'
         },
         'O campo CPF é obrigatório'
       ],
