@@ -8,11 +8,13 @@ import Menu from '../../components/Menu';
 
 import {
   Container,
-  Content,
+	Content,
+	News,
+	Article,
   Title,
-  Description,
-  Button,
-  ButtonText,
+	Info,
+	Author,
+	Category,
 } from './styles';
 
 export default function Dashboard() {
@@ -65,18 +67,35 @@ export default function Dashboard() {
             ],
           }}>
           <Icon name="keyboard-arrow-up" size={28} color="#999" />
-          <Title>O que doar?</Title>
-          <Description>
-            {'\t\t'}Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Earum quibusdam iste ratione temporibus enim harum asperiores
-            dignissimos rem tenetur laborum. Quos ratione, itaque distinctio
-            maxime et molestias quibusdam nesciunt expedita?
-          </Description>
 
-          <Button>
-            <ButtonText>SAIBA MAIS</ButtonText>
-            <Icon name="keyboard-arrow-right" size={16} color="#00ed68" />
-          </Button>
+					<News>
+						<Article>
+							<Title>Doação de artigos para pets é a categoria mais popular</Title>
+
+							<Info>
+								<Author>D&A em 29/02/2020</Author>
+								<Category>PETS</Category>
+							</Info>
+						</Article>
+
+						<Article>
+							<Title>Amável contribuição das Lojas Duzentos</Title>
+
+							<Info>
+								<Author>D&A em 20/02/2020</Author>
+								<Category>MÓVEIS</Category>
+							</Info>
+						</Article>
+
+						<Article>
+							<Title>Dinheiro doado já arreacada mais de R$8000</Title>
+
+							<Info>
+								<Author>D&A em 18/02/2020</Author>
+								<Category>DINHEIRO</Category>
+							</Info>
+						</Article>
+					</News>
         </Content>
       </PanGestureHandler>
     </Container>

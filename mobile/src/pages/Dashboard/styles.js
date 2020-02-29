@@ -22,32 +22,38 @@ export const Content = styled(Animated.View)`
   justify-content: flex-start;
 `;
 
+export const News = styled.View``;
+
+export const Article = styled.TouchableOpacity`
+	height: 120px;
+	justify-content: space-between;
+	padding: 15px 10px;
+	border-bottom-width: 1px;
+	border-bottom-color: #ddd;
+`;
+
 export const Title = styled.Text`
-  font-size: 22px;
+  font-size: 16px;
   color: #333;
   font-weight: bold;
-  margin: 10px 20px;
   align-self: stretch;
 `;
 
-export const Description = styled.Text.attrs({
-  numberOfLines: 6,
-})`
-  font-size: 16px;
-  color: #999;
-  line-height: 20px;
+export const Info = styled.View`
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 10px;
 `;
 
-export const Button = styled.TouchableOpacity`
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-end;
-  align-self: stretch;
-  margin-top: 30px;
+export const Author = styled.Text`
+	font-size: 12px;
+	color: #333;
 `;
 
-export const ButtonText = styled.Text`
-  color: #00ed68;
-  font-size: 16px;
-  text-align: right;
+export const Category = styled.Text`
+	font-size: 12px;
+	color: #666;
+	text-transform: uppercase;
+	border-bottom-width: 1px;
+	border-bottom-color: #666;
 `;
