@@ -1,4 +1,4 @@
-header .navbar {
+#header-home .navbar {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,72 +11,54 @@ header .navbar {
 	z-index: 99;
 }
 
-header .navbar img {
-  margin: auto 0 auto 0;
-  height: 64px;
-  width: 102px;
+#header-home .navbar img {
+  height: 55px;
+  width: auto;
 }
 
-header .navbar nav {
+#header-home .navbar nav {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: auto 0 auto 0;
-  width: 50vw;
+  width: 500px;
 }
 
-header .navbar nav a {
+#header-home .navbar nav a {
   color: #333;
   text-decoration: none;
   text-align: center;
   padding: 5px 10px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
-  transition: all 0.2s;
-  border-bottom: 2px solid #0000;
 }
 
-header .navbar a:hover {
-  color: #ff5e94 !important;
-  border-bottom: 2px solid #ff5e94;
+#header-home .navbar a:hover {
+  color: #23a8f5;
 }
 
-header .navbar .header-btn {
-  padding: 12px 18px;
-  border: 1px solid #ff5e94;
-  border-radius: 5px;
-  color: #ff5e94;
-  font-size: 14px;
-  transition: all 0.2s;
-  cursor: pointer;
-  background: none;
-  position: relative;
-  margin-right: 5px;
-}
-
-header .navbar .header-btn::after {
-  content: '';
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
+#header-home .navbar .header-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: #ff5e94;
-  transition: transform 0.5s;
-  transform: scaleY(0);
-  transform-origin: 0 0;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  max-width: 110px;
+  padding: 12px 10px;
+	background: #bb43a1;
+	border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-header .navbar .header-btn:hover {
-  color: #fff !important;
+.navbar .header-btn img {
+	height: 20px !important;
+	width: 20px;
+	filter: invert(1);
 }
 
-header .navbar .header-btn:hover::after {
-  transform: scaleY(1);
+#header-home .navbar .header-btn:hover {
+  background: #cf50b4;
 }
