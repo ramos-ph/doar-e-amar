@@ -1,9 +1,17 @@
+#header-home * {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
 #header-home .navbar {
   display: flex;
   flex-direction: row;
   align-items: center;
-	justify-content: space-between;
-  padding: 0.7em 2em;
+  justify-content: space-between;
+  padding: 0 6vw;
+  height: 75px;
   width: 100%;
   color: #333;
   box-shadow: 0 0 10px 0 #333;
@@ -29,9 +37,6 @@
   text-decoration: none;
   text-align: center;
   padding: 5px 10px;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 500;
 }
 
 #header-home .navbar a:hover {
@@ -44,13 +49,11 @@
   justify-content: space-between;
   width: 100%;
   max-width: 110px;
-  padding: 12px 10px;
+  padding: 10px;
 	background: #ca3eca;
 	border: none;
   border-radius: 4px;
   color: #fff;
-  font-size: 14px;
-  cursor: pointer;
 }
 
 .navbar .header-btn img {

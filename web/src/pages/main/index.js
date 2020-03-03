@@ -16,13 +16,15 @@ export default function Main () {
   return (
     <>
       <section id="painel">
-        <h1>Doar e Amar</h1>
+        <div className="container">
+          <h1>Doar e Amar</h1>
 
-        <p>Plataforma de doações fácil e confiável</p>
+          <p>Plataforma de doações fácil e confiável</p>
 
-        <div className="buttons">
-          <button>Participar</button>
-          <button>Saiba mais</button>
+          <div className="buttons">
+            <button>Participar</button>
+            <button>Saiba mais</button>
+          </div>
         </div>
       </section>
 
