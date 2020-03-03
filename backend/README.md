@@ -8,7 +8,6 @@ Este projeto é o trabalho de conclusão de curso realizado pelos alunos do curs
 Veja [INSTALLING.md](INSTALLING.md) para detalhes.
 
 ## Feito com
-
 * [Node.js](https://nodejs.org/) - Interpretador de JavaScript no lado do servidor
 * [Express](https://expressjs.com/pt-br/) - Framework para aplicativo da web do Node.js
 * [MongoDB](https://nodejs.org/) - Base de dados para aplicações modernas
