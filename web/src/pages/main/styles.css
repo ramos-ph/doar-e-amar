@@ -197,51 +197,21 @@ section#doar .container a {
 
 section#doar .container button {
   display: flex;
-  background: none;
-  border: 2px solid #ff9ebf;
-  border-radius: 5px;
-  align-items: center;
-  justify-content: space-between;
   flex-direction: row;
-  color: #ff9ebf;
-  padding: 5px 25px;
+  background: #fd6f9e;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  padding: 15px 25px;
   font-size: 16px;
   text-transform: uppercase;
   margin-top: 4em;
   letter-spacing: 1px;
   cursor: pointer;
-  position: relative;
-  z-index: 0;
-}
-
-section#doar .container button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: #ff9ebf;
-  transition: transform 0.5s;
-  transform: scaleY(0);
-  transform-origin: 0 0;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-  z-index: -1;
-}
-
-section#doar .container button img {
-  margin-left: 1em;
-  transform: rotate(270deg);
-  height: 28px;
-  width: 28px;
 }
 
 section#doar .container button:hover {
-  color: #fff;
-}
-
-section#doar .container button:hover::before {
-  transform: scaleY(1);
+  background: #ff9ebf;
 }
 
 section#doar .container button:hover img {
