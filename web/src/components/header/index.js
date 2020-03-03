@@ -2,7 +2,7 @@ import React from 'react'
 
 import './styles.css'
 
-import logo from '../../assets/img/doar-e-amar.png'
+import logo from '../../assets/img/icons/logo.png'
 import next from '../../assets/img/icons/next.svg'
 
 export default function Header () {
