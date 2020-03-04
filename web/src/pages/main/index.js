@@ -19,7 +19,7 @@ export default function Main () {
       <Header />
 
       <section id="painel">
-        <div className="wrapper">
+        <div className="wrapper m-wrap">
           <div className="floating-content">
             <h2>
               <strong>A maior plataforma</strong>

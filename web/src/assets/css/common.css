@@ -1,0 +1,16 @@
+/* Container size */
+.s-wrap {
+  height: 262px;
+}
+
+.m-wrap {
+  height: 524px;
+}
+
+.x-wrap {
+  height: 1048px;
+}
+
+.xl-wrap {
+  height: 2096px;
+}

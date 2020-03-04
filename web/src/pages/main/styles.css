@@ -1,6 +1,5 @@
 section#painel .wrapper {
   align-items: flex-end;
-  height: 524px;
 	background: url('../../assets/img/backgrounds/bg-dashboard.jpg') no-repeat;
 	background-size: cover;
   background-position: 50% 50%;
