@@ -2,6 +2,7 @@ import React from 'react'
 import './styles.css'
 
 import Header from '../../components/header'
+import Footer from '../../components/footer'
 
 import strawberry from '../../assets/img/strawberry-4-128.png'
 import commode from '../../assets/img/commode-128.png'
@@ -112,6 +113,8 @@ export default function Main () {
           </div>
         </div>
       </section>
+
+      <Footer />
     </>
   )
 }
