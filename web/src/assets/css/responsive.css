@@ -1,1 +1,17 @@
-/* TODO */
+@media screen and (max-width: 486px) {
+  #header-home .navbar nav {
+    display: none;
+  }
+
+  .floating-content {
+    margin-left: 132px;
+  }
+
+  .floating-content h2 {
+    font-size: 27px;
+  }
+
+  .floating-content .buttons {
+    width: 80%;
+  }
+}
