@@ -1,6 +1,7 @@
 import React from 'react'
-
 import './styles.css'
+
+import Header from '../../components/header'
 
 import strawberry from '../../assets/img/strawberry-4-128.png'
 import commode from '../../assets/img/commode-128.png'
@@ -15,21 +16,28 @@ import room from '../../assets/img/icons/baseline_room_white_48dp.png'
 export default function Main () {
   return (
     <>
+      <Header />
+
       <section id="painel">
-        <div className="container">
-          <h1>Doar e Amar</h1>
+        <div className="wrapper">
+          <div className="floating-content">
+            <h2>
+              <strong>A maior plataforma</strong>
+              de doações do Brasil.
+            </h2>
 
-          <p>Plataforma de doações fácil e confiável</p>
+            <p>Aproximando doador e recebedor com segurança e facilidade</p>
 
-          <div className="buttons">
-            <button>Participar</button>
-            <button>Saiba mais</button>
+            <div className="buttons">
+              <a href="#go" className="bg-link">Participe</a>
+              <a href="#go" className="cm-link">Saiba mais</a>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="doar">
-        <div className="container">
+        <div className="wrapper">
           <h1>Faça sua doação!</h1>
           <h2>Há maior felicidade em dar do que em receber</h2>
           <h4>Atos 20:35</h4>
@@ -66,7 +74,7 @@ export default function Main () {
       </section>
 
       <section id="fale-conosco">
-        <div className="container">
+        <div className="wrapper">
           <p className="header-legend">Vamos conversar?</p>
           <h1 className="header-text">Fale Conosco</h1>
 

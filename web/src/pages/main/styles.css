@@ -1,59 +1,89 @@
-section#painel .container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-
-	height: 80vh;
+section#painel .wrapper {
+  align-items: flex-end;
+  height: 524px;
 	background: url('../../assets/img/backgrounds/bg-dashboard.jpg') no-repeat;
 	background-size: cover;
   background-position: 50% 50%;
 }
 
-section#painel h1 {
+.floating-content {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: space-between;
+  height: 45%;
+  max-width: 495px;
+  margin-left: 455px;
+}
+
+.floating-content * {
+  font-family: 'Roboto Slab';
+}
+
+.floating-content h2 {
+  font-size: 38px;
+  font-weight: 600;
+}
+
+.floating-content h2 strong {
+  color: #00d114;
+  display: block;
+}
+
+.floating-content p {
+  color: #666;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.floating-content .buttons {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.floating-content .buttons * {
+  text-decoration: none;
+  font-style: 14px;
+}
+
+.floating-content .buttons .bg-link {
   color: #fff;
-  font-size: 78px;
-	text-align: center;
-	font-weight: bolder;
-	letter-spacing: -2px;
+  background: #008be7;
+  padding: 8px 25px;
+  border-radius: 2px;
+  position: relative;
+  transition: background 0.2s;
 }
 
-section#painel p {
-	color: #fff;
-	font-size: 42px;
-	letter-spacing: 1px;
+.floating-content .buttons .bg-link:hover {
+  background: #26a8ff;
 }
 
-section#painel .buttons {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 50px;
-	width: 450px;
-	margin-top: 15px;
+.floating-content .buttons .cm-link {
+  color: #000;
+  position: relative;
 }
 
-section#painel .buttons button {
-	height: 50px;
-
-	color: #fff;
-	font-size: 14px;
-	font-weight: bold;
-	text-transform: uppercase;
-
-	background: #db2361;
-
-	border: none;
-	border-radius: 25px;
-
-	cursor: pointer;
-	transition: background 0.2s;
+.floating-content .buttons .cm-link::before {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -8px;
+  height: 2px;
+  width: 80%;
+  background: #000;
+  transition: bottom 0.2s;
 }
 
-section#painel .buttons button:hover {
-	background: #f54982;
+.floating-content .buttons .cm-link:hover::before {
+  bottom: -5px;
 }
 
-section#doar{
+/*  */
+section#doar {
   background: #fff;
 }
 
@@ -79,7 +109,7 @@ section#doar h4 {
   color: #999;
 }
 
-section#doar .container {
+section#doar .wrapper {
   justify-content: space-between;
   padding: 5em 0;
 }
@@ -191,11 +221,11 @@ section#doar ul li strong {
   text-transform: uppercase;
 }
 
-section#doar .container a {
+section#doar .wrapper a {
   text-decoration: none;
 }
 
-section#doar .container button {
+section#doar .wrapper button {
   display: flex;
   flex-direction: row;
   background: #fd6f9e;
@@ -210,11 +240,11 @@ section#doar .container button {
   cursor: pointer;
 }
 
-section#doar .container button:hover {
+section#doar .wrapper button:hover {
   background: #ff9ebf;
 }
 
-section#doar .container button:hover img {
+section#doar .wrapper button:hover img {
   filter: brightness(0) invert(1);
 }
 
