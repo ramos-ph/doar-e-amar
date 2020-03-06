@@ -1,0 +1,21 @@
+.not-found-content h1 {
+  font-size: 64px;
+}
+
+.not-found-content h3 {
+  font-size: 42px;
+  margin-bottom: 75px;
+}
+
+.not-found-content a {
+  font-size: 24px;
+  color: #fff;
+  background: #895cdd;
+  border-radius: 4px;
+  padding: 20px 50px;
+  text-decoration: none;
+}
+
+.not-found-content a:hover {
+  background: #9c75e4;
+}
