@@ -13,6 +13,7 @@ export default function Login () {
           <label htmlFor="email">
             <strong>SEU E-MAIL *</strong>
             <input
+              className="input-outline"
               type="email"
               placeholder="Seu e-mail"
             />
@@ -21,6 +22,7 @@ export default function Login () {
           <label htmlFor="senha">
             <strong>SUA SENHA *</strong>
             <input
+              className="input-outline"
               type="password"
               placeholder="Sua senha"
             />

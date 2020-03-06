@@ -10,7 +10,7 @@ section#painel .wrapper {
   flex-direction: column;
   align-self: center;
   justify-content: space-between;
-  height: 40%;
+  height: 30%;
   max-width: 495px;
   margin-left: 455px;
 }
@@ -25,7 +25,7 @@ section#painel .wrapper {
 }
 
 .floating-content h2 strong {
-  color: #00d114;
+  color: var(--color-secondary-grn);
   display: block;
 }
 
@@ -40,6 +40,7 @@ section#painel .wrapper {
   width: 50%;
   align-items: center;
   justify-content: space-between;
+  margin-top: 15px;
 }
 
 .floating-content .buttons * {
@@ -57,7 +58,7 @@ section#painel .wrapper {
 }
 
 .floating-content .buttons .bg-link:hover {
-  background: #26a8ff;
+  background: var(--color-primary-blue);
 }
 
 .floating-content .buttons .cm-link {

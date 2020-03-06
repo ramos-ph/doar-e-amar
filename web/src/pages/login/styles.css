@@ -53,36 +53,18 @@
 
 .login-content form input,
 .login-content form button {
-  height: 32px;
   width: 100%;
   border-radius: 4px;
 }
 
-.login-content form input {
-  color: #333;
-  padding: 0 15px;
-  border: 1px solid #bbb;
-  font-weight: bold;
-  transition: box-shadow 0.15s, border 0.15s;
-}
-
-.login-content form input::placeholder {
-  color: #999;
-  font-weight: normal;
-}
-
-.login-content form input:focus {
-  box-shadow: 0 0 0 2px #51bfff5b;
-  border-color: #51bfff;
-}
-
 .login-content form button {
+  height: 32px;
   margin-top: 16px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-light);
   cursor: pointer;
-  border-color: #249c38;
-  background: linear-gradient(180deg, #11cf31, #249c38);
-  color: #fff;
+  border-color: var(--color-tertiary-blu-grn);
+  background: linear-gradient(180deg, var(--color-secondary-grn), var(--color-tertiary-blu-grn));
+  color: var(--color-white);
   font-weight: 400;
 }
 
@@ -101,5 +83,5 @@
 }
 
 .login-options a:hover {
-  color: #23a8f5;
+  color: var(--color-primary-blu);
 }
