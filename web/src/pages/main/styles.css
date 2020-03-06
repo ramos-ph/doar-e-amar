@@ -58,7 +58,7 @@ section#painel .wrapper {
 }
 
 .floating-content .buttons .bg-link:hover {
-  background: var(--color-primary-blue);
+  background: #26a8ff;
 }
 
 .floating-content .buttons .cm-link {
