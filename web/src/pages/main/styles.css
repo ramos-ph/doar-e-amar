@@ -1,5 +1,5 @@
 section#painel .wrapper {
-  align-items: flex-end;
+  align-items: center;
 	background: url('../../assets/img/backgrounds/bg-dashboard.jpg') no-repeat;
 	background-size: cover;
   background-position: 50% 50%;
@@ -79,6 +79,31 @@ section#painel .wrapper {
 
 .floating-content .buttons .cm-link:hover::before {
   bottom: -5px;
+}
+
+.partners {
+  margin-top: 45px;
+  max-height: 230px;
+  max-width: 485px;
+}
+
+.partners h2 {
+  font-family: 'Roboto Slab';
+  text-align: center;
+}
+
+.partners .partner-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  list-style: none;
+  margin-top: 16px;
+}
+
+.partners .partner-list .partner img {
+  height: 82px;
+  width: 82px;
+  filter: grayscale(1);
 }
 
 /*  */

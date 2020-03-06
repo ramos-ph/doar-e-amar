@@ -4,6 +4,11 @@ import './styles.css'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 
+import aacd from '../../assets/img/ongs/aacd.png'
+import sosMataAtlantica from '../../assets/img/ongs/sos-mata-atlantica.png'
+import vivaRio from '../../assets/img/ongs/viva_rio.png'
+import wwf from '../../assets/img/ongs/wwf.png'
+
 import strawberry from '../../assets/img/strawberry-4-128.png'
 import commode from '../../assets/img/commode-128.png'
 import money from '../../assets/img/money-128.png'
@@ -20,7 +25,7 @@ export default function Main () {
       <Header />
 
       <section id="painel">
-        <div className="wrapper m-wrap">
+        <div className="wrapper ms-wrap">
           <div className="floating-content">
             <h2>
               <strong>A maior plataforma</strong>
@@ -33,6 +38,25 @@ export default function Main () {
               <a href="#go" className="bg-link">Participe</a>
               <a href="#go" className="cm-link">Saiba mais</a>
             </div>
+          </div>
+
+          <div className="partners">
+            <h2>Utilizado por</h2>
+
+            <ul className="partner-list">
+              <li className="partner">
+                <img src={aacd} alt=""/>
+              </li>
+              <li className="partner">
+                <img src={sosMataAtlantica} alt=""/>
+              </li>
+              <li className="partner">
+                <img src={vivaRio} alt=""/>
+              </li>
+              <li className="partner">
+                <img src={wwf} alt=""/>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
