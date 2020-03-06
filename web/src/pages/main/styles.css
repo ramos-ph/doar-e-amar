@@ -10,7 +10,7 @@ section#painel .wrapper {
   flex-direction: column;
   align-self: center;
   justify-content: space-between;
-  height: 45%;
+  height: 40%;
   max-width: 495px;
   margin-left: 455px;
 }
