@@ -25,7 +25,7 @@ export default function Main () {
       <Header />
 
       <section id="painel">
-        <div className="wrapper ms-wrap">
+        <div className="wrapper ms-size">
           <div className="floating-content">
             <h2>
               <strong>A maior plataforma</strong>

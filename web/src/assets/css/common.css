@@ -1,20 +1,45 @@
 /* Container size */
-.s-wrap {
+.s-size {
   height: 262px;
 }
 
-.m-wrap {
+.m-size {
   height: 524px;
 }
 
-.ms-wrap {
+.ms-size {
   height: 595px;
 }
 
-.x-wrap {
+.x-size {
   height: 1048px;
 }
 
-.xl-wrap {
+.xl-size {
   height: 2096px;
+}
+
+/* Colors */
+:root {
+  --color-dark: #333;
+  --color-darker: #1f1f1f;
+  --color-black: #000;
+  --color-light: #ddd;
+  --color-lighter: #efefef;
+  --color-white: #fff;
+
+  --color-primary-blu: #23a8f5;
+  --color-primary-ylw: #ffd000;
+  --color-primary-red: #d60f0f;
+
+  --color-secondary-grn: #00b938;
+  --color-secondary-prp: #985cdd;
+  --color-secondary-orn: #ff9000;
+
+  --color-tertiary-ylw-grn: #9dff00;
+  --color-tertiary-blu-grn: #008b6d;
+  --color-tertiary-ylw-orn: #ffa600;
+  --color-tertiary-red-orn: #ff3c00;
+  --color-tertiary-blu-prp: #582feb;
+  --color-tertiary-red-prp: #ff0055;
 }
