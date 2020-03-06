@@ -1,0 +1,12 @@
+.container {
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.container aside {
+  align-self: flex-start;
+  height: 100%;
+  max-width: 490px;
+  box-shadow: 0 0 15px 0 #ddd;
+}
