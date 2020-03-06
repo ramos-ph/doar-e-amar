@@ -45,16 +45,16 @@ export default function Main () {
 
             <ul className="partner-list">
               <li className="partner">
-                <img src={aacd} alt=""/>
+                <img src={aacd} title="AACD" alt=""/>
               </li>
               <li className="partner">
-                <img src={sosMataAtlantica} alt=""/>
+                <img src={sosMataAtlantica} title="SOS Mata Atlântica" alt=""/>
               </li>
               <li className="partner">
-                <img src={vivaRio} alt=""/>
+                <img src={vivaRio} title="Viva Rio" alt=""/>
               </li>
               <li className="partner">
-                <img src={wwf} alt=""/>
+                <img src={wwf} title="WWF Brasil" alt=""/>
               </li>
             </ul>
           </div>
