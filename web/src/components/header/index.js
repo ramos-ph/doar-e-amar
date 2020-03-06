@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './styles.css'
 
@@ -12,14 +13,14 @@ export default function Header () {
         <img src={logo} alt="Logo" title="Doar e Amar" />
 
         <nav role="navigation">
-          <a className="nav-link" href="#painel">Início</a>
-          <a className="nav-link" href="#sobre">Sobre</a>
-          <a className="nav-link" href="#parceiros">Quem somos</a>
-          <a className="nav-link" href="#painel">Blog</a>
+          <Link className="nav-link" to="/">Início</Link>
+          <Link className="nav-link" to="/">Sobre</Link>
+          <Link className="nav-link" to="/">Quem somos</Link>
+          <Link className="nav-link" to="/">Blog</Link>
 
-          <button className="header-btn">Participe
+          <Link className="header-btn" to="/signin">Participe
             <img src={next} alt=">" />
-          </button>
+          </Link>
         </nav>
       </div>
     </header>

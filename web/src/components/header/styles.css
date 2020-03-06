@@ -36,7 +36,7 @@
   width: 500px;
 }
 
-#header-home .navbar nav a {
+#header-home .navbar nav .nav-link {
   color: #333;
   text-decoration: none;
   text-align: center;
@@ -44,7 +44,7 @@
   transition: color 0.1s;
 }
 
-#header-home .navbar a:hover {
+#header-home .navbar .nav-link:hover {
   color: #23a8f5;
 }
 
@@ -59,6 +59,7 @@
 	border: none;
   border-radius: 4px;
   color: #fff;
+  text-decoration: none;
 }
 
 .navbar .header-btn img {
