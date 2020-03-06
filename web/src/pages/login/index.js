@@ -1,24 +1,39 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import './styles.css'
 
 export default function Login () {
   return (
-    <div className="container">
-      <aside>
+    <div className="login-container">
+      <div className="login-content">
         <form>
           <legend>Acesse sua conta</legend>
 
-          <label htmlFor="">
-            <input type="email"/>
+          <label htmlFor="email">
+            <strong>SEU E-MAIL *</strong>
+            <input
+              type="email"
+              placeholder="Seu e-mail"
+            />
           </label>
 
-          <label htmlFor="">
-            <input type="password"/>
+          <label htmlFor="senha">
+            <strong>SUA SENHA *</strong>
+            <input
+              type="password"
+              placeholder="Sua senha"
+            />
           </label>
 
           <button type="submit">Acessar</button>
+
+          <div className="login-options">
+            <Link to="/">Esqueceu sua senha?</Link>
+            <Link to="/">Cadastre-se</Link>
+          </div>
         </form>
-      </aside>
+      </div>
     </div>
   )
 }

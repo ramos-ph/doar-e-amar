@@ -1,12 +1,105 @@
-.container {
-  align-items: center;
-  justify-content: center;
+.login-container {
   height: 100%;
+  background: url('../../assets/img/backgrounds/bg-login.jpg') no-repeat;
+  background-size: cover;
 }
 
-.container aside {
-  align-self: flex-start;
+.login-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  max-width: 320px;
+  width: 100%;
+  padding: 0 25px;
+  background: #fff;
+  box-shadow: 0 0 15px 0 #999;
+}
+
+.login-content form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: left;
   height: 100%;
-  max-width: 490px;
-  box-shadow: 0 0 15px 0 #ddd;
+  width: 100%;
+}
+
+.login-content form legend,
+.login-content form label strong {
+  font-family: 'Roboto Slab';
+  text-align: left;
+}
+
+.login-content form legend {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.login-content form label {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.login-content form label strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  text-indent: 8px;
+  margin-bottom: 2px;
+}
+
+.login-content form input,
+.login-content form button {
+  height: 32px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.login-content form input {
+  color: #333;
+  padding: 0 15px;
+  border: 1px solid #bbb;
+  font-weight: bold;
+  transition: box-shadow 0.15s, border 0.15s;
+}
+
+.login-content form input::placeholder {
+  color: #999;
+  font-weight: normal;
+}
+
+.login-content form input:focus {
+  box-shadow: 0 0 0 2px #51bfff5b;
+  border-color: #51bfff;
+}
+
+.login-content form button {
+  margin-top: 16px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  border-color: #249c38;
+  background: linear-gradient(180deg, #11cf31, #249c38);
+  color: #fff;
+  font-weight: 400;
+}
+
+.login-options {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.login-options a {
+  font-size: 13px;
+  text-decoration: none;
+  color: #000;
+  transition: color 0.1s;
+}
+
+.login-options a:hover {
+  color: #23a8f5;
 }
