@@ -1,6 +1,8 @@
 const { Schema, model } = require('mongoose')
 const mongoosePaginate = require('mongoose-paginate-v2')
 
+const OfferAccompaniment = require('./utils/OfferAccompaniment')
+
 const OfferSchema = new Schema(
   {
     doacao: {
@@ -8,31 +10,12 @@ const OfferSchema = new Schema(
       required: true,
       ref: 'donations'
     },
-    estado: {
-      type: String,
-      enum: [
-        'Pendente',
-        'Aceito',
-        'Entregue'
-      ],
-      required: true,
-      default: 'Pendente'
-    },
-    entregueEm: {
-      type: Date,
-      required: false
-    },
-    anuncio: {
+    data_de_anuncio: {
       type: Date,
       required: true,
       default: Date.now
     },
-    recebido: Boolean,
-    recebedor: {
-      type: Schema.Types.ObjectId,
-      ref: 'users',
-      select: false
-    }
+    acompanhamento: OfferAccompaniment
   },
   {
     timestamps: true

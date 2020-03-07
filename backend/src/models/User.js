@@ -2,8 +2,8 @@ const { model, Schema } = require('mongoose')
 const mongoosePaginate = require('mongoose-paginate-v2')
 const bcrypt = require('bcryptjs')
 
-const { validateEmail, validateCpf, validateCnpj } = require('./validators/strings')
-const { allowedTypes } = require('./utils/allowedEnums')
+const { validateEmail } = require('./validators/strings')
+const UserTypes = require('./utils/UserTypes')
 
 require('dotenv').config({
   path: process.env.NODE_ENV === 'development' ? '.env.development' : '.env'
@@ -37,41 +37,9 @@ const UserSchema = new Schema(
       ],
       select: false
     },
-    avatar: {
+    foto_de_perfil: {
       type: String,
       required: false
-    },
-    cpf: {
-      type: String,
-      required: [
-        function () {
-          return this.tipo === 'Pessoa física'
-        },
-        'O campo CPF é obrigatório'
-      ],
-      validate: {
-        validator: function (cpf) {
-          return validateCpf(cpf)
-        },
-        message: 'Insira um CPF válido'
-      },
-      select: false
-    },
-    cnpj: {
-      type: String,
-      required: [
-        function () {
-          return this.tipo === 'Pessoa jurídica'
-        },
-        'O campo CNPJ é obrigatório'
-      ],
-      validate: {
-        validator: function (cnpj) {
-          return validateCnpj(cnpj)
-        },
-        message: 'Insira um CNPJ válido'
-      },
-      select: false
     },
     endereco: {
       rua: String,
@@ -84,15 +52,7 @@ const UserSchema = new Schema(
       required: false,
       select: false
     },
-    tipo: {
-      type: String,
-      enum: allowedTypes,
-      default: 'Pessoa física',
-      required: [
-        true,
-        'O tipo de pessoa é obrigatório'
-      ]
-    }
+    tipo: UserTypes
   },
   {
     timestamps: true,
