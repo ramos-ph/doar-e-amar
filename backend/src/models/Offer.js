@@ -10,6 +10,10 @@ const OfferSchema = new Schema(
       required: true,
       ref: 'donations'
     },
+    endereco_de_retirada: {
+      type: String,
+      required: true
+    },
     data_de_anuncio: {
       type: Date,
       required: true,
