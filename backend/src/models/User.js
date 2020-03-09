@@ -52,7 +52,9 @@ const UserSchema = new Schema(
       required: false,
       select: false
     },
-    tipo: UserTypes
+    tipo: {
+      tipo: UserTypes
+    }
   },
   {
     timestamps: true,
