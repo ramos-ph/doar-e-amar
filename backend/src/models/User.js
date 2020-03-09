@@ -53,7 +53,7 @@ const UserSchema = new Schema(
       select: false
     },
     tipo_de_usuario: {
-      tipo: UserTypes,
+      type: UserTypes,
       required: true
     }
   },
