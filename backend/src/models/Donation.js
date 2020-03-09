@@ -22,7 +22,9 @@ const DonationSchema = new Schema(
       required: true,
       ref: 'users'
     },
-    categoria: DonationCategory
+    categoria: {
+      categoria: DonationCategory
+    }
   },
   {
     timestamps: true,

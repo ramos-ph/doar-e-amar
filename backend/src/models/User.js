@@ -52,7 +52,10 @@ const UserSchema = new Schema(
       required: false,
       select: false
     },
-    tipo: UserTypes
+    tipo_de_usuario: {
+      tipo: UserTypes,
+      required: true
+    }
   },
   {
     timestamps: true,

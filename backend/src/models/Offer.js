@@ -19,7 +19,10 @@ const OfferSchema = new Schema(
       required: true,
       default: Date.now
     },
-    acompanhamento: OfferAccompaniment
+    acompanhamento: {
+      acompanhamento: OfferAccompaniment,
+      required: true
+    }
   },
   {
     timestamps: true
