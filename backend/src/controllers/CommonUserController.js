@@ -17,7 +17,10 @@ module.exports = {
       const user = await User.create({
         email,
         senha,
-        cpf
+        tipo_de_usuario: {
+          tipo: 'PF',
+          cpf
+        }
       })
 
       user.senha = undefined
