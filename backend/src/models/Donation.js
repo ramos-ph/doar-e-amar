@@ -1,8 +1,7 @@
 const { Schema, model } = require('mongoose')
 const mongoosePaginate = require('mongoose-paginate-v2')
 
-const { validatePostalCode } = require('./validators/strings')
-const { allowedCategories } = require('./utils/allowedEnums')
+const DonationCategory = require('./utils/DonationCategory')
 
 require('dotenv').config({
   path: process.env.NODE_ENV === 'development' ? '.env.development' : '.env'
@@ -12,71 +11,19 @@ const DonationSchema = new Schema(
   {
     titulo: {
       type: String,
-      required: [
-        true,
-        'Um título precisa ser fornecido'
-      ]
-    },
-    descricao: {
-      type: String,
-      required: [
-        true,
-        'Uma descrição precisa ser informada'
-      ]
+      required: true
     },
     foto: {
       type: String,
-      required: [
-        true,
-        'Uma foto precisa ser fornecida'
-      ]
+      required: true
     },
-    endereco: {
-      rua: {
-        type: String,
-        required: [
-          true,
-          'Um endereço de retirada válido precisa ser informado'
-        ]
-      },
-      numero: {
-        type: Number,
-        required: [
-          true,
-          'Um endereço de retirada válido precisa ser informado'
-        ]
-      },
-      cep: {
-        type: String,
-        required: [
-          true,
-          'Um endereço de retirada válido precisa ser informado'
-        ],
-        validate: {
-          validator: function (cep) {
-            return validatePostalCode(cep)
-          },
-          message: 'Insira um CEP válido'
-        }
-      },
-      cidade: {
-        type: String,
-        required: [
-          true,
-          'Um endereço de retirada válido precisa ser informado'
-        ]
-      },
-      select: false
-    },
-    dono: {
+    usuario_doador: {
       type: Schema.Types.ObjectId,
       required: true,
       ref: 'users'
     },
     categoria: {
-      type: String,
-      enum: allowedCategories,
-      required: true
+      type: DonationCategory
     }
   },
   {
