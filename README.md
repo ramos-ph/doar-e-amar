@@ -14,7 +14,7 @@ Doar & Amar é uma plataforma de doações que visa a assistência indireta a ON
 - *Indianara Brasilino* - **:pencil: Análise de dados e organização** - [IndianaraBrasilino](https://github.com/IndianaraBrasilino)
 - *Matheus Pedroso* - **:card_file_box: Modelagem de dados** - [pedrosomatheus](https://github.com/pedrosomatheus)
 - *Pedro Ramos* - **:computer: Desenvolvimento** - [predrinn](https://github.com/predrinn)
-- *Rodrigo Rodrigues* - **:ok_hand: Organização geral** - [RodrigoMoraes1988](https://github.com/RodrigoMoraes1988)
+- *Rodrigo Rodrigues* - **:ok_hand: Revisões gerais** - [RodrigoMoraes1988](https://github.com/RodrigoMoraes1988)
 
 ## Licença
 Este software é licenciado sob a licença MIT - veja [`LICENSE.md`](LICENSE.md) para detalhes.
