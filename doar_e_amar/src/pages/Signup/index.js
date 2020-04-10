@@ -9,7 +9,7 @@ function Signup() {
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor="#fff" barStyle="dark-content" />
+      <StatusBar barStyle="dark-content" />
 
       <Text style={styles.legend}>Criar conta</Text>
 
