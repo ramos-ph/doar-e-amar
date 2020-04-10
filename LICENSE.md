@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2019 Pedro Ramos - <<pedroramos.contato@outlook.com>>
+Copyright (c) 2019-2020 Pedro Ramos - <<pedroramos.contato@outlook.com>>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
