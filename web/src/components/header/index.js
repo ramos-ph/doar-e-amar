@@ -15,8 +15,7 @@ export default function Header () {
         <nav role="navigation">
           <Link className="nav-link" to="/">Início</Link>
           <Link className="nav-link" to="/">Sobre</Link>
-          <Link className="nav-link" to="/">Quem somos</Link>
-          <Link className="nav-link" to="/">Blog</Link>
+          <Link className="nav-link" to="/">Dúvidas frequentes</Link>
 
           <Link className="header-btn" to="/signin">Participe
             <img src={next} alt=">" />
