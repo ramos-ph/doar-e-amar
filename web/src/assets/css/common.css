@@ -62,3 +62,7 @@
   box-shadow: 0 0 0 2px #51bfff5b;
   border-color: var(--color-primary-blu);
 }
+
+.pa {
+  position: absolute;
+}
