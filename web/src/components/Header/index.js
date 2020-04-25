@@ -1,10 +1,10 @@
 import React from 'react'
+import { FiArrowRight } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
 import './styles.css'
 
 import logo from '../../assets/img/icons/logo.png'
-import next from '../../assets/img/icons/next.svg'
 
 export default function Header () {
   return (
@@ -17,8 +17,8 @@ export default function Header () {
           <Link className="nav-link" to="/">Sobre</Link>
           <Link className="nav-link" to="/">Dúvidas frequentes</Link>
 
-          <Link className="header-btn" to="/signin">Participe
-            <img src={next} alt=">" />
+          <Link className="header-btn" to="/">Participe
+            <FiArrowRight size={17} color="#FFF" />
           </Link>
         </nav>
       </div>
