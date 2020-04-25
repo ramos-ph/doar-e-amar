@@ -2,12 +2,10 @@ import React from 'react'
 import './styles.css'
 
 import Header from '../../components/header'
+import Navigator from '../../components/Navigator'
 import Footer from '../../components/footer'
 
-import aacd from '../../assets/img/ongs/aacd.png'
-import sosMataAtlantica from '../../assets/img/ongs/sos-mata-atlantica.png'
-import vivaRio from '../../assets/img/ongs/viva_rio.png'
-import wwf from '../../assets/img/ongs/wwf.png'
+import hearts from '../../assets/img/freestocks-Y9mWkERHYCU-unsplash.jpg'
 
 import strawberry from '../../assets/img/strawberry-4-128.png'
 import commode from '../../assets/img/commode-128.png'
@@ -23,40 +21,27 @@ export default function Main () {
   return (
     <>
       <Header />
+      <Navigator />
 
       <section id="painel">
-        <div className="wrapper ms-wrap">
-          <div className="floating-content">
-            <h2>
-              <strong>A maior plataforma</strong>
-              de doações do Brasil.
-            </h2>
-
-            <p>Aproximando doador e recebedor com segurança e facilidade</p>
-
-            <div className="buttons">
-              <a href="#go" className="bg-link">Participe</a>
-              <a href="#go" className="cm-link">Saiba mais</a>
-            </div>
+        <div className="wrapper ms-size">
+          <div className="floating-content pa">
+            <h1>Você pode fazer a diferença</h1>
+            <p>Doar & Amar é uma plataforma de doações que aproxima doadores e recebedores.</p>
           </div>
 
-          <div className="partners">
-            <h2>Utilizado por</h2>
+          <div className="main-banner pa"/>
 
-            <ul className="partner-list">
-              <li className="partner">
-                <img src={aacd} title="AACD" alt=""/>
-              </li>
-              <li className="partner">
-                <img src={sosMataAtlantica} title="SOS Mata Atlântica" alt=""/>
-              </li>
-              <li className="partner">
-                <img src={vivaRio} title="Viva Rio" alt=""/>
-              </li>
-              <li className="partner">
-                <img src={wwf} title="WWF Brasil" alt=""/>
-              </li>
-            </ul>
+          <div className="lower-banner pa">
+            <img src={hearts} alt="hearts" />
+
+            <div className="banner-content">
+              <strong>Pode nos ajudar?</strong>
+              <button>Quero participar</button>
+            </div>
+
+            <div className="block block-one" />
+            <div className="block block-two" />
           </div>
         </div>
       </section>

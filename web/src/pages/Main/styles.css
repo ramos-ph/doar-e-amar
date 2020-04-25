@@ -1,112 +1,124 @@
 section#painel .wrapper {
-  align-items: center;
-	background: url('../../assets/img/backgrounds/bg-dashboard.jpg') no-repeat;
-	background-size: cover;
-  background-position: 50% 50%;
+  position: relative;
 }
 
-.floating-content {
+section#painel .wrapper .floating-content {
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
-  align-self: center;
-  justify-content: space-between;
-  height: 40%;
-  max-width: 495px;
-  margin-left: 455px;
+  justify-content: center;
+
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 60%;
+  padding: 0 0 0 9em;
 }
 
-.floating-content * {
-  font-family: 'Roboto Slab';
+section#painel .wrapper .floating-content h1 {
+  font-family: 'Playfair Display';
+  font-size: 52px;
 }
 
-.floating-content h2 {
-  font-size: 38px;
-  font-weight: 600;
-}
-
-.floating-content h2 strong {
-  color: #00d114;
-  display: block;
-}
-
-.floating-content p {
-  color: #666;
-  font-size: 20px;
+section#painel .wrapper .floating-content p {
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 50%;
+  font-size: 16px;
   line-height: 24px;
 }
 
-.floating-content .buttons {
-  display: flex;
-  width: 50%;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.floating-content .buttons * {
-  text-decoration: none;
-  font-style: 14px;
-}
-
-.floating-content .buttons .bg-link {
-  color: #fff;
-  background: #008be7;
-  padding: 8px 25px;
-  border-radius: 2px;
-  position: relative;
-  transition: background 0.2s;
-}
-
-.floating-content .buttons .bg-link:hover {
-  background: #26a8ff;
-}
-
-.floating-content .buttons .cm-link {
-  color: #000;
-  position: relative;
-}
-
-.floating-content .buttons .cm-link::before {
+section#painel .wrapper .floating-content p::before {
   content: '';
   position: absolute;
-  left: 10%;
-  right: 10%;
-  bottom: -8px;
-  height: 2px;
-  width: 80%;
-  background: #000;
-  transition: bottom 0.2s;
+  left: 0;
+  height: 3em;
+  width: 15%;
+  background: #e3c97b;
 }
 
-.floating-content .buttons .cm-link:hover::before {
-  bottom: -5px;
+section#painel .wrapper .main-banner {
+  top: 0;
+  right: 0.5em;
+  bottom: 0;
+  height: 100%;
+  width: 45%;
+  background: url(../../assets/img/austin-kehmeier-lyiKExA4zQA-unsplash.jpg) no-repeat;
+  background-size: cover;
+  z-index: -2;
 }
 
-.partners {
-  margin-top: 85px;
-  max-height: 230px;
-  max-width: 485px;
+section#painel .wrapper .lower-banner {
+  display: flex;
+  align-items: center;
+  left: 0;
+  bottom: -1em;
+  width: 65%;
+  height: 14em;
+  background: #041e24;
 }
 
-.partners h2 {
-  font-family: 'Roboto Slab';
-  text-align: center;
-}
-
-.partners .partner-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  list-style: none;
-  margin-top: 16px;
-}
-
-.partners .partner-list .partner img {
-  height: 82px;
-  width: 82px;
+section#painel .wrapper .lower-banner img {
+  height: 14em;
+  width: 14em;
   filter: grayscale(1);
+  opacity: 0.25;
 }
 
-/*  */
+section#painel .wrapper .lower-banner .banner-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+
+  position: relative;
+  height: 14em;
+  width: 65%;
+  padding: 3em 2em;
+}
+
+section#painel .wrapper .lower-banner .banner-content strong {
+  color: #ddd;
+  font-family: 'Playfair Display';
+  font-weight: 500;
+  font-size: 28px;
+  width: 60%;
+}
+
+section#painel .wrapper .lower-banner .banner-content button {
+  background: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  white-space: nowrap;
+  border: none;
+  color: #e3c97b;
+  border: 1px solid #e3c97b;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+section#painel .wrapper .lower-banner .banner-content button:hover {
+  color: #041e24;
+  background: #e3c97b;
+}
+
+.block {
+  position: absolute;
+  background: #0b2930;
+  height: 2em;
+  width: 2em;
+}
+
+.block-one {
+  top: 0;
+  right: 2em;
+}
+
+.block-two {
+  top: 2em;
+  right: 0;
+}
+
 section#doar {
   background: #fff;
 }
