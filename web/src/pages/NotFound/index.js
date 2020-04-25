@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import './styles.css'
 
-import Header from '../../components/header'
+import Header from '../../components/Header'
 
 export default function NotFound () {
   return (
