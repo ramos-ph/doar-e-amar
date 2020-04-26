@@ -1,13 +1,13 @@
 {
   "name": "doar-e-amar-api",
   "version": "0.0.1",
-  "main": "src/server.js",
+  "main": "src/bin/server.js",
   "license": "MIT",
   "description": "API pública do TCC",
   "author": "Pedro Ramos",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
+    "dev": "nodemon src/bin/server.js",
+    "start": "node src/bin/server.js",
     "lint": "eslint ."
   },
   "dependencies": {
