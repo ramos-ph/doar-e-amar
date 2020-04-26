@@ -1,31 +1,17 @@
-require('dotenv').config({
-  path: process.env.NODE_ENV === 'development' ? '.env.development' : '.env',
-});
-
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
-const mongoose = require('mongoose');
 const morgan = require('morgan');
 const http = require('http');
 const socketio = require('socket.io');
 
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'development' ? '.env.development' : '.env',
+});
+
 const routes = require('./routes');
 
-mongoose.connect(
-  process.env.MONGO_URL,
-  {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  },
-  (err) => {
-    if (err) throw err;
-
-    console.log('Base de dados conectada com sucesso!');
-  },
-);
+require('./database');
 
 const app = express();
 const server = http.Server(app);
