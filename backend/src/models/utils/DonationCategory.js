@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose')
+const { Schema } = require('mongoose');
 
 const DonationCategory = new Schema(
   {
@@ -13,14 +13,14 @@ const DonationCategory = new Schema(
         'Produtos de Limpeza',
         'Dinheiro',
         'Brinquedos',
-        'Outros'
+        'Outros',
       ],
-      required: true
-    }
+      required: true,
+    },
   },
   {
-    timestamps: true
-  }
-)
+    timestamps: true,
+  },
+);
 
-module.exports = DonationCategory
+module.exports = DonationCategory;

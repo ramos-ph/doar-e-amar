@@ -1,14 +1,14 @@
 // inicializando o roteamento
-const router = require('express').Router()
-const multer = require('multer')
+const router = require('express').Router();
+const multer = require('multer');
 
-const multerConfig = require('../config/multer.config')
+const multerConfig = require('../config/multer.config');
 
 // controles do usuário
-const CommonUserController = require('../controllers/CommonUserController')
-const NGOController = require('../controllers/NGOController')
+const CommonUserController = require('../controllers/CommonUserController');
+const NGOController = require('../controllers/NGOController');
 
-router.put('/common', multer(multerConfig).single('avatar'), CommonUserController.update)
-router.put('/ngo', multer(multerConfig).single('avatar'), NGOController.update)
+router.put('/common', multer(multerConfig).single('avatar'), CommonUserController.update);
+router.put('/ngo', multer(multerConfig).single('avatar'), NGOController.update);
 
-module.exports = router
+module.exports = router;
