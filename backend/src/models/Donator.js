@@ -8,13 +8,12 @@ class Donator extends Model {
       password: DataTypes.STRING,
       avatar: DataTypes.STRING,
       address: DataTypes.STRING,
+      cpf: DataTypes.STRING,
+      cnpj: DataTypes.STRING,
+      member: DataTypes.BOOLEAN,
     }, {
       sequelize,
     });
-  }
-
-  static associate(models) {
-    this.hasOne(models.DonatorContact, { foreignKey: 'contact', as: 'phone' });
   }
 }
 

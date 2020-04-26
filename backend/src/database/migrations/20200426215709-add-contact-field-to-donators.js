@@ -1,19 +1,19 @@
 module.exports = {
   up: (queryInterface, Sequelize) => queryInterface.addColumn(
     'donators', // tabela alvo
-    'contactId', // nome da coluna
+    'contact_id', // nome da coluna
     {
       type: Sequelize.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'donator_contacts',
         key: 'id',
       },
       onUpdate: 'CASCADE',
-      onDelete: 'SET NULL',
+      onDelete: 'CASCADE',
     },
   ),
 
   // eslint-disable-next-line no-unused-vars
-  down: (queryInterface, Sequelize) => queryInterface.removeColumn('donators', 'contactId'),
+  down: (queryInterface, Sequelize) => queryInterface.removeColumn('donators', 'contact_id'),
 };

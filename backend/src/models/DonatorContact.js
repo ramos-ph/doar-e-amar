@@ -11,7 +11,7 @@ class DonatorContact extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Donator, { foreignKey: 'contact', as: 'phone' });
+    this.hasOne(models.Donator, { foreignKey: 'contact_id', as: 'contact' });
   }
 }
 

@@ -21,7 +21,7 @@ module.exports = {
         avatar,
         address,
         cpf,
-        contact: contact.id,
+        contact_id: contact.id,
       });
 
       return res.status(201).json(donator);

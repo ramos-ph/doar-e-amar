@@ -9,7 +9,6 @@ const DonatorContact = require('../models/DonatorContact');
 Donator.init(connection);
 DonatorContact.init(connection);
 
-Donator.associate(connection.models);
 DonatorContact.associate(connection.models);
 
 module.exports = connection;
