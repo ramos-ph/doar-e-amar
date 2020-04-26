@@ -1,5 +1,5 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('DonatorContact', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('donator_contacts', {
     id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -14,10 +14,10 @@ module.exports = {
       type: Sequelize.STRING(12),
       allowNull: false,
     },
-    createdAt: Sequelize.DATE,
-    updatedAt: Sequelize.DATE,
+    created_at: Sequelize.DATE,
+    updated_at: Sequelize.DATE,
   }),
 
   // eslint-disable-next-line no-unused-vars
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('DonatorContact'),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('donator_contacts'),
 };

@@ -1,5 +1,5 @@
 const router = require('express').Router();
 
-router.get('/test', (req, res) => res.send('Hello, World! The API is working!'));
+router.use('/common', require('./commonDonator'));
 
 module.exports = router;

@@ -14,9 +14,7 @@ class Donator extends Model {
   }
 
   static associate(models) {
-    this.hasOne(models.DonatorCommon, { foreignKey: 'type', as: 'user' });
-    this.hasOne(models.DonatorNGO, { foreignKey: 'type', as: 'ngo' });
-    this.hasOne(models.DonatorContact, { foreignKey: 'contact', as: 'contact' });
+    this.hasOne(models.DonatorContact, { foreignKey: 'contact', as: 'phone' });
   }
 }
 
