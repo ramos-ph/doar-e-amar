@@ -10,12 +10,7 @@ const morgan = require('morgan');
 const http = require('http');
 const socketio = require('socket.io');
 
-const authorization = require('./token');
-const sessionRoutes = require('./routes/session.routes');
-const registerRoutes = require('./routes/register.routes');
-const firstAccessRoutes = require('./routes/firstAccess.routes');
-const donationRoutes = require('./routes/donation.routes');
-const offerRoutes = require('./routes/offer.routes');
+const routes = require('./routes');
 
 mongoose.connect(
   process.env.MONGO_URL,
@@ -59,10 +54,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/public', express.static('public'));
-app.use('/api/sessions', sessionRoutes);
-app.use('/api/register', registerRoutes);
-app.use('/api/first-access', authorization, firstAccessRoutes);
-app.use('/api/donations', authorization, donationRoutes);
-app.use('/api/offers', authorization, offerRoutes);
+app.use('/api/doareamar/v1', routes);
 
 module.exports = server;
