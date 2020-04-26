@@ -41,7 +41,7 @@ export default function Main () {
           </div>
 
           <div className="partners">
-            <h2>Utilizado por</h2>
+            <h2>Nossos parceiros</h2>
 
             <ul className="partner-list">
               <li className="partner">
