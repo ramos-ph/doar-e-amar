@@ -1,43 +1,43 @@
 module.exports = {
-  validateEmail (email) {
-    const re = /^(([^<>()[\].,:\s@']+(\.[^<>()[\].,:\s@']+)*)|('.+'))@(([^<>()[\].,:\s@']+\.)+[^<>()[\].,:\s@']{2,})$/i
+  validateEmail(email) {
+    const re = /^(([^<>()[\].,:\s@']+(\.[^<>()[\].,:\s@']+)*)|('.+'))@(([^<>()[\].,:\s@']+\.)+[^<>()[\].,:\s@']{2,})$/i;
 
     if (!re.test(email)) {
-      return false
+      return false;
     }
   },
 
-  validateCpf (cpf) {
+  validateCpf(cpf) {
     if (!Number(cpf)) {
-      return false
+      return false;
     }
 
     if (cpf.length !== 11) {
-      return false
+      return false;
     }
   },
 
-  validateCnpj (cnpj) {
+  validateCnpj(cnpj) {
     if (!Number(cnpj)) {
-      return false
+      return false;
     }
 
     if (cnpj.length !== 14) {
-      return false
+      return false;
     }
   },
 
-  validatePostalCode (postalCode) {
-    const parts = postalCode.split('-')
+  validatePostalCode(postalCode) {
+    const parts = postalCode.split('-');
 
     if (parts.length !== 2) {
-      return false
+      return false;
     }
 
-    const [region, sector] = parts
+    const [region, sector] = parts;
 
     if (region.length !== 5 || sector.length !== 3) {
-      return false
+      return false;
     }
-  }
-}
+  },
+};

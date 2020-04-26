@@ -1,6 +1,6 @@
-const { Schema } = require('mongoose')
+const { Schema } = require('mongoose');
 
-const { validateCpf, validateCnpj } = require('../validators/strings')
+const { validateCpf, validateCnpj } = require('../validators/strings');
 
 const UserTypes = new Schema(
   {
@@ -8,46 +8,46 @@ const UserTypes = new Schema(
       type: String,
       enum: [
         'PF',
-        'PJ'
+        'PJ',
       ],
-      required: true
+      required: true,
     },
     cpf: {
       type: String,
       required: [
         function () {
-          return this.tipo === 'PF'
+          return this.tipo === 'PF';
         },
-        'O campo CPF é obrigatório'
+        'O campo CPF é obrigatório',
       ],
       validate: {
-        validator: function (cpf) {
-          return validateCpf(cpf)
+        validator(cpf) {
+          return validateCpf(cpf);
         },
-        message: 'Insira um CPF válido'
+        message: 'Insira um CPF válido',
       },
-      select: false
+      select: false,
     },
     cnpj: {
       type: String,
       required: [
         function () {
-          return this.tipo === 'PJ'
+          return this.tipo === 'PJ';
         },
-        'O campo CNPJ é obrigatório'
+        'O campo CNPJ é obrigatório',
       ],
       validate: {
-        validator: function (cnpj) {
-          return validateCnpj(cnpj)
+        validator(cnpj) {
+          return validateCnpj(cnpj);
         },
-        message: 'Insira um CNPJ válido'
+        message: 'Insira um CNPJ válido',
       },
-      select: false
-    }
+      select: false,
+    },
   },
   {
-    timestamps: true
-  }
-)
+    timestamps: true,
+  },
+);
 
-module.exports = UserTypes
+module.exports = UserTypes;

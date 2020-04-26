@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose')
+const { Schema } = require('mongoose');
 
 const OfferAccompaniment = new Schema(
   {
@@ -8,14 +8,14 @@ const OfferAccompaniment = new Schema(
       enum: [
         'Pendente',
         'Aceito',
-        'Entregue'
+        'Entregue',
       ],
-      default: 'Pendente'
-    }
+      default: 'Pendente',
+    },
   },
   {
-    timestamps: true
-  }
-)
+    timestamps: true,
+  },
+);
 
-module.exports = OfferAccompaniment
+module.exports = OfferAccompaniment;

@@ -1,34 +1,34 @@
-const { Schema, model } = require('mongoose')
-const mongoosePaginate = require('mongoose-paginate-v2')
+const { Schema, model } = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
 
-const OfferAccompaniment = require('./utils/OfferAccompaniment')
+const OfferAccompaniment = require('./utils/OfferAccompaniment');
 
 const OfferSchema = new Schema(
   {
     doacao: {
       type: Schema.Types.ObjectId,
       required: true,
-      ref: 'donations'
+      ref: 'donations',
     },
     endereco_de_retirada: {
       type: String,
-      required: true
+      required: true,
     },
     data_de_anuncio: {
       type: Date,
       required: true,
-      default: Date.now
+      default: Date.now,
     },
     acompanhamento: {
       type: OfferAccompaniment,
-      required: true
-    }
+      required: true,
+    },
   },
   {
-    timestamps: true
-  }
-)
+    timestamps: true,
+  },
+);
 
-OfferSchema.plugin(mongoosePaginate)
+OfferSchema.plugin(mongoosePaginate);
 
-module.exports = model('offers', OfferSchema)
+module.exports = model('offers', OfferSchema);

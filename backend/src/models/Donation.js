@@ -1,43 +1,43 @@
-const { Schema, model } = require('mongoose')
-const mongoosePaginate = require('mongoose-paginate-v2')
+const { Schema, model } = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
 
-const DonationCategory = require('./utils/DonationCategory')
+const DonationCategory = require('./utils/DonationCategory');
 
 require('dotenv').config({
-  path: process.env.NODE_ENV === 'development' ? '.env.development' : '.env'
-})
+  path: process.env.NODE_ENV === 'development' ? '.env.development' : '.env',
+});
 
 const DonationSchema = new Schema(
   {
     titulo: {
       type: String,
-      required: true
+      required: true,
     },
     foto: {
       type: String,
-      required: true
+      required: true,
     },
     usuario_doador: {
       type: Schema.Types.ObjectId,
       required: true,
-      ref: 'users'
+      ref: 'users',
     },
     categoria: {
-      type: DonationCategory
-    }
+      type: DonationCategory,
+    },
   },
   {
     timestamps: true,
     toJSON: {
-      virtuals: true
-    }
-  }
-)
+      virtuals: true,
+    },
+  },
+);
 
 DonationSchema.virtual('foto_url').get(function () {
-  return `${process.env.APP_URL}/public/uploads/${this.foto}`
-})
+  return `${process.env.APP_URL}/public/uploads/${this.foto}`;
+});
 
-DonationSchema.plugin(mongoosePaginate)
+DonationSchema.plugin(mongoosePaginate);
 
-module.exports = model('donations', DonationSchema)
+module.exports = model('donations', DonationSchema);

@@ -1,36 +1,36 @@
 require('dotenv').config({
-  path: process.env.NODE_ENV === 'development' ? '.env.development' : '.env'
-})
+  path: process.env.NODE_ENV === 'development' ? '.env.development' : '.env',
+});
 
-const jwt = require('jsonwebtoken')
-const bcrypt = require('bcryptjs')
-const User = require('../models/User')
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const User = require('../models/User');
 
-function generateToken (params = {}) {
-  return jwt.sign(params, process.env.SECRET)
+function generateToken(params = {}) {
+  return jwt.sign(params, process.env.SECRET);
 }
 
 module.exports = {
-  async show (req, res) {
+  async show(req, res) {
     try {
-      const { email, senha } = req.body
+      const { email, senha } = req.body;
 
-      const user = await User.findOne({ email }).select('+senha')
+      const user = await User.findOne({ email }).select('+senha');
 
       if (!user || !(await bcrypt.compare(senha, user.senha))) {
-        return res.status(400).json({ message: 'Usuário ou senha inválidos' })
+        return res.status(400).json({ message: 'Usuário ou senha inválidos' });
       }
 
-      user.senha = undefined
+      user.senha = undefined;
 
       return res.status(200).json({
         user,
-        token: generateToken({ id: user._id })
-      })
+        token: generateToken({ id: user._id }),
+      });
     } catch (err) {
       return res
         .status(500)
-        .json(err.toString() || err.message)
+        .json(err.toString() || err.message);
     }
-  }
-}
+  },
+};
