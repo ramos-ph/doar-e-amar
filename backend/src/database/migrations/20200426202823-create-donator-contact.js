@@ -1,5 +1,5 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('donators-contact', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('DonatorContact', {
     id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -19,5 +19,5 @@ module.exports = {
   }),
 
   // eslint-disable-next-line no-unused-vars
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('donators-contact'),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('DonatorContact'),
 };
