@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {common} from '../../styles';
+import {common, fonts, colors} from '../../styles';
 
 export default StyleSheet.create({
   ...common,
@@ -17,19 +17,19 @@ export default StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    borderTopColor: '#ddd',
+    borderTopColor: colors.lighter,
     borderTopWidth: 1,
     height: 64,
   },
 
   footerText: {
-    color: '#19191a',
-    fontSize: 16,
+    color: colors.darker,
+    fontSize: fonts.regular,
     fontWeight: '700',
   },
 
   action: {
-    color: '#ff0055',
+    color: colors.primary,
     marginLeft: 6,
   },
 });
