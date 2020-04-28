@@ -4,7 +4,7 @@ module.exports = {
     'contact_id', // nome da coluna
     {
       type: Sequelize.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'donator_contacts',
         key: 'id',
