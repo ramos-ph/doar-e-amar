@@ -10,32 +10,11 @@ export default StyleSheet.create({
     paddingVertical: 0,
   },
 
-  content: {
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+  inputGroup: {
+    alignItems: 'center',
+    justifyContent: 'space-between',
     flexDirection: 'row',
     width: '100%',
-    marginBottom: 16,
-  },
-
-  avatar: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 150,
-    width: 128,
-    borderWidth: 1,
-    borderStyle: 'dashed',
-    borderColor: '#999',
-    borderRadius: 8,
-  },
-
-  inputGroup: {
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    flexDirection: 'column',
-    width: '60%',
-    height: 150,
-    marginLeft: '5%',
   },
 
   input: {
@@ -44,8 +23,9 @@ export default StyleSheet.create({
   },
 
   actions: {
-    flexDirection: 'row',
+    alignItems: 'flex-end',
     justifyContent: 'space-between',
+    flexDirection: 'row',
     position: 'absolute',
     bottom: 20,
     left: 15,

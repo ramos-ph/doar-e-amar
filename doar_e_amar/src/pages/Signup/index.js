@@ -30,9 +30,9 @@ function Signup() {
             </Text>
 
             <View style={styles.info}>
-              <Text style={styles.item}>Tópico 1</Text>
-              <Text style={styles.item}>Tópico 2</Text>
-              <Text style={styles.item}>Tópico 3</Text>
+              <Text style={styles.item}>- Para todos</Text>
+              <Text style={styles.item}>- Faça o bem</Text>
+              <Text style={styles.item}>- Ajude o próximo</Text>
             </View>
           </View>
         </View>
@@ -44,9 +44,9 @@ function Signup() {
             <Text style={styles.title}>Quero receber doações</Text>
 
             <View style={styles.info}>
-              <Text style={styles.item}>Tópico 1</Text>
-              <Text style={styles.item}>Tópico 2</Text>
-              <Text style={styles.item}>Tópico 3</Text>
+              <Text style={styles.item}>- Para ONGs</Text>
+              <Text style={styles.item}>- Transmita o bem</Text>
+              <Text style={styles.item}>- Prático e intuitivo</Text>
             </View>
           </View>
 

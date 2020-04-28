@@ -12,7 +12,9 @@ function ProgressComponent({step, maxSteps, currentStep, nextStep}) {
 
       <View style={styles.info}>
         <Text style={styles.current}>{currentStep}</Text>
-        <Text style={styles.next}>Próximo: {nextStep}</Text>
+        {nextStep !== undefined && (
+          <Text style={styles.next}>Próximo: {nextStep}</Text>
+        )}
       </View>
     </View>
   );

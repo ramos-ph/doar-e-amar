@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import {useNavigation} from '@react-navigation/native';
 
 import styles from './styles';
@@ -18,8 +19,18 @@ function PersonalData() {
         nextStep="Endereçamento"
       />
 
-      <Text style={styles.label}>SEU NOME *</Text>
-      <TextInput style={styles.input} placeholder="Seu nome" />
+      <View style={styles.content}>
+        <TouchableOpacity style={styles.avatar}>
+          <Icon name="camera" size={32} color="#999" />
+        </TouchableOpacity>
+
+        <View style={styles.inputGroup}>
+          <Text style={styles.label}>SEU NOME *</Text>
+
+          <TextInput style={styles.input} placeholder="Seu nome" />
+          <TextInput style={styles.input} placeholder="Sobrenome" />
+        </View>
+      </View>
 
       <Text style={styles.label}>SEU CPF *</Text>
       <TextInput style={styles.input} placeholder="Seu CPF" />
@@ -31,7 +42,9 @@ function PersonalData() {
           <Text style={[styles.buttonText, {color: '#666'}]}>Voltar</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigate('CommonAddress')}>
           <Text style={styles.buttonText}>Próximo</Text>
         </TouchableOpacity>
       </View>
