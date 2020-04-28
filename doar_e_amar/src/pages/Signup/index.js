@@ -1,6 +1,13 @@
 import React from 'react';
-import {View, Text, TextInput, TouchableOpacity, StatusBar} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+  StatusBar,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import styles from './styles';
 
@@ -13,26 +20,39 @@ function Signup() {
 
       <Text style={styles.legend}>Criar conta</Text>
 
-      <Text style={styles.label}>Seu nome *</Text>
-      <TextInput style={styles.input} placeholder="Nome e sobrenome" />
+      <TouchableNativeFeedback onPress={() => navigate('CommonCredentials')}>
+        <View style={[styles.card, {borderColor: '#f1c40f33'}]}>
+          <Icon name="smile-beam" size={86} color="#f1c40f" />
 
-      <Text style={styles.label}>Seu e-mail *</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Seu e-mail"
-        keyboardType="email-address"
-      />
+          <View style={styles.opt}>
+            <Text style={[styles.title, {color: '#f1c40f'}]}>
+              Quero apenas doar
+            </Text>
 
-      <Text style={styles.label}>Sua senha *</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Sua senha"
-        secureTextEntry={true}
-      />
+            <View style={styles.info}>
+              <Text style={styles.item}>Tópico 1</Text>
+              <Text style={styles.item}>Tópico 2</Text>
+              <Text style={styles.item}>Tópico 3</Text>
+            </View>
+          </View>
+        </View>
+      </TouchableNativeFeedback>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Cadastrar</Text>
-      </TouchableOpacity>
+      <TouchableNativeFeedback>
+        <View style={styles.card}>
+          <View style={styles.opt}>
+            <Text style={styles.title}>Quero receber doações</Text>
+
+            <View style={styles.info}>
+              <Text style={styles.item}>Tópico 1</Text>
+              <Text style={styles.item}>Tópico 2</Text>
+              <Text style={styles.item}>Tópico 3</Text>
+            </View>
+          </View>
+
+          <Icon name="hand-holding-heart" size={86} color="#0abde3" />
+        </View>
+      </TouchableNativeFeedback>
 
       <View style={styles.footer}>
         <Text style={styles.footerText}>Já tem uma conta?</Text>

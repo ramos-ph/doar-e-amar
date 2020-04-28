@@ -18,37 +18,28 @@ export default StyleSheet.create({
     marginBottom: 20,
   },
 
-  label: {
-    color: '#1a1a1c',
-    fontSize: 14,
-    fontWeight: '700',
-    textTransform: 'uppercase',
-    marginBottom: 8,
+  card: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    borderWidth: 2,
+    borderColor: '#0abde333',
+    borderRadius: 8,
+    width: '100%',
+    height: '30%',
+    marginBottom: 10,
   },
 
-  input: {
-    height: 52,
-    width: '100%',
-    paddingHorizontal: 25,
-    backgroundColor: '#ddd',
-    color: '#21212a',
-    borderRadius: 4,
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#0abde3',
     marginBottom: 16,
   },
 
-  button: {
-    height: 52,
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#ff0055',
-    borderRadius: 4,
-  },
-
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '700',
+  item: {
+    fontSize: 14,
+    color: '#999',
   },
 
   footer: {
