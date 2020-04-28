@@ -10,6 +10,8 @@ require('dotenv').config({
 });
 
 const routes = require('./routes');
+const routeNotFound = require('./middlewares/routeNotFound');
+const errorHandler = require('./middlewares/errorHandler');
 
 require('./database');
 
@@ -41,5 +43,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/public', express.static('public'));
 app.use('/api/doareamar/v1', routes);
+
+app.use(routeNotFound);
+app.use(errorHandler);
 
 module.exports = server;
