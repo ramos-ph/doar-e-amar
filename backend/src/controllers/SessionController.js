@@ -9,6 +9,10 @@ module.exports = {
         where: { email, password },
       });
 
+      if (!donator) {
+        return res.status(404).send('User does not exists');
+      }
+
       return res.status(200).json(donator);
     } catch (err) {
       return next(err);

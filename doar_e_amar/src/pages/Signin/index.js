@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, TouchableOpacity, StatusBar} from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StatusBar,
+  Alert,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import styles from './styles';
@@ -19,8 +26,17 @@ function Signin() {
       });
 
       console.log(response.data);
+
+      Alert.alert('OK!', 'Autenticado com sucesso!');
     } catch (err) {
-      console.log(err);
+      const {response = err} = err;
+
+      Alert.alert(
+        'Ops..',
+        response.status === 404
+          ? 'E-mail ou senha inválidos'
+          : 'Ocorreu um erro ao tentar realizar o processo. Tente novamente.',
+      );
     }
   }
 
