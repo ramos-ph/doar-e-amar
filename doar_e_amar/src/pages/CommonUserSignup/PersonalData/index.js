@@ -44,7 +44,7 @@ function PersonalData() {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigate('CommonAddress')}>
+          onPress={() => navigate('Address')}>
           <Text style={styles.buttonText}>Próximo</Text>
         </TouchableOpacity>
       </View>

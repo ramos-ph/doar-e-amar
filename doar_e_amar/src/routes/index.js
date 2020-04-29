@@ -6,7 +6,7 @@ const Stack = createStackNavigator();
 import Start from '../pages/Start';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
-import {Credentials, PersonalData, Address} from '../pages/CommonUserSignup';
+import CommonUserSignupRoutes from './commonUserSignup.routes';
 
 function Routes() {
   return (
@@ -27,18 +27,8 @@ function Routes() {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="CommonCredentials"
-        component={Credentials}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="CommonPersonalData"
-        component={PersonalData}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="CommonAddress"
-        component={Address}
+        name="Common"
+        component={CommonUserSignupRoutes}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

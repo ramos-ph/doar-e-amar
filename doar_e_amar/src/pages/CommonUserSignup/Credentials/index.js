@@ -38,7 +38,7 @@ function Credentials() {
       <View style={styles.actions}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigate('CommonPersonalData')}>
+          onPress={() => navigate('PersonalData')}>
           <Text style={styles.buttonText}>Próximo</Text>
         </TouchableOpacity>
       </View>
