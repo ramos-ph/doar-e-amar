@@ -3,10 +3,10 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-import Start from './pages/Start';
-import Signin from './pages/Signin';
-import Signup from './pages/Signup';
-import {Credentials, PersonalData, Address} from './pages/CommonUserSignup';
+import Start from '../pages/Start';
+import Signin from '../pages/Signin';
+import Signup from '../pages/Signup';
+import {Credentials, PersonalData, Address} from '../pages/CommonUserSignup';
 
 function Routes() {
   return (
