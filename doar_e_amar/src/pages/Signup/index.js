@@ -21,7 +21,7 @@ function Signup() {
       <Text style={styles.legend}>Criar conta</Text>
 
       <TouchableNativeFeedback
-        onPress={() => navigate('Common', {screen: 'Credentials'})}>
+        onPress={() => navigate('CommonUserSignup', {screen: 'Credentials'})}>
         <View style={[styles.card, {borderColor: '#f1c40f33'}]}>
           <Icon name="smile-beam" size={86} color="#f1c40f" />
 

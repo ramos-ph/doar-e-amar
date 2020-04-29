@@ -27,7 +27,7 @@ function Routes() {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="Common"
+        name="CommonUserSignup"
         component={CommonUserSignupRoutes}
         options={{headerShown: false}}
       />
