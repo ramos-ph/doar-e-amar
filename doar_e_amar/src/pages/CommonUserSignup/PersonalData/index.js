@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, TouchableOpacity, Alert} from 'react-native';
+import {
+  View,
+  Image,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
+import ImagePicker from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {useNavigation, useRoute} from '@react-navigation/native';
 
@@ -11,6 +19,7 @@ function PersonalData() {
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [cpf, setCpf] = useState('');
+  const [picture, setPicture] = useState(null);
 
   const {navigate, goBack} = useNavigation();
   const {params} = useRoute();
@@ -24,6 +33,28 @@ function PersonalData() {
       ...params,
       name: `${name} ${lastName}`,
       cpf,
+      picture,
+    });
+  }
+
+  function chooseAvatar() {
+    const options = {
+      quality: 1.0,
+      maxWidth: 500,
+      maxHeight: 500,
+      storageOptions: {
+        skipBackup: true,
+      },
+    };
+
+    ImagePicker.showImagePicker(options, (response) => {
+      const {uri, type, fileName} = response;
+
+      setPicture({
+        uri,
+        type: 'image/jpeg',
+        name: 'photoslacaramba.jpg',
+      });
     });
   }
 
@@ -37,8 +68,12 @@ function PersonalData() {
       />
 
       <View style={styles.content}>
-        <TouchableOpacity style={styles.avatar}>
-          <Icon name="camera" size={32} color="#999" />
+        <TouchableOpacity style={styles.avatar} onPress={chooseAvatar}>
+          {picture === null ? (
+            <Icon name="camera" size={32} color="#999" />
+          ) : (
+            <Image source={picture} style={styles.picture} />
+          )}
         </TouchableOpacity>
 
         <View style={styles.inputGroup}>

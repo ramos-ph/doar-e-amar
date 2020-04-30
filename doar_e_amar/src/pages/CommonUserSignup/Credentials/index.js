@@ -37,6 +37,7 @@ function Credentials() {
       <TextInput
         style={styles.input}
         placeholder="Seu e-mail"
+        keyboardType="email-address"
         value={email}
         onChangeText={setEmail}
       />

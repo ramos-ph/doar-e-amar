@@ -15,7 +15,7 @@ function Address() {
   const {params} = useRoute();
 
   async function handleSubmit() {
-    const {name, email, password, cpf} = params;
+    const {name, email, password, cpf, picture} = params;
     const address = `${zipcode}, ${number}`;
 
     const data = new FormData();
@@ -23,15 +23,20 @@ function Address() {
     data.append('name', name);
     data.append('email', email);
     data.append('password', password);
+    data.append('avatar', picture);
     data.append('cpf', cpf);
     data.append('address', address);
 
     try {
-      const response = await api.post('/common', data);
+      await api.post('/common', data, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
 
-      Alert.alert(JSON.stringify(response.data));
+      Alert.alert('OK!', 'Usuário cadastrado com sucesso!');
     } catch (err) {
-      console.log(err);
+      console.log({err});
 
       Alert.alert(
         'Ops..',

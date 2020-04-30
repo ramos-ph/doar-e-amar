@@ -29,6 +29,13 @@ export default StyleSheet.create({
     borderRadius: 8,
   },
 
+  picture: {
+    flex: 1,
+    height: 150,
+    width: 128,
+    borderRadius: 8,
+  },
+
   inputGroup: {
     alignItems: 'flex-start',
     justifyContent: 'space-between',
