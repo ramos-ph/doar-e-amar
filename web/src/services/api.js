@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://192.168.2.26:3001/api'
+  baseURL: 'http://localhost:3001/api/doareamar/v1'
 })
 
 export default api
