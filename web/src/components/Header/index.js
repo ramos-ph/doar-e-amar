@@ -6,7 +6,7 @@ import './styles.css'
 
 import logo from '../../assets/img/icons/logo.png'
 
-export default function Header () {
+export default function Header ({ setIsModalShown }) {
   return (
     <header id="header-home">
       <div className="navbar">
@@ -16,7 +16,13 @@ export default function Header () {
           <Link className="nav-link" to="/">Início</Link>
           <Link className="nav-link" to="/">Sobre</Link>
           <Link className="nav-link" to="/">Dúvidas frequentes</Link>
-          <Link className="nav-link" to="/">Login</Link>
+          <button
+            onClick={() => setIsModalShown(true)}
+            className="nav-link"
+            style={{
+              background: 'none',
+              border: 'none'
+            }}>Login</button>
 
           <Link className="header-btn" to="/">Participe
             <FiArrowRight size={17} color="#FFF" />

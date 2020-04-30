@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles.css'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Modal from '../../components/Modal'
 
 import aacd from '../../assets/img/ongs/aacd.png'
 import sosMataAtlantica from '../../assets/img/ongs/sos-mata-atlantica.png'
@@ -20,9 +21,17 @@ import call from '../../assets/img/icons/baseline_call_white_48dp.png'
 import room from '../../assets/img/icons/baseline_room_white_48dp.png'
 
 export default function Main () {
+  const [isModalShown, setIsModalShown] = useState(false)
+
   return (
     <>
-      <Header />
+      <Header setIsModalShown={setIsModalShown} />
+
+      <Modal
+        isModalShown={isModalShown}
+        setIsModalShown={setIsModalShown}>
+        <h1>Olá!</h1>
+      </Modal>
 
       <section id="painel">
         <div className="wrapper ms-wrap">
