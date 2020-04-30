@@ -5,8 +5,8 @@ const multerConfig = require('../config/multer.config');
 
 const upload = multer(multerConfig);
 
-const DonatorCommonController = require('../controllers/DonatorCommonController');
+const CommonDonatorController = require('../controllers/CommonDonatorController');
 
-router.post('/', upload.single('avatar'), DonatorCommonController.store);
+router.post('/', upload.single('avatar'), CommonDonatorController.store);
 
 module.exports = router;
