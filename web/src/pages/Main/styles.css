@@ -1,7 +1,7 @@
 section#painel .wrapper {
   height: 595px;
   align-items: center;
-	background: url('../../assets/img/backgrounds/bg-dashboard.jpg') no-repeat;
+	background: url('../../assets/img/bg-dashboard.jpg') no-repeat;
 	background-size: cover;
   background-position: 50% 50%;
 }
@@ -11,9 +11,11 @@ section#painel .wrapper {
   flex-direction: column;
   align-self: center;
   justify-content: space-between;
-  height: 40%;
+  max-height: 240px;
+  height: 100%;
   max-width: 495px;
-  margin-left: 455px;
+  width: 100%;
+  margin: 40px 0 40px 455px;
 }
 
 .floating-content * {
@@ -83,7 +85,6 @@ section#painel .wrapper {
 }
 
 .partners {
-  margin-top: 85px;
   max-height: 230px;
   max-width: 485px;
 }
@@ -159,11 +160,6 @@ section#doar ul li {
   align-items: center;
   justify-content: center;
   transition: all 0.4s !important;
-}
-
-section#doar ul li img {
-  height: 6em;
-  width: 6em;
 }
 
 section#doar ul li:hover svg {
@@ -401,11 +397,7 @@ section#fale-conosco .contact-info ul li {
   color: #fff;
 }
 
-section#fale-conosco .contact-info ul li img {
-  height: 48px;
-  width: 48px;
+section#fale-conosco .contact-info ul li svg {
   margin: 10px 20px;
-  border: 2px solid #fff;
-  border-radius: 24px;
   padding: 5px;
 }

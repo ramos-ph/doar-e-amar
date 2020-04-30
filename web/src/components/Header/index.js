@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import './styles.css'
 
-import logo from '../../assets/img/icons/logo.png'
+import logo from '../../assets/img/logo.png'
 
 export default function Header ({ setIsModalShown }) {
   return (

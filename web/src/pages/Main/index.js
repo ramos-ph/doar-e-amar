@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaUtensils, FaCouch, FaMoneyBillWave, FaMedkit, FaBoxes } from 'react-icons/fa'
+import { FaUtensils, FaCouch, FaMoneyBillWave, FaMedkit, FaBoxes, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
 import './styles.css'
 
 import Header from '../../components/Header'
@@ -7,14 +7,10 @@ import Footer from '../../components/Footer'
 import Modal from '../../components/Modal'
 import Form from './components/Form'
 
-import aacd from '../../assets/img/ongs/aacd.png'
-import sosMataAtlantica from '../../assets/img/ongs/sos-mata-atlantica.png'
-import vivaRio from '../../assets/img/ongs/viva_rio.png'
-import wwf from '../../assets/img/ongs/wwf.png'
-
-import email from '../../assets/img/icons/baseline_email_white_48dp.png'
-import call from '../../assets/img/icons/baseline_call_white_48dp.png'
-import room from '../../assets/img/icons/baseline_room_white_48dp.png'
+import aacd from '../../assets/img/aacd.png'
+import sosMataAtlantica from '../../assets/img/sos-mata-atlantica.png'
+import vivaRio from '../../assets/img/viva_rio.png'
+import wwf from '../../assets/img/wwf.png'
 
 export default function Main () {
   const [isModalShown, setIsModalShown] = useState(false)
@@ -112,15 +108,15 @@ export default function Main () {
             <div className="contact-info">
               <ul>
                 <li>
-                  <img src={email} alt="email" />
+                  <FaEnvelope size={38} color="#fff" />
                   <strong>doareamar@dominio.com</strong>
                 </li>
                 <li>
-                  <img src={call} alt="call" />
+                  <FaPhone size={38} color="#fff" />
                   <strong>(11) 91234-5687</strong>
                 </li>
                 <li>
-                  <img src={room} alt="room" />
+                  <FaMapMarkerAlt size={38} color="#fff" />
                   <strong>R. João Batista Soares, 440 - Centro, Barueri - SP, 06401-135</strong>
                 </li>
               </ul>
