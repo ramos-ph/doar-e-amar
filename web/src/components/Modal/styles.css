@@ -1,0 +1,38 @@
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+  transition: all 0.2s;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 380px;
+  width: 100%;
+  max-height: 510px;
+  height: 100%;
+  background: #fff;
+  border-radius: 4px;
+  padding: 15px 20px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.close-modal:hover {
+  opacity: 0.5;
+}
