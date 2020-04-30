@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs');
 const Donator = require('../models/Donator');
 
 module.exports = {
@@ -8,10 +9,12 @@ module.exports = {
     const avatar = req.file.filename;
 
     try {
+      const hashedPassword = bcrypt.hashSync(password, 10);
+
       const donator = await Donator.create({
         name,
         email,
-        password,
+        password: hashedPassword,
         avatar,
         address,
         cpf,
