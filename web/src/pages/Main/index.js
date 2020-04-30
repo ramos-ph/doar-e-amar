@@ -4,6 +4,7 @@ import './styles.css'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Modal from '../../components/Modal'
+import Form from './components/Form'
 
 import aacd from '../../assets/img/ongs/aacd.png'
 import sosMataAtlantica from '../../assets/img/ongs/sos-mata-atlantica.png'
@@ -30,7 +31,7 @@ export default function Main () {
       <Modal
         isModalShown={isModalShown}
         setIsModalShown={setIsModalShown}>
-        <h1>Olá!</h1>
+        <Form />
       </Modal>
 
       <section id="painel">

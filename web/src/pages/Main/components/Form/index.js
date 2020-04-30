@@ -5,15 +5,32 @@ import './styles.css'
 function Form () {
   return (
     <form className="form-container">
-      <legend calssName="form-legend">Entrar</legend>
+      <legend>Entrar</legend>
 
       <label htmlFor="email-input">SEU E-MAIL *</label>
-      <input type="email" placeholder="Seu e-mail" id="email-input" />
+      <input
+        className="input"
+        type="email"
+        placeholder="Seu e-mail"
+        id="email-input" />
 
       <label htmlFor="pwd-input">SUA SENHA *</label>
-      <input type="password" placeholder="Sua senha" id="pwd-input" />
+      <input
+        className="input"
+        type="password"
+        placeholder="Sua senha"
+        id="pwd-input" />
 
       <button>Acessar</button>
+
+      <div className="actions">
+        <label>
+          Ainda não tem uma conta?
+          <label className="signup">
+            Cadastre-se!
+          </label>
+        </label>
+      </div>
     </form>
   )
 }
