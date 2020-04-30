@@ -1,13 +1,44 @@
-import React from 'react';
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import React, {useState} from 'react';
+import {View, Text, TextInput, TouchableOpacity, Alert} from 'react-native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 
 import styles from './styles';
+import api from '../../../services/api';
 
 import Progress from '../components/Progress';
 
 function Address() {
+  const [zipcode, setZipcode] = useState('');
+  const [number, setNumber] = useState('');
+
   const {goBack} = useNavigation();
+  const {params} = useRoute();
+
+  async function handleSubmit() {
+    const {name, email, password, cpf} = params;
+    const address = `${zipcode}, ${number}`;
+
+    const data = new FormData();
+
+    data.append('name', name);
+    data.append('email', email);
+    data.append('password', password);
+    data.append('cpf', cpf);
+    data.append('address', address);
+
+    try {
+      const response = await api.post('/common', data);
+
+      Alert.alert(JSON.stringify(response.data));
+    } catch (err) {
+      console.log(err);
+
+      Alert.alert(
+        'Ops..',
+        'Ocorreu um erro ao realizar o processo. Tente novamente.',
+      );
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -19,8 +50,16 @@ function Address() {
           style={[styles.input, {width: '70%'}]}
           placeholder="CEP (Somente números)"
           keyboardType="number-pad"
+          value={zipcode}
+          onChangeText={setZipcode}
         />
-        <TextInput style={[styles.input, {width: '25%'}]} placeholder="Nº" />
+        <TextInput
+          style={[styles.input, {width: '25%'}]}
+          placeholder="Nº"
+          keyboardType="number-pad"
+          value={number}
+          onChangeText={setNumber}
+        />
       </View>
 
       <View style={styles.actions}>
@@ -30,7 +69,7 @@ function Address() {
           <Text style={[styles.buttonText, {color: '#666'}]}>Voltar</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           <Text style={styles.buttonText}>Concluir</Text>
         </TouchableOpacity>
       </View>

@@ -1,14 +1,31 @@
-import React from 'react';
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, TextInput, TouchableOpacity, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 
 import styles from './styles';
 
 import Progress from '../components/Progress';
 
 function PersonalData() {
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [cpf, setCpf] = useState('');
+
   const {navigate, goBack} = useNavigation();
+  const {params} = useRoute();
+
+  function proceedSignup() {
+    if (cpf.length !== 11) {
+      return Alert.alert('Ops..', 'Insira um CPF válido');
+    }
+
+    return navigate('Address', {
+      ...params,
+      name: `${name} ${lastName}`,
+      cpf,
+    });
+  }
 
   return (
     <View style={styles.container}>
@@ -27,13 +44,29 @@ function PersonalData() {
         <View style={styles.inputGroup}>
           <Text style={styles.label}>SEU NOME *</Text>
 
-          <TextInput style={styles.input} placeholder="Seu nome" />
-          <TextInput style={styles.input} placeholder="Sobrenome" />
+          <TextInput
+            style={styles.input}
+            placeholder="Seu nome"
+            value={name}
+            onChangeText={setName}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Sobrenome"
+            value={lastName}
+            onChangeText={setLastName}
+          />
         </View>
       </View>
 
       <Text style={styles.label}>SEU CPF *</Text>
-      <TextInput style={styles.input} placeholder="Seu CPF" />
+      <TextInput
+        style={styles.input}
+        placeholder="Somente números"
+        keyboardType="number-pad"
+        value={cpf}
+        onChangeText={setCpf}
+      />
 
       <View style={styles.actions}>
         <TouchableOpacity
@@ -42,9 +75,7 @@ function PersonalData() {
           <Text style={[styles.buttonText, {color: '#666'}]}>Voltar</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigate('Address')}>
+        <TouchableOpacity style={styles.button} onPress={proceedSignup}>
           <Text style={styles.buttonText}>Próximo</Text>
         </TouchableOpacity>
       </View>
