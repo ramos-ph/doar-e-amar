@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { FaUtensils, FaCouch, FaMoneyBillWave, FaMedkit, FaBoxes } from 'react-icons/fa'
 import './styles.css'
 
 import Header from '../../components/Header'
@@ -10,12 +11,6 @@ import aacd from '../../assets/img/ongs/aacd.png'
 import sosMataAtlantica from '../../assets/img/ongs/sos-mata-atlantica.png'
 import vivaRio from '../../assets/img/ongs/viva_rio.png'
 import wwf from '../../assets/img/ongs/wwf.png'
-
-import strawberry from '../../assets/img/strawberry-4-128.png'
-import commode from '../../assets/img/commode-128.png'
-import money from '../../assets/img/money-128.png'
-import plus from '../../assets/img/plus-128.png'
-import categorize from '../../assets/img/categorize-128.png'
 
 import email from '../../assets/img/icons/baseline_email_white_48dp.png'
 import call from '../../assets/img/icons/baseline_call_white_48dp.png'
@@ -79,28 +74,28 @@ export default function Main () {
 
           <ul>
             <li>
-              <img src={strawberry} alt="strawberry" />
+              <FaUtensils size={86} color="#cc0000" />
               <strong>Alimentos</strong>
             </li>
 
             <li>
-              <img src={commode} alt="commode" />
+              <FaCouch size={86} color="#ffc107" />
               <strong>Móveis</strong>
             </li>
 
             <li>
-              <img src={money} alt="money" />
+              <FaMoneyBillWave size={86} color="#00e676" />
               <strong>Dinheiro</strong>
             </li>
 
             <li>
-              <img src={plus} alt="plus" />
+              <FaMedkit size={86} color="#00e5ff" />
               <strong>Medicamentos</strong>
             </li>
 
             <li>
-              <img src={categorize} alt="categorize" />
-              <strong>Outros</strong>
+              <FaBoxes size={86} color="#e91e63" />
+              <strong>E muito mais!</strong>
             </li>
           </ul>
 

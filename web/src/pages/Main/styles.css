@@ -166,7 +166,7 @@ section#doar ul li img {
   width: 6em;
 }
 
-section#doar ul li:hover img {
+section#doar ul li:hover svg {
   filter: brightness(0) invert(1);
 }
 
