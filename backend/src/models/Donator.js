@@ -15,6 +15,10 @@ class Donator extends Model {
       sequelize,
     });
   }
+
+  static associate(models) {
+    this.hasMany(models.Donation, { foreignKey: 'donator_id', as: 'donator' });
+  }
 }
 
 module.exports = Donator;

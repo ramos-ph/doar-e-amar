@@ -10,7 +10,7 @@ module.exports = {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    pickupAddress: {
+    pickup_address: {
       type: Sequelize.STRING,
       allowNull: false,
     },
