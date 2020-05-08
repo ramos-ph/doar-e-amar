@@ -44,10 +44,27 @@ module.exports = {
         }, {
           model: Donator,
           as: 'donator',
+          attributes: {
+            exclude: [
+              'email',
+              'password',
+              'cpf',
+              'address',
+              'member',
+              'contact_id',
+            ],
+          },
         }, {
           model: Category,
           as: 'category',
         }],
+        attributes: {
+          exclude: [
+            'donator_id',
+            'common_donation_id',
+            'category_id',
+          ],
+        },
       });
 
       return res.status(200).json({ donations });
