@@ -7,7 +7,7 @@ module.exports = {
       autoIncrement: true,
     },
     value: {
-      type: Sequelize.DOUBLE(11, 2),
+      type: Sequelize.DOUBLE,
       allowNull: false,
     },
     created_at: Sequelize.DATE,
