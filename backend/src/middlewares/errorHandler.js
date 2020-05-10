@@ -1,1 +1,5 @@
-module.exports = (err, _req, res, _next) => res.status(err.status || 500).send(err);
+module.exports = (err, _req, res, _next) => {
+  const { status, ...error } = err;
+
+  res.status(status || 500).send(error);
+};
