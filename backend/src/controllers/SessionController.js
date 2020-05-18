@@ -42,7 +42,7 @@ module.exports = {
 
       donator.password = undefined;
 
-      return res.status(200).json({ user: donator });
+      return res.status(200).send(donator);
     } catch (err) {
       return next(err);
     }

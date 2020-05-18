@@ -41,7 +41,7 @@ module.exports = {
         },
       });
 
-      return res.status(200).json({ donations });
+      return res.status(200).send(donations);
     } catch (err) {
       return next(err);
     }

@@ -20,7 +20,7 @@ module.exports = {
         cpf,
       });
 
-      return res.status(201).json(donator);
+      return res.status(201).send(donator);
     } catch (err) {
       return res.status(500).send(err);
     }

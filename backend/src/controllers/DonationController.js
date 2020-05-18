@@ -24,7 +24,7 @@ module.exports = {
         common_donation_id: commonDonation.id,
       });
 
-      return res.status(201).json({ donation });
+      return res.status(201).send(donation);
     } catch (err) {
       return next(err);
     }
@@ -58,16 +58,9 @@ module.exports = {
           model: Category,
           as: 'category',
         }],
-        attributes: {
-          exclude: [
-            'donator_id',
-            'common_donation_id',
-            'category_id',
-          ],
-        },
       });
 
-      return res.status(200).json({ donations });
+      return res.status(200).send(donations);
     } catch (err) {
       return next(err);
     }
