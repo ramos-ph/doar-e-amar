@@ -4,5 +4,6 @@
 	},
 	"env": {
 		"NODE_ENV": "development"
-	}
+  },
+  "ignore": ["__tests__"]
 }
