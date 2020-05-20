@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const Donator = require('../models/Donator');
+const validateEmail = require('../utils/validateEmail');
 
 module.exports = {
   async store(req, res, next) {
@@ -7,11 +8,23 @@ module.exports = {
 
     if (!email || !password) {
       return next({
-        status: 403,
+        status: 400,
         error: 'Invalid payload.',
         details: {
           email: !email ? 'This field is required.' : undefined,
           password: !password ? 'This field is required.' : undefined,
+        },
+      });
+    }
+
+    const isEmailValid = validateEmail(email);
+
+    if (!isEmailValid) {
+      return next({
+        status: 400,
+        error: 'Invalid payload.',
+        details: {
+          email: 'This field is not properly formed.',
         },
       });
     }

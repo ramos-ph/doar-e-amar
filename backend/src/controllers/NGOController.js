@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const Donator = require('../models/Donator');
 const DonatorContact = require('../models/DonatorContact');
+const validateEmail = require('../utils/validateEmail');
 
 module.exports = {
   async store(req, res, next) {
@@ -8,6 +9,18 @@ module.exports = {
       name, email, password, address, cnpj, landline, cellphone,
     } = req.body;
     const { filename: avatar } = req.file;
+
+    const isEmailValid = validateEmail(email);
+
+    if (!isEmailValid) {
+      return next({
+        status: 400,
+        error: 'Invalid payload.',
+        details: {
+          email: 'This field is not properly formed.',
+        },
+      });
+    }
 
     try {
       const contact = await DonatorContact.create({
