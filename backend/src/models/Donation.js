@@ -4,6 +4,8 @@ class Donation extends Model {
   static init(sequelize) {
     super.init({
       title: DataTypes.STRING,
+      acceptance_date: DataTypes.DATE,
+      receivement_date: DataTypes.DATE,
     }, {
       sequelize,
     });
