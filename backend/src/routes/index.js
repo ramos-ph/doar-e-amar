@@ -7,5 +7,6 @@ router.use('/donations', require('./donation'));
 router.use('/offers', require('./offer'));
 router.use('/ngos', require('./ngo'));
 router.use(require('./acceptance'));
+router.use(require('./receivement'));
 
 module.exports = router;
