@@ -48,7 +48,7 @@ module.exports = {
         });
       }
 
-      donation.receiver_id = receiver_id;
+      donation.receiver_id = Number(receiver_id);
       donation.acceptance_date = Date.now();
       donation.common_donation.status = 'ACEITO';
 
