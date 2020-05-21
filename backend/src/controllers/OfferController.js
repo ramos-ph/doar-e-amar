@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const { Op } = require('sequelize');
 
 const Donation = require('../models/Donation');
@@ -7,19 +8,35 @@ const Category = require('../models/Category');
 
 module.exports = {
   async index(req, res, next) {
-    const { category } = req.query;
+    const { category, accepted, received } = req.query;
+    const { authorization: receiver_id } = req.headers;
+
+    let query = {};
+
+    // Magic. Do not touch.
+    if (accepted && received) {
+      query = {
+        [Op.or]: [
+          { status: 'RECEBIDO' },
+          { status: 'ACEITO' },
+        ],
+      };
+    } else if (accepted || received) {
+      query = {
+        status: accepted ? 'ACEITO' : received && 'RECEBIDO',
+      };
+    }
 
     try {
       const donations = await Donation.findAll({
         where: {
           monetary_donation_id: null,
+          receiver_id: (accepted || received) ? receiver_id : null,
         },
         include: [{
           model: CommonDonation,
           as: 'common_donation',
-          where: {
-            status: 'PENDENTE',
-          },
+          where: query,
         }, {
           model: Donator,
           as: 'donator',
