@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 const Donation = require('../models/Donation');
+const CommonDonation = require('../models/CommonDonation');
 const Donator = require('../models/Donator');
 
 module.exports = {
@@ -20,7 +21,12 @@ module.exports = {
         });
       }
 
-      const donation = await Donation.findByPk(offer_id);
+      const donation = await Donation.findByPk(offer_id, {
+        include: [{
+          model: CommonDonation,
+          as: 'common_donation',
+        }],
+      });
 
       if (!donation) {
         return next({
@@ -44,8 +50,14 @@ module.exports = {
 
       donation.receiver_id = receiver_id;
       donation.acceptance_date = Date.now();
+      donation.common_donation.status = 'ACEITO';
 
       await donation.save();
+
+      const commonDonation = await CommonDonation.findByPk(donation.common_donation_id);
+      commonDonation.status = 'ACEITO';
+
+      await commonDonation.save();
 
       return res
         .status(200)
