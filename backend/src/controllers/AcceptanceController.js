@@ -4,7 +4,7 @@ const Donator = require('../models/Donator');
 
 module.exports = {
   async store(req, res, next) {
-    const { donation_id } = req.params;
+    const { offer_id } = req.params;
     const { authorization: receiver_id } = req.headers;
 
     try {
@@ -20,7 +20,7 @@ module.exports = {
         });
       }
 
-      const donation = await Donation.findByPk(donation_id);
+      const donation = await Donation.findByPk(offer_id);
 
       if (!donation) {
         return next({
