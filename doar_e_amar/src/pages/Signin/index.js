@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   View,
   Text,
@@ -7,14 +7,18 @@ import {
   StatusBar,
   Alert,
 } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import {useNavigation} from '@react-navigation/native';
 
 import styles from './styles';
 import api from '../../services/api';
+import AuthContext from '../../auth/context';
 
 function Signin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const {signIn} = useContext(AuthContext);
 
   const {navigate} = useNavigation();
 
@@ -25,9 +29,11 @@ function Signin() {
         password,
       });
 
-      console.log(response.data);
+      await AsyncStorage.setItem('user', JSON.stringify(response.data));
 
       Alert.alert('OK!', 'Autenticado com sucesso!');
+
+      return signIn(response.data.id);
     } catch (err) {
       const {response = err} = err;
 

@@ -1,15 +1,19 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
 import MainPage from './pages/Main'
+import SignupPage from './pages/Signup'
+import DashboardPage from './pages/Dashboard'
 import NotFoundPage from './pages/NotFound'
 
 const MainRouter = () => (
-  <Routes>
-    <Route path="/" element={<MainPage />} />
+  <Switch>
+    <Route path="/" exact component={MainPage} />
+    <Route path="/signup" component={SignupPage} />
+    <Route path="/dashboard" component={DashboardPage} />
 
-    <Route path="*" element={<NotFoundPage />} />
-  </Routes>
+    <Route path="*" component={NotFoundPage} />
+  </Switch>
 )
 
 export default MainRouter

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import './styles.css'
 import api from '../../../../services/api'
@@ -6,6 +7,8 @@ import api from '../../../../services/api'
 function Form () {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const history = useHistory()
 
   async function handleSubmit (e) {
     e.preventDefault()
@@ -16,7 +19,10 @@ function Form () {
         password
       })
 
-      console.log(response.data)
+      localStorage.setItem('data', JSON.stringify(response.data))
+      localStorage.setItem('user_id', response.data.id)
+
+      history.push('/dashboard')
     } catch (err) {
       const { response = err } = err
 

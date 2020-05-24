@@ -1,0 +1,188 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  background-color: #EEE;
+  background-position: cover;
+}
+
+.dashboard-container aside {
+  position: relative;
+  height: 100%;
+  max-width: 270px;
+  width: 100%;
+  background-color: #FFF;
+  padding: 20px 15px;
+  box-shadow: 0 0 5px 0 #0002;
+  transition: all .3s;
+}
+
+.dashboard-container aside .menu-toggler {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+
+.dashboard-container aside .menu-toggler svg {
+  cursor: pointer;
+}
+
+.dashboard-container aside .menu-toggler strong {
+  font-size: 20px;
+}
+
+.dashboard-container aside ul {
+  list-style: none;
+  margin-top: 50px;
+}
+
+.dashboard-container aside ul li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px;
+  width: 100%;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.dashboard-container aside ul li:hover {
+  background: #F2F2F2;
+}
+
+.dashboard-container aside ul li svg {
+  margin-right: 10px;
+}
+
+.dashboard-container aside ul li a {
+  font-size: 15px;
+  color: #222;
+  text-decoration: none;
+}
+
+.dashboard-container aside.active {
+  margin-left: -215px;
+}
+
+.dashboard-container .content {
+  display: flex;
+  flex-direction: column;
+  background-color: #162547;
+  max-height: 290px;
+  width: 100%;
+  color: #FFF;
+}
+
+.dashboard-container .content header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 24px 0;
+  height: 80px;
+}
+
+.dashboard-container .content header .input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: #FFF;
+  padding: 0 8px;
+  height: 42px;
+  width: 270px;
+  border-radius: 21px;
+  box-shadow: 0 0 5px 0 #0004;
+}
+
+.dashboard-container .content header .input-container button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dashboard-container .content header .input-container input {
+  background: none;
+  height: 42px;
+  border: none;
+}
+
+.dashboard-container .content header .header-content {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.dashboard-container .content header .header-content .avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.dashboard-container .content header .header-content strong {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.dashboard-container .content h2 {
+  margin-top: 25px;
+  margin-bottom: 35px;
+  margin-left: 35px;
+}
+
+.dashboard-container .content .donations-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  padding: 0 45px;
+}
+
+.dashboard-container .content .donations-list li {
+  display: flex;
+  flex-direction: column;
+  background: #FFF;
+  padding: 8px;
+  border-radius: 8px;
+  max-width: 250px;
+  width: 100%;
+}
+
+.dashboard-container .content .donations-list li img {
+  height: 150px;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+
+.dashboard-container .content .donations-list li footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 8px;
+  background: none;
+}
+
+.dashboard-container .content .donations-list li footer strong {
+  color: #2a2a2c;
+  font-size: 17px;
+}
+
+.dashboard-container .content .donations-list li footer p {
+  color: #666;
+  font-size: 15px;
+}
+
+.dashboard-container .content .donations-list li footer .status {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+}
