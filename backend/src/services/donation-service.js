@@ -1,3 +1,4 @@
+/* eslint-disable no-throw-literal */
 const Donation = require('../models/Donation');
 const Donator = require('../models/Donator');
 const CommonDonation = require('../models/CommonDonation');
@@ -104,5 +105,78 @@ module.exports = {
         as: 'category',
       }],
     });
+  },
+
+  async acceptDonation(receiverId, donationId) {
+    const donation = await Donation.findByPk(donationId, {
+      include: [{
+        model: CommonDonation,
+        as: 'common_donation',
+      }],
+    });
+
+    if (!donation) {
+      throw {
+        status: 404,
+        error: 'Not found.',
+        details: {
+          donation: 'This donation does not exists.',
+        },
+      };
+    }
+
+    if (donation.receiver_id) {
+      throw {
+        status: 403,
+        error: 'Forbidden.',
+        details: {
+          donation: 'This donation was already accepted.',
+        },
+      };
+    }
+
+    donation.receiver_id = Number(receiverId);
+    donation.acceptance_date = Date.now();
+    donation.common_donation.status = 'ACEITO';
+
+    await donation.save();
+
+    const commonDonation = await CommonDonation.findByPk(donation.common_donation_id);
+    commonDonation.status = 'ACEITO';
+
+    await commonDonation.save();
+
+    return donation;
+  },
+
+  async receiveDonation(receiverId, donationId) {
+    const donation = await Donation.findByPk(donationId, {
+      include: [{
+        model: CommonDonation,
+        as: 'common_donation',
+      }],
+    });
+
+    if (donation.receiver_id !== Number(receiverId)) {
+      throw {
+        status: 403,
+        error: 'Forbidden.',
+        details: {
+          authorization: 'Operation not permitted.',
+        },
+      };
+    }
+
+    donation.receivement_date = Date.now();
+    donation.common_donation.status = 'RECEBIDO';
+
+    await donation.save();
+
+    const commonDonation = await CommonDonation.findByPk(donation.common_donation_id);
+    commonDonation.status = 'RECEBIDO';
+
+    await commonDonation.save();
+
+    return donation;
   },
 };

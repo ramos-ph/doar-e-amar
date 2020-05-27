@@ -59,22 +59,35 @@ module.exports = {
     const { authorization } = req.headers;
     const { donation_id: donationId } = req.params;
 
-    try {
-      const ngo = await NGOService.findNgoById(authorization);
+    let donation;
 
-      if (!ngo.member) {
+    try {
+      if (/self/.test(req.path)) {
+        donation = await DonationService.findUserDonationById(authorization, donationId);
+      } else {
+        const ngo = await NGOService.findNgoById(authorization);
+
+        if (!ngo.member) {
+          return next({
+            status: 403,
+            error: 'Forbidden.',
+            details: {
+              authorization: 'Operation not permitted.',
+            },
+          });
+        }
+
+        donation = await DonationService.getOfferById(donationId);
+      }
+
+      if (!donation) {
         return next({
-          status: 403,
-          error: 'Forbidden.',
-          details: {
-            authorization: 'Operation not permitted.',
-          },
+          status: 404,
+          error: 'Donation not found.',
         });
       }
 
-      const donations = await DonationService.getOfferById(donationId);
-
-      return res.status(200).send(donations);
+      return res.status(200).send(donation);
     } catch (err) {
       return next(err);
     }
