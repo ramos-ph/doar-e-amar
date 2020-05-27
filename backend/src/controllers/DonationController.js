@@ -1,27 +1,52 @@
-const Donation = require('../models/Donation');
-const CommonDonation = require('../models/CommonDonation');
-const Donator = require('../models/Donator');
-const Category = require('../models/Category');
+const DonationService = require('../services/donation-service');
+const NGOService = require('../services/ngo-service');
 
 module.exports = {
+  async index(req, res, next) {
+    const { authorization } = req.headers;
+
+    try {
+      let donations;
+
+      if (/self/.test(req.path)) {
+        donations = await DonationService.findUserDonations(authorization);
+      } else {
+        const ngo = await NGOService.findNgoById(authorization);
+
+        if (!ngo.member) {
+          return next({
+            status: 403,
+            error: 'Forbidden.',
+            details: {
+              authorization: 'Operation not permitted.',
+            },
+          });
+        }
+
+        donations = await DonationService.getOffers();
+      }
+
+      return res.status(200).send(donations);
+    } catch (err) {
+      return next(err);
+    }
+  },
+
   async store(req, res, next) {
     const { title, address } = req.body;
-    const { authorization: donator_id } = req.headers;
-    const { category_id } = req.query;
+    const { authorization: donatorId } = req.headers;
+    const { category_id: categoryId } = req.query;
     const { filename: picture } = req.file;
 
     try {
-      const commonDonation = await CommonDonation.create({
-        pickup_address: address,
+      const donation = await DonationService.createCommonDonation({
         picture,
-        status: 'PENDENTE',
-      });
-
-      const donation = await Donation.create({
+        pickup_address: address,
+      }, {
         title,
-        donator_id,
-        category_id,
-        common_donation_id: commonDonation.id,
+        donator_id: donatorId,
+        category_id: categoryId,
+        picture,
       });
 
       return res.status(201).send(donation);
@@ -31,34 +56,23 @@ module.exports = {
   },
 
   async show(req, res, next) {
-    const { authorization: donator_id } = req.headers;
+    const { authorization } = req.headers;
+    const { donation_id: donationId } = req.params;
 
     try {
-      const donations = await Donation.findAll({
-        where: {
-          donator_id,
-        },
-        include: [{
-          model: CommonDonation,
-          as: 'common_donation',
-        }, {
-          model: Donator,
-          as: 'donator',
-          attributes: {
-            exclude: [
-              'email',
-              'password',
-              'cpf',
-              'address',
-              'member',
-              'contact_id',
-            ],
+      const ngo = await NGOService.findNgoById(authorization);
+
+      if (!ngo.member) {
+        return next({
+          status: 403,
+          error: 'Forbidden.',
+          details: {
+            authorization: 'Operation not permitted.',
           },
-        }, {
-          model: Category,
-          as: 'category',
-        }],
-      });
+        });
+      }
+
+      const donations = await DonationService.getOfferById(donationId);
 
       return res.status(200).send(donations);
     } catch (err) {

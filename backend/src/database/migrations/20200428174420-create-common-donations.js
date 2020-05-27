@@ -17,6 +17,7 @@ module.exports = {
     status: {
       type: Sequelize.STRING,
       allowNull: false,
+      defaultValue: 'PENDENTE',
     },
     created_at: Sequelize.DATE,
     updated_at: Sequelize.DATE,

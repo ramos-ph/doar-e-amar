@@ -7,7 +7,9 @@ const upload = multer(multerConfig);
 
 const DonationController = require('../controllers/DonationController');
 
-router.post('/', upload.single('picture'), DonationController.store);
-router.get('/', DonationController.show);
+router
+  .post('/donations', upload.single('picture'), DonationController.store)
+  .get('/donations', DonationController.index)
+  .get('/donations/:donation_id', DonationController.show);
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const Donator = require('../models/Donator');
+const User = require('../services/user-service');
 const validateEmail = require('../utils/validateEmail');
 
 module.exports = {
@@ -24,7 +24,7 @@ module.exports = {
     try {
       const hashedPassword = bcrypt.hashSync(password, 10);
 
-      const donator = await Donator.create({
+      const user = await User.create({
         name,
         email,
         password: hashedPassword,
@@ -33,7 +33,19 @@ module.exports = {
         cpf,
       });
 
-      return res.status(201).send(donator);
+      return res.status(201).send(user);
+    } catch (err) {
+      return next(err);
+    }
+  },
+
+  async show(req, res, next) {
+    const { user_id: userId } = req.params;
+
+    try {
+      const user = await User.findById(userId);
+
+      return res.status(200).send(user);
     } catch (err) {
       return next(err);
     }
