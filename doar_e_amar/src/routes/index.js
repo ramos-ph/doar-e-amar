@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import AuthContext from '../auth/context';
 
+import Loading from '../pages/Loading';
 import Start from '../pages/Start';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -52,7 +53,7 @@ function Routes() {
         console.log(err);
       }
 
-      return dispatch({action: 'RESTORE_TOKEN', token});
+      return dispatch({type: 'RESTORE_TOKEN', token});
     }
 
     restoreToken();
@@ -60,9 +61,9 @@ function Routes() {
 
   const contextValue = useMemo(
     () => ({
-      signIn: (token) => dispatch({action: 'SIGN_IN', token}),
+      signIn: (token) => dispatch({type: 'SIGN_IN', token}),
 
-      signOut: () => dispatch({action: 'SIGN_OUT'}),
+      signOut: () => dispatch({type: 'SIGN_OUT'}),
     }),
     [],
   );
@@ -70,26 +71,42 @@ function Routes() {
   return (
     <AuthContext.Provider value={contextValue}>
       <Stack.Navigator>
-        <Stack.Screen
-          name="Start"
-          component={Start}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="Signin"
-          component={Signin}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="Signup"
-          component={Signup}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="CommonUserSignup"
-          component={CommonUserSignupRoutes}
-          options={{headerShown: false}}
-        />
+        {state.isLoading ? (
+          <Stack.Screen
+            name="Loading"
+            component={Loading}
+            options={{headerShown: false}}
+          />
+        ) : state.userToken === null ? (
+          <>
+            <Stack.Screen
+              name="Start"
+              component={Start}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Signin"
+              component={Signin}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Signup"
+              component={Signup}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="CommonUserSignup"
+              component={CommonUserSignupRoutes}
+              options={{headerShown: false}}
+            />
+          </>
+        ) : (
+          <Stack.Screen
+            name="Auth"
+            component={AuthRoutes}
+            options={{headerShown: false}}
+          />
+        )}
       </Stack.Navigator>
     </AuthContext.Provider>
   );
