@@ -7,6 +7,8 @@ const upload = multer(multerConfig);
 
 const NGOController = require('../controllers/NGOController');
 
-router.post('/ngos', upload.single('avatar'), NGOController.store);
+router
+  .get('/ngos', NGOController.index)
+  .post('/ngos', upload.single('avatar'), NGOController.store);
 
 module.exports = router;

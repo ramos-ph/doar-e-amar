@@ -3,7 +3,19 @@ const Donator = require('../models/Donator');
 const DonatorContact = require('../models/DonatorContact');
 const validateEmail = require('../utils/validateEmail');
 
+const NGO = require('../services/ngo-service');
+
 module.exports = {
+  async index(_req, res, next) {
+    try {
+      const ngos = await NGO.getNgos();
+
+      return res.status(200).send(ngos);
+    } catch (err) {
+      return next(err);
+    }
+  },
+
   async store(req, res, next) {
     const {
       name, email, password, address, cnpj, landline, cellphone,
