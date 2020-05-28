@@ -1,19 +1,27 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/Feather';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Main from '../pages/Main';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 function AuthRoutes() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen
+    <Tab.Navigator
+      initialRouteName="Main"
+      tabBarOptions={{activeTintColor: '#3498db'}}>
+      <Tab.Screen
         name="Main"
         component={Main}
-        options={{headerShown: false}}
+        options={{
+          title: 'Início',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="home" size={size} color={color} />
+          ),
+        }}
       />
-    </Stack.Navigator>
+    </Tab.Navigator>
   );
 }
 
