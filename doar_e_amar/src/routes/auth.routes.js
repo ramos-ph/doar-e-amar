@@ -3,6 +3,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Main from '../pages/Main';
+import Search from '../pages/Search';
 import Profile from '../pages/Profile';
 
 const Tab = createBottomTabNavigator();
@@ -44,7 +45,7 @@ function AuthRoutes() {
       />
       <Tab.Screen
         name="Search"
-        component={Main}
+        component={Search}
         options={{
           title: 'Buscar',
           tabBarIcon: ({color, size}) => (
