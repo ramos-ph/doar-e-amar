@@ -1,7 +1,8 @@
-import React, {useState, useMemo} from 'react';
-import {View, Image, Text} from 'react-native';
+import React, {useState, useMemo, useContext} from 'react';
+import {View, Image, Text, TouchableOpacity} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
+import AuthContext from '../../auth/context';
 import styles from './styles';
 
 function Profile() {
@@ -13,6 +14,8 @@ function Profile() {
     });
   }, []);
 
+  const {signOut} = useContext(AuthContext);
+
   return (
     <View style={styles.container}>
       <Image
@@ -22,6 +25,10 @@ function Profile() {
 
       <Text style={styles.title}>{user?.name}</Text>
       <Text style={styles.info}>{user?.email}</Text>
+
+      <TouchableOpacity style={styles.button} onPress={signOut}>
+        <Text style={styles.buttonText}>Sair</Text>
+      </TouchableOpacity>
     </View>
   );
 }

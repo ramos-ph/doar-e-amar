@@ -28,4 +28,20 @@ export default StyleSheet.create({
     fontSize: fonts.regular,
     color: colors.light,
   },
+
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    bottom: 30,
+    left: 20,
+    right: 20,
+    height: 52,
+    backgroundColor: '#ff000033',
+    borderRadius: 4,
+  },
+
+  buttonText: {
+    color: '#ff0000',
+  },
 });
