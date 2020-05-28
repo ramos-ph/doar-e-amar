@@ -31,8 +31,6 @@ function Signin() {
 
       await AsyncStorage.setItem('user', JSON.stringify(response.data));
 
-      Alert.alert('OK!', 'Autenticado com sucesso!');
-
       return signIn(response.data.id);
     } catch (err) {
       const {response = err} = err;

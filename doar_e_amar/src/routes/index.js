@@ -4,11 +4,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import AuthContext from '../auth/context';
 
-import Loading from '../pages/Loading';
-import Start from '../pages/Start';
-import Signin from '../pages/Signin';
-import Signup from '../pages/Signup';
-import CommonUserSignupRoutes from './commonUserSignup.routes';
+import AppRoutes from './app.routes';
 import AuthRoutes from './auth.routes';
 
 const Stack = createStackNavigator();
@@ -50,7 +46,7 @@ function Routes() {
 
         token = id;
       } catch (err) {
-        console.log(err);
+        token = null;
       }
 
       return dispatch({type: 'RESTORE_TOKEN', token});
@@ -72,34 +68,15 @@ function Routes() {
     <AuthContext.Provider value={contextValue}>
       <Stack.Navigator>
         {state.isLoading ? (
+          <Stack.Screen name="Loading" options={{headerShown: false}}>
+            {() => <></>}
+          </Stack.Screen>
+        ) : state.userToken === null ? (
           <Stack.Screen
-            name="Loading"
-            component={Loading}
+            name="App"
+            component={AppRoutes}
             options={{headerShown: false}}
           />
-        ) : state.userToken === null ? (
-          <>
-            <Stack.Screen
-              name="Start"
-              component={Start}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
-              name="Signin"
-              component={Signin}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
-              name="Signup"
-              component={Signup}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
-              name="CommonUserSignup"
-              component={CommonUserSignupRoutes}
-              options={{headerShown: false}}
-            />
-          </>
         ) : (
           <Stack.Screen
             name="Auth"
