@@ -3,6 +3,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Main from '../pages/Main';
+import Profile from '../pages/Profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -53,7 +54,7 @@ function AuthRoutes() {
       />
       <Tab.Screen
         name="Profile"
-        component={Main}
+        component={Profile}
         options={{
           title: 'Perfil',
           tabBarIcon: ({color, size}) => (
