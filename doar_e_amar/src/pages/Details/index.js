@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Image, Text, TouchableOpacity} from 'react-native';
+import {View, Image, Text, TouchableOpacity, Alert} from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -35,21 +35,22 @@ function Details() {
 
       const {id} = JSON.parse(storagedUser);
 
-      const response = await api.put(
-        `/donations/${donation.id}/actions/accept`,
-        null,
-        {
-          headers: {
-            authorization: id,
-          },
+      await api.put(`/donations/${donation.id}/actions/accept`, null, {
+        headers: {
+          authorization: id,
         },
-      );
+      });
 
-      // Emit socket.io message;
-
-      console.log(response.data);
+      Alert.alert('OK!', `${donation.title} foi aceita com sucesso!`);
     } catch (err) {
-      console.log(err);
+      const {response = err} = err;
+
+      Alert.alert(
+        'Ops..',
+        response.status === 403
+          ? 'Por enquanto, você não tem permissão para aceitar doações.\n\nSaiba mais sobre nossa assinatura.'
+          : 'Houve um erro ao tentar realizar o processo.',
+      );
     }
   }
 
