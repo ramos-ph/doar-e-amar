@@ -13,7 +13,7 @@ module.exports = {
       } else {
         const ngo = await NGOService.findNgoById(authorization);
 
-        if (ngo.cnpj === null) {
+        if (!ngo.cnpj) {
           return next({
             status: 403,
             error: 'Forbidden.',
@@ -67,7 +67,7 @@ module.exports = {
       } else {
         const ngo = await NGOService.findNgoById(authorization);
 
-        if (!ngo.member) {
+        if (!ngo.cnpj) {
           return next({
             status: 403,
             error: 'Forbidden.',

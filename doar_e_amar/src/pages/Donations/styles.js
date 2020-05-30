@@ -8,8 +8,8 @@ export default StyleSheet.create({
   legend: {
     ...common.legend,
     color: '#000',
-    marginTop: 30,
-    marginBottom: 10,
+    marginTop: 10,
+    marginBottom: 2,
   },
 
   label: {

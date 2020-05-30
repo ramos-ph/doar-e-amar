@@ -1,13 +1,33 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import Donations from '../pages/Donations';
 import Main from '../pages/Main';
 import Search from '../pages/Search';
 import Profile from '../pages/Profile';
+import Details from '../pages/Details';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+function DonationsRoutes() {
+  return (
+    <Stack.Navigator initialRouteName="Donations">
+      <Stack.Screen
+        name="Donations"
+        component={Donations}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Details"
+        component={Details}
+        options={{title: 'Detalhes da doação'}}
+      />
+    </Stack.Navigator>
+  );
+}
 
 function AuthRoutes() {
   return (
@@ -16,7 +36,7 @@ function AuthRoutes() {
       tabBarOptions={{activeTintColor: '#3498db'}}>
       <Tab.Screen
         name="Donations"
-        component={Donations}
+        component={DonationsRoutes}
         options={{
           title: 'Doações',
           tabBarIcon: ({color, size}) => (

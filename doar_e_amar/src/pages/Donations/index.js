@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {View, FlatList, Text, Image} from 'react-native';
+import {View, FlatList, TouchableOpacity, Text, Image} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import styles from './styles';
@@ -7,6 +8,8 @@ import api from '../../services/api';
 
 function Donations() {
   const [offers, setOffers] = useState([]);
+
+  const {navigate} = useNavigation();
 
   useEffect(() => {
     async function restoreOffers() {
@@ -28,7 +31,10 @@ function Donations() {
 
   function renderItem({item}) {
     return (
-      <View style={styles.item} key={item.id}>
+      <TouchableOpacity
+        style={styles.item}
+        key={item.id}
+        onPress={() => navigate('Details', item)}>
         <Image
           style={styles.image}
           source={{
@@ -40,7 +46,7 @@ function Donations() {
           <Text style={styles.title}>{item.title}</Text>
           <Text style={styles.category}>{item.category.name}</Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 
