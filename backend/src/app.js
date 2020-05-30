@@ -22,7 +22,9 @@ const io = socketio(server);
 const connectedUsers = {};
 
 io.on('connection', (socket) => {
-  const userId = socket.handshake.query;
+  const { userId } = socket.handshake.query;
+
+  console.log(`> [SOCKET]: Nova conexão: ${socket.id}`);
 
   connectedUsers[userId] = socket.id;
 });

@@ -21,6 +21,8 @@ module.exports = {
 
       const donation = await DonationService.acceptDonation(authorization, donationId);
 
+      req.io.emit('donation_accepted', { id: donationId });
+
       return res
         .status(200)
         .send(donation);

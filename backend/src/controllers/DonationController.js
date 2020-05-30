@@ -49,6 +49,8 @@ module.exports = {
         picture,
       });
 
+      req.io.emit('new_donation', null);
+
       return res.status(201).send(donation);
     } catch (err) {
       return next(err);

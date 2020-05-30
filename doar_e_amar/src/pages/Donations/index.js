@@ -1,7 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import {View, FlatList, TouchableOpacity, Text, Image} from 'react-native';
+import {
+  View,
+  FlatList,
+  TouchableOpacity,
+  Text,
+  Image,
+  ToastAndroid,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
+import socketio from 'socket.io-client';
 
 import styles from './styles';
 import api from '../../services/api';
@@ -10,6 +18,30 @@ function Donations() {
   const [offers, setOffers] = useState([]);
 
   const {navigate} = useNavigation();
+
+  useEffect(() => {
+    AsyncStorage.getItem('user').then((storagedUser) => {
+      const {id} = JSON.parse(storagedUser);
+
+      const socket = socketio('http://localhost:3001/', {
+        query: {
+          userId: id,
+        },
+      });
+
+      socket.on('new_donation', () => {
+        ToastAndroid.show('Novas ofertas', ToastAndroid.SHORT);
+      });
+
+      socket.on('donation_accepted', (donation) => {
+        const filteredOffers = offers.filter((offer) => {
+          return offer.id !== donation.id;
+        });
+
+        setOffers(filteredOffers);
+      });
+    });
+  }, [offers]);
 
   useEffect(() => {
     async function restoreOffers() {
@@ -54,7 +86,6 @@ function Donations() {
     <View style={styles.container}>
       <Text style={styles.legend}>Doações</Text>
       <Text style={styles.label}>Veja as mais recentes ofertas</Text>
-
       <FlatList
         data={offers}
         horizontal={false}
