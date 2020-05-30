@@ -1,5 +1,4 @@
-import Credentials from './Credentials';
-import PersonalData from './PersonalData';
-import Address from './Address';
-
-export {Credentials, PersonalData, Address};
+export Credentials from './Credentials';
+export PersonalData from './PersonalData';
+export Address from './Address';
+export Contact from './Contact';

@@ -40,7 +40,7 @@ function Start() {
       </TouchableOpacity>
 
       <TouchableOpacity
-        onPress={() => navigate('Signup')}
+        onPress={() => navigate('Credentials')}
         style={[styles.button, styles.altButton]}>
         <Text style={[styles.buttonText, styles.altButtonText]}>
           Cadastre-se

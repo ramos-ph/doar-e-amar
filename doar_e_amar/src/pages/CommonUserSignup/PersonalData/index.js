@@ -17,23 +17,22 @@ import Progress from '../components/Progress';
 
 function PersonalData() {
   const [name, setName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [cpf, setCpf] = useState('');
+  const [cnpj, setCnpj] = useState('');
   const [picture, setPicture] = useState(null);
 
   const {navigate, goBack} = useNavigation();
   const {params} = useRoute();
 
   function proceedSignup() {
-    if (cpf.length !== 11) {
-      return Alert.alert('Ops..', 'Insira um CPF válido');
+    if (cnpj.length !== 14) {
+      return Alert.alert('Ops..', 'Insira um CNPJ válido.');
     }
 
     return navigate('Address', {
       ...params,
-      name: `${name} ${lastName}`,
-      cpf,
-      picture,
+      name,
+      cnpj,
+      avatar: picture,
     });
   }
 
@@ -52,8 +51,8 @@ function PersonalData() {
 
       setPicture({
         uri,
-        type: 'image/jpeg',
-        name: 'photoslacaramba.jpg',
+        type,
+        name: fileName,
       });
     });
   }
@@ -62,7 +61,7 @@ function PersonalData() {
     <View style={styles.container}>
       <Progress
         step={2}
-        maxSteps={3}
+        maxSteps={4}
         currentStep="Dados pessoais"
         nextStep="Endereçamento"
       />
@@ -75,32 +74,24 @@ function PersonalData() {
             <Image source={picture} style={styles.picture} />
           )}
         </TouchableOpacity>
-
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>SEU NOME *</Text>
-
-          <TextInput
-            style={styles.input}
-            placeholder="Seu nome"
-            value={name}
-            onChangeText={setName}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Sobrenome"
-            value={lastName}
-            onChangeText={setLastName}
-          />
-        </View>
       </View>
 
-      <Text style={styles.label}>SEU CPF *</Text>
+      <Text style={styles.label}>SUA RAZÃO SOCIAL *</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Sua razão social"
+        keyboardType="default"
+        value={name}
+        onChangeText={setName}
+      />
+
+      <Text style={styles.label}>SEU CNPJ *</Text>
       <TextInput
         style={styles.input}
         placeholder="Somente números"
         keyboardType="number-pad"
-        value={cpf}
-        onChangeText={setCpf}
+        value={cnpj}
+        onChangeText={setCnpj}
       />
 
       <View style={styles.actions}>

@@ -21,19 +21,19 @@ export default StyleSheet.create({
   avatar: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 150,
+    height: 128,
     width: 128,
     borderWidth: 1,
     borderStyle: 'dashed',
     borderColor: '#999',
-    borderRadius: 8,
+    borderRadius: 64,
   },
 
   picture: {
     flex: 1,
-    height: 150,
+    height: 128,
     width: 128,
-    borderRadius: 8,
+    borderRadius: 64,
   },
 
   inputGroup: {

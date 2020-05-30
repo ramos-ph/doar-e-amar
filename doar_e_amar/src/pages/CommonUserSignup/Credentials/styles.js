@@ -18,7 +18,7 @@ export default StyleSheet.create({
   actions: {
     alignItems: 'flex-end',
     position: 'absolute',
-    bottom: 20,
+    bottom: 84,
     left: 15,
     right: 15,
   },
@@ -26,5 +26,29 @@ export default StyleSheet.create({
   button: {
     ...common.button,
     width: '40%',
+  },
+
+  footer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    borderTopColor: '#ddd',
+    borderTopWidth: 1,
+    height: 64,
+  },
+
+  footerText: {
+    color: '#19191a',
+    fontSize: 16,
+    fontWeight: '700',
+  },
+
+  action: {
+    color: '#ff0055',
+    marginLeft: 6,
   },
 });

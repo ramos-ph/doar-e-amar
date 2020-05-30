@@ -3,9 +3,13 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Start from '../pages/Start';
 import Signin from '../pages/Signin';
-import Signup from '../pages/Signup';
 
-import {Credentials, PersonalData, Address} from '../pages/CommonUserSignup';
+import {
+  Credentials,
+  PersonalData,
+  Address,
+  Contact,
+} from '../pages/CommonUserSignup';
 
 const Stack = createStackNavigator();
 
@@ -23,11 +27,6 @@ function AppRoutes() {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="Signup"
-        component={Signup}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
         name="Credentials"
         component={Credentials}
         options={{headerShown: false}}
@@ -40,6 +39,11 @@ function AppRoutes() {
       <Stack.Screen
         name="Address"
         component={Address}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Contact"
+        component={Contact}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

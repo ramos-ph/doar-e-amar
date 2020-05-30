@@ -28,7 +28,7 @@ function Credentials() {
     <View style={styles.container}>
       <Progress
         step={1}
-        maxSteps={3}
+        maxSteps={4}
         currentStep="Credenciais de acesso"
         nextStep="Dados pessoais"
       />
@@ -63,6 +63,13 @@ function Credentials() {
       <View style={styles.actions}>
         <TouchableOpacity style={styles.button} onPress={proceedSignup}>
           <Text style={styles.buttonText}>Próximo</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.footer}>
+        <Text style={styles.footerText}>Já tem uma conta?</Text>
+        <TouchableOpacity onPress={() => navigate('Signin')}>
+          <Text style={[styles.footerText, styles.action]}>Acesse!</Text>
         </TouchableOpacity>
       </View>
     </View>

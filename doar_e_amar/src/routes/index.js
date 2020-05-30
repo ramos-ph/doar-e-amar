@@ -59,7 +59,9 @@ function Routes() {
     () => ({
       signIn: (token) => dispatch({type: 'SIGN_IN', token}),
 
-      signOut: () => dispatch({type: 'SIGN_OUT'}),
+      signOut: () => {
+        AsyncStorage.clear().then(() => dispatch({type: 'SIGN_OUT'}));
+      },
     }),
     [],
   );

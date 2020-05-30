@@ -74,7 +74,7 @@ function Signin() {
 
       <View style={styles.footer}>
         <Text style={styles.footerText}>Ainda não tem uma conta?</Text>
-        <TouchableOpacity onPress={() => navigate('Signup')}>
+        <TouchableOpacity onPress={() => navigate('Credentials')}>
           <Text style={[styles.footerText, styles.action]}>Cadastre-se!</Text>
         </TouchableOpacity>
       </View>

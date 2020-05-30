@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, TouchableOpacity, Alert} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 
 import styles from './styles';
-import api from '../../../services/api';
 
 import Progress from '../components/Progress';
 
@@ -11,43 +10,26 @@ function Address() {
   const [zipcode, setZipcode] = useState('');
   const [number, setNumber] = useState('');
 
-  const {goBack} = useNavigation();
+  const {navigate, goBack} = useNavigation();
   const {params} = useRoute();
 
-  async function handleSubmit() {
-    const {name, email, password, cpf, picture} = params;
+  async function proceedSignup() {
     const address = `${zipcode}, ${number}`;
 
-    const data = new FormData();
-
-    data.append('name', name);
-    data.append('email', email);
-    data.append('password', password);
-    data.append('avatar', picture);
-    data.append('cpf', cpf);
-    data.append('address', address);
-
-    try {
-      await api.post('/common', data, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-
-      Alert.alert('OK!', 'Usuário cadastrado com sucesso!');
-    } catch (err) {
-      console.log({err});
-
-      Alert.alert(
-        'Ops..',
-        'Ocorreu um erro ao realizar o processo. Tente novamente.',
-      );
-    }
+    navigate('Contact', {
+      ...params,
+      address,
+    });
   }
 
   return (
     <View style={styles.container}>
-      <Progress step={3} maxSteps={3} currentStep="Endereçamento" />
+      <Progress
+        step={3}
+        maxSteps={4}
+        currentStep="Endereçamento"
+        nextStep="Contato"
+      />
 
       <Text style={styles.label}>SEU ENDEREÇO *</Text>
       <View style={styles.inputGroup}>
@@ -74,8 +56,8 @@ function Address() {
           <Text style={[styles.buttonText, {color: '#666'}]}>Voltar</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-          <Text style={styles.buttonText}>Concluir</Text>
+        <TouchableOpacity style={styles.button} onPress={proceedSignup}>
+          <Text style={styles.buttonText}>Próximo</Text>
         </TouchableOpacity>
       </View>
     </View>

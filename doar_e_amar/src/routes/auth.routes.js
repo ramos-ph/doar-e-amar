@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 function AuthRoutes() {
   return (
     <Tab.Navigator
-      initialRouteName="Main"
+      initialRouteName="Home"
       tabBarOptions={{activeTintColor: '#3498db'}}>
       <Tab.Screen
         name="Donations"
@@ -34,7 +34,7 @@ function AuthRoutes() {
         }}
       />
       <Tab.Screen
-        name="Main"
+        name="Home"
         component={Main}
         options={{
           title: 'Início',
