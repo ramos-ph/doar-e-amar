@@ -62,7 +62,7 @@ function PersonalData() {
       <Progress
         step={2}
         maxSteps={4}
-        currentStep="Dados pessoais"
+        currentStep="Dados organizacionais"
         nextStep="Endereçamento"
       />
 

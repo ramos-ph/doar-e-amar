@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
+import Donations from '../pages/Donations';
 import Main from '../pages/Main';
 import Search from '../pages/Search';
 import Profile from '../pages/Profile';
@@ -15,7 +16,7 @@ function AuthRoutes() {
       tabBarOptions={{activeTintColor: '#3498db'}}>
       <Tab.Screen
         name="Donations"
-        component={Main}
+        component={Donations}
         options={{
           title: 'Doações',
           tabBarIcon: ({color, size}) => (

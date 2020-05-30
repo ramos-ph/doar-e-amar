@@ -30,7 +30,7 @@ function Credentials() {
         step={1}
         maxSteps={4}
         currentStep="Credenciais de acesso"
-        nextStep="Dados pessoais"
+        nextStep="Dados organizacionais"
       />
 
       <Text style={styles.label}>SEU E-MAIL *</Text>

@@ -5,15 +5,15 @@ module.exports = {
   async index(req, res, next) {
     const { authorization } = req.headers;
 
-    try {
-      let donations;
+    let donations;
 
+    try {
       if (/self/.test(req.path)) {
         donations = await DonationService.findUserDonations(authorization);
       } else {
         const ngo = await NGOService.findNgoById(authorization);
 
-        if (!ngo.member) {
+        if (ngo.cnpj === null) {
           return next({
             status: 403,
             error: 'Forbidden.',

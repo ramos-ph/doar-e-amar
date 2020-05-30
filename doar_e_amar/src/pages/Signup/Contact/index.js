@@ -19,14 +19,14 @@ function Contact() {
   const {params} = useRoute();
 
   async function handleSubmit() {
-    const {email, password, name, cpnj, avatar, address} = params;
+    const {email, password, name, cnpj, avatar, address} = params;
 
     const data = new FormData();
 
     data.append('name', name);
     data.append('password', password);
     data.append('email', email);
-    data.append('cpnj', cpnj);
+    data.append('cnpj', cnpj);
     data.append('avatar', avatar);
     data.append('address', address);
     data.append('landline', landline);
