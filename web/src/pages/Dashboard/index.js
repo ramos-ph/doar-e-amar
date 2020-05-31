@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { FiSearch } from 'react-icons/fi'
-
 import './styles.css'
+
 import Header from '../../components/Header'
+import AcceptanceModal from '../../components/AcceptanceModal'
 import api from '../../services/api'
 
 function Dashboard () {
   const [donations, setDonations] = useState([])
+  const [acceptedDonation, setAcceptedDonation] = useState(null)
 
   const user = JSON.parse(localStorage.getItem('data'))
   const userId = localStorage.getItem('user_id')
@@ -38,6 +40,8 @@ function Dashboard () {
       <Header isLoggedIn={true} />
 
       <div className="dashboard-container">
+        {acceptedDonation && <AcceptanceModal donation={acceptedDonation} setAcceptedDonation={setAcceptedDonation} />}
+
         <header>
           <div className="input-container">
             <input type="text" placeholder="O que está procurando?" />

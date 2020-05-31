@@ -1,0 +1,62 @@
+.acceptance-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000b;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.acceptance-modal .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  position: relative;
+  background: var(--color-white);
+  border-radius: 8px;
+  height: 280px;
+  width: 400px;
+  padding: 0 50px;
+}
+
+.acceptance-modal .content img {
+  position: absolute;
+  top: -48px;
+  height: 96px;
+  width: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.acceptance-modal .content strong {
+  margin-top: 35px;
+  font-size: 22px;
+}
+
+.acceptance-modal .content p {
+  color: #333;
+  text-align: center;
+  font-size: 16px;
+}
+
+.acceptance-modal .content button {
+  background: #31CC53;
+  margin-top: 40px;
+  color: var(--color-white);
+  font-weight: bold;
+  font-size: 15px;
+  height: 42px;
+  width: 80%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+
+.acceptance-modal .content button:hover {
+  opacity: 0.8;
+}
