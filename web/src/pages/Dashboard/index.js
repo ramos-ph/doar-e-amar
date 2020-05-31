@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { FiSearch } from 'react-icons/fi'
+import socketio from 'socket.io-client'
 import './styles.css'
 
 import Header from '../../components/Header'
@@ -12,6 +13,12 @@ function Dashboard () {
 
   const user = JSON.parse(localStorage.getItem('data'))
   const userId = localStorage.getItem('user_id')
+
+  const socket = useMemo(() => socketio('http://localhost:3001/', {
+    query: {
+      userId
+    }
+  }), [userId])
 
   useEffect(() => {
     async function loadDonations () {
@@ -34,6 +41,12 @@ function Dashboard () {
 
     loadDonations()
   }, [userId])
+
+  useEffect(() => {
+    socket.on('donation_accepted', (donation) => {
+      setAcceptedDonation(donation)
+    })
+  }, [socket])
 
   return (
     <>

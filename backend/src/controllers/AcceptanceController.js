@@ -21,7 +21,14 @@ module.exports = {
 
       const donation = await DonationService.acceptDonation(authorization, donationId);
 
-      req.io.emit('donation_accepted', { id: donationId });
+      const targetSocket = req.connectedUsers[donation.donator_id];
+
+      req.io.to(targetSocket).emit('donation_accepted', {
+        donation: {
+          title: donation.title,
+          receiver: ngo,
+        },
+      });
 
       return res
         .status(200)
