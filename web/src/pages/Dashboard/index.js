@@ -14,7 +14,7 @@ function Dashboard () {
   useEffect(() => {
     async function loadDonations () {
       try {
-        const response = await api.get('/donations', {
+        const response = await api.get('users/self/donations', {
           headers: {
             authorization: userId
           }
@@ -38,47 +38,41 @@ function Dashboard () {
       <Header isLoggedIn={true} />
 
       <div className="dashboard-container">
-        <aside>
-          {/* magic */}
-        </aside>
+        <header>
+          <div className="input-container">
+            <input type="text" placeholder="O que está procurando?" />
 
-        <div className="content">
-          <header>
-            <div className="input-container">
-              <input type="text" placeholder="O que está procurando?" />
+            <button>
+              <FiSearch size={22} color="#000" />
+            </button>
+          </div>
 
-              <button>
-                <FiSearch size={22} color="#000" />
-              </button>
-            </div>
+          <div className="header-content">
+            <img src={`http://localhost:3001/public/uploads/${user.avatar}`} alt={user.name} className="avatar"/>
 
-            <div className="header-content">
-              <img src={`http://localhost:3001/public/uploads/${user.avatar}`} alt={user.name} className="avatar"/>
+            <strong>{user.name}</strong>
+          </div>
+        </header>
 
-              <strong>{user.name}</strong>
-            </div>
-          </header>
+        <h2>Minhas doações</h2>
+        <ul className="donations-list">
+          {donations.map((donation) => (
+            <li key={donation.id}>
+              <img src={`http://localhost:3001/public/uploads/${donation.common_donation.picture}`} alt={donation.title}/>
 
-          <h2>Minhas doações</h2>
-          <ul className="donations-list">
-            {donations.map((donation) => (
-              <li key={donation.id}>
-                <img src={`http://localhost:3001/public/uploads/${donation.common_donation.picture}`} alt={donation.title}/>
+              <footer>
+                <strong>{donation.title}</strong>
+                <p className="address">{donation.common_donation.pickup_address}</p>
 
-                <footer>
-                  <strong>{donation.title}</strong>
-                  <p className="address">{donation.common_donation.pickup_address}</p>
+                <div className="status">
+                  <p>{donation.category.name}</p>
 
-                  <div className="status">
-                    <p>{donation.category.name}</p>
-
-                    <p>{donation.common_donation.status}</p>
-                  </div>
-                </footer>
-              </li>
-            ))}
-          </ul>
-        </div>
+                  <p>{donation.common_donation.status}</p>
+                </div>
+              </footer>
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   )

@@ -3,6 +3,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  box-shadow: 0 0 5px 0 #0003;
+  background: #FFF;
   z-index: 10;
 }
 
