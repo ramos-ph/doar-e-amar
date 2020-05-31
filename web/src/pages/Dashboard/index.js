@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import React, { useReducer, useState, useEffect, useMemo } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import socketio from 'socket.io-client'
