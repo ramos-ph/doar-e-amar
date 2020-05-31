@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useReducer, useState, useEffect, useMemo } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import socketio from 'socket.io-client'
 import './styles.css'
@@ -8,8 +8,31 @@ import AcceptanceModal from '../../components/AcceptanceModal'
 import api from '../../services/api'
 
 function Dashboard () {
-  const [donations, setDonations] = useState([])
+  const [state, dispatch] = useReducer((prevState, action) => {
+    switch (action.type) {
+      case 'LOAD_DONATIONS':
+        return {
+          donations: action.donations,
+          allDonations: action.donations
+        }
+      case 'SEARCH_DONATIONS':
+        return {
+          ...prevState,
+          donations: action.searchResult
+        }
+      case 'CLEAR_SEARCH':
+        return {
+          ...prevState,
+          donations: action.donations
+        }
+    }
+  }, {
+    donations: [],
+    allDonations: []
+  })
+
   const [acceptedDonation, setAcceptedDonation] = useState(null)
+  const [search, setSearch] = useState('')
 
   const user = JSON.parse(localStorage.getItem('data'))
   const userId = localStorage.getItem('user_id')
@@ -29,7 +52,7 @@ function Dashboard () {
           }
         })
 
-        setDonations(response.data)
+        dispatch({ type: 'LOAD_DONATIONS', donations: response.data })
       } catch (err) {
         const { response = err } = err
 
@@ -48,6 +71,20 @@ function Dashboard () {
     })
   }, [socket])
 
+  function searchDonations () {
+    if (!search) {
+      return dispatch({ type: 'CLEAR_SEARCH', donations: state.allDonations })
+    }
+
+    const result = state.allDonations.filter(donation => {
+      const re = new RegExp(search, 'i')
+
+      return re.test(donation.title)
+    })
+
+    dispatch({ type: 'SEARCH_DONATIONS', searchResult: result })
+  }
+
   return (
     <>
       <Header isLoggedIn={true} />
@@ -57,9 +94,14 @@ function Dashboard () {
 
         <header>
           <div className="input-container">
-            <input type="text" placeholder="O que está procurando?" />
+            <input
+              type="text"
+              placeholder="O que está procurando?"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
 
-            <button>
+            <button onClick={searchDonations}>
               <FiSearch size={22} color="#000" />
             </button>
           </div>
@@ -73,7 +115,7 @@ function Dashboard () {
 
         <h2>Minhas doações</h2>
         <ul className="donations-list">
-          {donations.map((donation) => (
+          {state.donations.map((donation) => (
             <li key={donation.id}>
               <img src={`http://localhost:3001/public/uploads/${donation.common_donation.picture}`} alt={donation.title}/>
 

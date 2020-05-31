@@ -7,14 +7,16 @@ import './styles.css'
 
 import logo from '../../assets/img/logo.png'
 
-export default function Header ({ setIsModalShown, isLoggedIn }) {
+export default function Header ({ setIsModalShown }) {
+  const userId = localStorage.getItem('user_id')
+
   return (
     <header id="header-home">
       <div className="navbar">
         <img src={logo} alt="Logo" title="Doar e Amar" />
 
         <nav role="navigation">
-          {isLoggedIn ? (
+          {userId ? (
             <>
               <Link className="nav-link" to="/">Minhas doações</Link>
               <Link className="nav-link" to="/">Nova doação</Link>
@@ -36,7 +38,7 @@ export default function Header ({ setIsModalShown, isLoggedIn }) {
           )}
         </nav>
 
-        <Link className="header-btn" to="/">{isLoggedIn ? 'Sair' : 'Participe'}
+        <Link className="header-btn" to="/">{userId ? 'Sair' : 'Participe'}
           <FiArrowRight size={17} color="#FFF" />
         </Link>
       </div>
