@@ -8,9 +8,27 @@ import Main from '../pages/Main';
 import Search from '../pages/Search';
 import Profile from '../pages/Profile';
 import Details from '../pages/Details';
+import * as New from '../pages/New';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
+
+function NewOfferRoutes() {
+  return (
+    <Stack.Navigator initialRouteName="Categories">
+      <Stack.Screen
+        name="Categories"
+        component={New.Categories}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Donation"
+        component={New.Donation}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+}
 
 function DonationsRoutes() {
   return (
@@ -46,7 +64,7 @@ function AuthRoutes() {
       />
       <Tab.Screen
         name="Donate"
-        component={Main}
+        component={NewOfferRoutes}
         options={{
           title: 'Nova doação',
           tabBarIcon: ({color, size}) => (

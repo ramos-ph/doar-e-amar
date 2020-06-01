@@ -97,7 +97,7 @@ function PersonalData() {
       <View style={styles.actions}>
         <TouchableOpacity
           style={[styles.button, {backgroundColor: '#ddd'}]}
-          onPress={() => goBack()}>
+          onPress={goBack}>
           <Text style={[styles.buttonText, {color: '#666'}]}>Voltar</Text>
         </TouchableOpacity>
 
