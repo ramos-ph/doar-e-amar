@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 
@@ -58,7 +58,7 @@ function AuthRoutes() {
         options={{
           title: 'Doações',
           tabBarIcon: ({color, size}) => (
-            <Icon name="view-list" size={size} color={color} />
+            <Icon name="th-list" size={size} color={color} />
           ),
         }}
       />
@@ -68,7 +68,7 @@ function AuthRoutes() {
         options={{
           title: 'Nova doação',
           tabBarIcon: ({color, size}) => (
-            <Icon name="favorite" size={size} color={color} />
+            <Icon name="heart" size={size} color={color} />
           ),
         }}
       />
@@ -88,7 +88,7 @@ function AuthRoutes() {
         options={{
           title: 'Receber',
           tabBarIcon: ({color, size}) => (
-            <Icon name="search" size={size} color={color} />
+            <Icon name="qrcode" size={size} color={color} />
           ),
         }}
       />
@@ -98,7 +98,7 @@ function AuthRoutes() {
         options={{
           title: 'Perfil',
           tabBarIcon: ({color, size}) => (
-            <Icon name="account-circle" size={size} color={color} />
+            <Icon name="user-circle" size={size} color={color} />
           ),
         }}
       />
