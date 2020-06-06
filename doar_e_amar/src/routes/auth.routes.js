@@ -5,8 +5,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Donations from '../pages/Donations';
 import Main from '../pages/Main';
-import Search from '../pages/Search';
 import Profile from '../pages/Profile';
+import Receive from '../pages/Receive';
 import Details from '../pages/Details';
 import * as New from '../pages/New';
 
@@ -83,10 +83,10 @@ function AuthRoutes() {
         }}
       />
       <Tab.Screen
-        name="Search"
-        component={Search}
+        name="Receive"
+        component={Receive}
         options={{
-          title: 'Buscar',
+          title: 'Receber',
           tabBarIcon: ({color, size}) => (
             <Icon name="search" size={size} color={color} />
           ),
