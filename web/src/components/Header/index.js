@@ -18,9 +18,9 @@ export default function Header ({ setIsModalShown }) {
         <nav role="navigation">
           {userId ? (
             <>
-              <Link className="nav-link" to="/">Minhas doações</Link>
-              <Link className="nav-link" to="/">Nova doação</Link>
-              <Link className="nav-link" to="/">Meu perfil</Link>
+              <Link className="nav-link" to="/dashboard">Minhas doações</Link>
+              <Link className="nav-link" to="/dashboard">Nova doação</Link>
+              <Link className="nav-link" to="/dashboard">Meu perfil</Link>
             </>
           ) : (
             <>
