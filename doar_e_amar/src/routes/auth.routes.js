@@ -4,7 +4,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Donations from '../pages/Donations';
-import Main from '../pages/Main';
 import Profile from '../pages/Profile';
 import Receive from '../pages/Receive';
 import Details from '../pages/Details';
@@ -50,7 +49,7 @@ function DonationsRoutes() {
 function AuthRoutes() {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Donations"
       tabBarOptions={{activeTintColor: '#3498db'}}>
       <Tab.Screen
         name="Donations"
@@ -69,16 +68,6 @@ function AuthRoutes() {
           title: 'Nova doação',
           tabBarIcon: ({color, size}) => (
             <Icon name="heart" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Home"
-        component={Main}
-        options={{
-          title: 'Início',
-          tabBarIcon: ({color, size}) => (
-            <Icon name="home" size={size} color={color} />
           ),
         }}
       />
