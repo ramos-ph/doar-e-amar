@@ -1,6 +1,5 @@
 /* eslint-disable default-case */
 import React, { useReducer, useState, useEffect, useMemo } from 'react'
-import { FiSearch } from 'react-icons/fi'
 import socketio from 'socket.io-client'
 import './styles.css'
 
@@ -72,19 +71,23 @@ function Dashboard () {
     })
   }, [socket])
 
-  function searchDonations () {
-    if (!search) {
-      return dispatch({ type: 'CLEAR_SEARCH', donations: state.allDonations })
+  useEffect(() => {
+    function searchDonations () {
+      if (!search) {
+        return dispatch({ type: 'CLEAR_SEARCH', donations: state.allDonations })
+      }
+
+      const result = state.allDonations.filter(donation => {
+        const re = new RegExp(search, 'i')
+
+        return re.test(donation.title)
+      })
+
+      dispatch({ type: 'SEARCH_DONATIONS', searchResult: result })
     }
 
-    const result = state.allDonations.filter(donation => {
-      const re = new RegExp(search, 'i')
-
-      return re.test(donation.title)
-    })
-
-    dispatch({ type: 'SEARCH_DONATIONS', searchResult: result })
-  }
+    searchDonations()
+  }, [search])
 
   return (
     <>
@@ -101,10 +104,6 @@ function Dashboard () {
               value={search}
               onChange={e => setSearch(e.target.value)}
             />
-
-            <button onClick={searchDonations}>
-              <FiSearch size={22} color="#000" />
-            </button>
           </div>
 
           <div className="header-content">
