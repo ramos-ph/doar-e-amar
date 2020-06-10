@@ -34,7 +34,6 @@ function Dashboard () {
   const [acceptedDonation, setAcceptedDonation] = useState(null)
   const [search, setSearch] = useState('')
 
-  const user = JSON.parse(localStorage.getItem('data'))
   const userId = localStorage.getItem('user_id')
 
   const socket = useMemo(() => socketio('http://localhost:3001/', {
@@ -96,42 +95,28 @@ function Dashboard () {
       <div className="dashboard-container">
         {acceptedDonation && <AcceptanceModal donation={acceptedDonation} setAcceptedDonation={setAcceptedDonation} />}
 
-        <header>
-          <div className="input-container">
-            <input
-              type="text"
-              placeholder="O que está procurando?"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-            />
-          </div>
+        <div className="dashboard-content">
+          <h2>Minhas doações</h2>
+          <input
+            type="text"
+            placeholder="O que está procurando?"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+          />
 
-          <div className="header-content">
-            <img src={`http://localhost:3001/public/uploads/${user.avatar}`} alt={user.name} className="avatar"/>
+          <ul className="donations-list">
+            {state.donations.map((donation) => (
+              <li key={donation.id}>
+                <img src={`http://localhost:3001/public/uploads/${donation.common_donation.picture}`} alt={donation.title}/>
 
-            <strong>{user.name}</strong>
-          </div>
-        </header>
-
-        <h2>Minhas doações</h2>
-        <ul className="donations-list">
-          {state.donations.map((donation) => (
-            <li key={donation.id}>
-              <img src={`http://localhost:3001/public/uploads/${donation.common_donation.picture}`} alt={donation.title}/>
-
-              <footer>
-                <strong>{donation.title}</strong>
-                <p className="address">{donation.common_donation.pickup_address}</p>
-
-                <div className="status">
-                  <p>{donation.category.name}</p>
-
+                <footer>
+                  <strong>{donation.title}</strong>
                   <p>{donation.common_donation.status}</p>
-                </div>
-              </footer>
-            </li>
-          ))}
-        </ul>
+                </footer>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   )
