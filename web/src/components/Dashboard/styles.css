@@ -1,0 +1,45 @@
+.dashboard-container .donations-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: 0 45px;
+  height: 75%;
+  overflow-y: scroll;
+}
+
+.dashboard-container .donations-list li {
+  display: flex;
+  flex-direction: column;
+  height: 170px;
+  background: #FFF;
+  padding: 8px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.dashboard-container .donations-list li img {
+  height: 120px;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.dashboard-container .donations-list li footer {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  height: auto;
+  background: none;
+}
+
+.dashboard-container .donations-list li footer strong {
+  color: #444;
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.dashboard-container .donations-list li footer p {
+  color: #666;
+  font-size: 14px;
+  text-transform: capitalize !important;
+}
