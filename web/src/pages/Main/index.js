@@ -1,11 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FaUtensils, FaCouch, FaMoneyBillWave, FaMedkit, FaBoxes, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
 import './styles.css'
 
-import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import Modal from '../../components/Modal'
-import Form from './components/Form'
 
 import aacd from '../../assets/img/aacd.png'
 import sosMataAtlantica from '../../assets/img/sos-mata-atlantica.png'
@@ -13,18 +10,8 @@ import vivaRio from '../../assets/img/viva_rio.png'
 import wwf from '../../assets/img/wwf.png'
 
 export default function Main () {
-  const [isModalShown, setIsModalShown] = useState(false)
-
   return (
     <>
-      <Header setIsModalShown={setIsModalShown} />
-
-      <Modal
-        isModalShown={isModalShown}
-        setIsModalShown={setIsModalShown}>
-        <Form />
-      </Modal>
-
       <section id="painel">
         <div className="wrapper ms-wrap">
           <div className="floating-content">

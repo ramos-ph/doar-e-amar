@@ -1,5 +1,5 @@
 /* eslint-disable default-case */
-import React, { useReducer, useState, useEffect } from 'react'
+import React, { useReducer, useState, useEffect, useMemo } from 'react'
 import './styles.css'
 
 import api from '../../services/api'
@@ -30,7 +30,7 @@ function DashboardComponent () {
 
   const [search, setSearch] = useState('')
 
-  const userId = localStorage.getItem('user_id')
+  const userId = useMemo(() => localStorage.getItem('user_id'), [])
 
   useEffect(() => {
     async function loadDonations () {
@@ -70,7 +70,7 @@ function DashboardComponent () {
     }
 
     searchDonations()
-  }, [search, state])
+  }, [search, state.allDonations])
 
   return (
     <>
