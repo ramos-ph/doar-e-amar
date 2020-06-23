@@ -1,5 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {View, FlatList, TouchableOpacity, Text, Image} from 'react-native';
+import {
+  View,
+  FlatList,
+  TouchableOpacity,
+  Text,
+  Image,
+  StatusBar,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -51,17 +58,20 @@ function Donations() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.legend}>Doações</Text>
-      <Text style={styles.label}>Veja as mais recentes ofertas</Text>
-      <FlatList
-        data={offers}
-        horizontal={false}
-        showsVerticalScrollIndicator={false}
-        renderItem={renderItem}
-        style={styles.content}
-      />
-    </View>
+    <>
+      <StatusBar backgroundColor="#fff" barStyle="dark-content" translucent />
+      <View style={styles.container}>
+        <Text style={styles.legend}>Doações</Text>
+        <Text style={styles.label}>Veja as mais recentes ofertas</Text>
+        <FlatList
+          data={offers}
+          horizontal={false}
+          showsVerticalScrollIndicator={false}
+          renderItem={renderItem}
+          style={styles.content}
+        />
+      </View>
+    </>
   );
 }
 
