@@ -1,6 +1,6 @@
 import React from 'react';
 import QRCodeScanner from 'react-native-qrcode-scanner';
-import AsyncStorage from '';
+import AsyncStorage from '@react-native-community/async-storage';
 import {Text, Alert} from 'react-native';
 
 import styles from './styles';
