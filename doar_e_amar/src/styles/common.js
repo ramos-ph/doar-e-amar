@@ -20,20 +20,19 @@ const common = {
   },
 
   label: {
-    color: colors.darker,
+    color: '#888',
     fontSize: fonts.medium,
     fontWeight: fonts.bold,
-    textTransform: 'uppercase',
-    marginBottom: 8,
   },
 
   input: {
     height: 52,
     width: '100%',
-    paddingHorizontal: 25,
-    backgroundColor: '#ddd',
-    color: colors.dark,
-    borderRadius: 4,
+    borderBottomWidth: 1,
+    borderColor: '#DDD',
+    color: '#666',
+    fontSize: 16,
+    marginBottom: 20,
   },
 
   button: {
@@ -42,7 +41,7 @@ const common = {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.primary,
-    borderRadius: 4,
+    borderRadius: 2,
   },
 
   buttonText: {
