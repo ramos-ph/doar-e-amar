@@ -1,5 +1,6 @@
 /* eslint-disable default-case */
 import React, { useReducer, useState, useEffect, useMemo } from 'react'
+import { useHistory } from 'react-router-dom'
 import './styles.css'
 
 import api from '../../services/api'
@@ -30,6 +31,7 @@ function DashboardComponent () {
 
   const [search, setSearch] = useState('')
 
+  const history = useHistory()
   const userId = useMemo(() => localStorage.getItem('user_id'), [])
 
   useEffect(() => {
@@ -90,6 +92,7 @@ function DashboardComponent () {
             <footer>
               <strong>{donation.title}</strong>
               <p>{donation.common_donation.status}</p>
+              <button onClick={() => history.push(`/donations/${donation.id}`, { donation })}>Detalhes</button>
             </footer>
           </li>
         ))}

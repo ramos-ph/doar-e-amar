@@ -6,7 +6,7 @@ import './styles.css'
 
 import api from '../../services/api'
 
-function Dashboard () {
+function New () {
   const [picture, setPicture] = useState(null)
   const [title, setTitle] = useState('')
   const [address, setAddress] = useState('')
@@ -88,4 +88,4 @@ function Dashboard () {
   )
 }
 
-export default Dashboard
+export default New
