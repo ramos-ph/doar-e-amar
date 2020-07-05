@@ -1,0 +1,65 @@
+.navbar-container {
+  max-height: 170px;
+  height: 100%;
+  background-color: #FFF;
+  box-shadow: 0 0 5px 0 #0003;
+}
+
+.navbar-container > .upper-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 45px;
+  background-color: #F0F0F0;
+  height: 70px;
+}
+
+.navbar-container > .upper-bar > .bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-container > .upper-bar > .bar-content > img {
+  height: 50px;
+  margin-right: 50px;
+}
+
+.navbar-container > .upper-bar > .bar-content > a {
+  color: #2A2A2C;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 40px;
+  text-decoration: none;
+}
+
+.navbar-container > .upper-bar > button {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 110px;
+	border: none;
+  border-radius: 4px;
+  color: #fff;
+  text-decoration: none;
+  background: var(--color-secondary-prp);
+  height: 36px;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.navbar-container > .upper-bar > button:hover {
+  background: #af77ee;
+}
+
+.navbar-container > .lower-bar {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  padding: 0 40px;
+}
+
+.navbar-container > .lower-bar > strong {
+  font-size: 23px;
+}

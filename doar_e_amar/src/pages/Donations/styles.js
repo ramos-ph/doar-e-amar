@@ -21,6 +21,16 @@ export default StyleSheet.create({
     alignSelf: 'stretch',
   },
 
+  search: {
+    alignSelf: 'stretch',
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: '#FFF',
+    elevation: 2,
+    paddingHorizontal: 25,
+    marginBottom: 15,
+  },
+
   item: {
     alignSelf: 'stretch',
     alignItems: 'center',

@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useReducer, useEffect} from 'react';
 import {
   View,
   FlatList,
   TouchableOpacity,
   Text,
   Image,
+  TextInput,
   StatusBar,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
@@ -14,7 +15,30 @@ import styles from './styles';
 import api from '../../services/api';
 
 function Donations() {
-  const [offers, setOffers] = useState([]);
+  const [state, dispatch] = useReducer((prevState, action) => {
+    switch (action.type) {
+      case 'RESTORE_OFFERS':
+        return {
+          offers: action.offers,
+          allOffers: action.offers
+        }
+      case 'SEARCH_OFFERS':
+        return {
+          ...prevState,
+          offers: action.searchResult
+        }
+      case 'CLEAR_SEARCH':
+        return {
+          ...prevState,
+          offers: action.offers
+        }
+    }
+  }, {
+    offers: [],
+    allOffers: []
+  });
+
+  const [search, setSearch] = useState('');
 
   const {navigate} = useNavigation();
 
@@ -30,11 +54,29 @@ function Donations() {
         },
       });
 
-      setOffers(response.data);
+      dispatch({ type: 'RESTORE_OFFERS', offers: response.data });
     }
 
     restoreOffers();
   }, []);
+
+  useEffect(() => {
+    function searchDonations () {
+      if (!search) {
+        return dispatch({ type: 'CLEAR_SEARCH', offers: state.allOffers })
+      }
+
+      const result = state.allOffers.filter(offer => {
+        const re = new RegExp(search, 'i')
+
+        return re.test(offer.title)
+      })
+
+      dispatch({ type: 'SEARCH_OFFERS', searchResult: result })
+    }
+
+    searchDonations()
+  }, [search])
 
   function renderItem({item}) {
     return (
@@ -63,8 +105,16 @@ function Donations() {
       <View style={styles.container}>
         <Text style={styles.legend}>Doações</Text>
         <Text style={styles.label}>Veja as mais recentes ofertas</Text>
+
+        <TextInput
+          style={styles.search}
+          placeholder="Procurar ofertas"
+          value={search}
+          onChangeText={setSearch}
+        />
+
         <FlatList
-          data={offers}
+          data={state.offers}
           horizontal={false}
           showsVerticalScrollIndicator={false}
           renderItem={renderItem}

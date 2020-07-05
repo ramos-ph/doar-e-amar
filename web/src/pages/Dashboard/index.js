@@ -3,6 +3,7 @@ import React, { useState, useEffect, useMemo } from 'react'
 import socketio from 'socket.io-client'
 import './styles.css'
 
+import Navbar from '../../components/Navbar'
 import DashboardComponent from '../../components/Dashboard'
 import AcceptanceModal from '../../components/AcceptanceModal'
 
@@ -24,13 +25,17 @@ function Dashboard () {
   }, [socket])
 
   return (
-    <div className="dashboard-container">
-      {acceptedDonation && <AcceptanceModal donation={acceptedDonation} setAcceptedDonation={setAcceptedDonation} />}
+    <>
+      <Navbar />
 
-      <div className="dashboard-content">
-        <DashboardComponent />
+      <div className="dashboard-container">
+        {acceptedDonation && <AcceptanceModal donation={acceptedDonation} setAcceptedDonation={setAcceptedDonation} />}
+
+        <div className="dashboard-content">
+          <DashboardComponent />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { FaUtensils, FaCouch, FaMoneyBillWave, FaMedkit, FaBoxes, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
 import './styles.css'
 
+import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
 import aacd from '../../assets/img/aacd.png'
@@ -12,6 +13,8 @@ import wwf from '../../assets/img/wwf.png'
 export default function Main () {
   return (
     <>
+      <Header />
+
       <section id="painel">
         <div className="wrapper ms-wrap">
           <div className="floating-content">
