@@ -1,35 +1,114 @@
 body {
-  background-color: #DDD;
+  background-color: #F0F0F0;
 }
 
 .dashboard-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-position: cover;
-  height: 87%;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 100%;
+  padding: 40px 50px;
 }
 
-.dashboard-content {
-  max-height: 520px;
+.dashboard-container > .user-profile,
+.dashboard-container > .filters-options {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
   height: 100%;
-  max-width: 50%;
-  width: 100%;
-  padding: 30px;
-  background-color: #FFF;
-  box-shadow: 0 0 5px 0 #0004;
-  margin: 25px 0;
+}
+
+.dashboard-container > .user-profile > img {
+  height: 150px;
+  width: 150px;
   border-radius: 6px;
 }
 
-.dashboard-content input {
-  background: #FFF;
-  height: 42px;
-  width: 270px;
-  border: none;
-  padding: 0 25px;
-  border-radius: 21px;
-  box-shadow: 0 0 5px 0 #0004;
-  margin: 20px 0;
+.dashboard-container > .user-profile > strong {
+  font-size: 23px;
+  margin-top: 25px;
 }
 
+.dashboard-container > .user-profile > p {
+  color: #666;
+}
+
+.dashboard-container > .donations-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 35px;
+  height: 100%;
+}
+
+.dashboard-container > .donations-list > li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FFF;
+  height: 120px;
+  padding: 20px;
+  border: 1px solid #DDD;
+}
+
+.dashboard-container > .donations-list > li > img {
+  height: 90px;
+  width: 90px;
+  border-radius: 8px;
+}
+
+.dashboard-container > .donations-list > li > .donation-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 20px;
+}
+
+.dashboard-container > .donations-list > li > .donation-info > strong {
+  font-size: 22px;
+}
+
+.dashboard-container > .donations-list > li > .donation-info > .details {
+  font-size: 17px;
+  color: #666;
+}
+
+.dashboard-container > .donations-list > li > .donation-info > .address {
+  font-size: 19px;
+  margin-top: 20px;
+}
+
+.dashboard-container > .donations-list > li > button {
+  align-self: flex-end;
+  height: 46px;
+  width: 130px;
+  border: 2px solid #8afd8a;
+  font-size: 14px;
+  color: #0adf0a;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+  transition: border .1s;
+}
+
+.dashboard-container > .donations-list > li > button:hover {
+  border-color: #0adf0a;
+}
+
+.dashboard-container > .filters-options > strong {
+  font-size: 19px;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  letter-spacing: 0.25px;
+}
+
+.dashboard-container > .filters-options > label {
+  margin-top: 3px;
+  font-size: 15px;
+}
+
+.dashboard-container > .filters-options > label > input {
+  margin-right: 8px;
+}

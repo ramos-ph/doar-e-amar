@@ -10,10 +10,10 @@ function Navbar () {
     <div className="navbar-container">
       <div className="upper-bar">
         <div className="bar-content">
-          <img src={logo} />
+          <img src={logo} alt="Doar & Amar" />
 
           <Link to="/dashboard">Início</Link>
-          <Link to="/dashboard">Nova doação</Link>
+          <Link to="/new">Nova doação</Link>
         </div>
 
         <button>
@@ -23,7 +23,7 @@ function Navbar () {
       </div>
 
       <div className="lower-bar">
-        <strong>Início {/* Nome da página */}</strong>
+        <strong>Painel de doações {/* Nome da página */}</strong>
       </div>
     </div>
   )
