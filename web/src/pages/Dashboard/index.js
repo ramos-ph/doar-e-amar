@@ -6,11 +6,15 @@ import './styles.css'
 import api from '../../services/api'
 
 import Navbar from '../../components/Navbar'
+import Donation from '../../components/Donation'
 import AcceptanceModal from '../../components/AcceptanceModal'
 
 function Dashboard () {
   const [acceptedDonation, setAcceptedDonation] = useState(null)
   const [donations, setDonations] = useState([])
+
+  const [visible, setVisible] = useState(false)
+  const [donationId, setDonationId] = useState('')
 
   const userId = localStorage.getItem('user_id')
   const user = JSON.parse(localStorage.getItem('data'))
@@ -54,6 +58,11 @@ function Dashboard () {
   return (
     <>
       <Navbar />
+      <Donation
+        visible={visible}
+        setVisible={setVisible}
+        donationId={donationId}
+      />
 
       <div className="dashboard-container">
         {acceptedDonation && <AcceptanceModal donation={acceptedDonation} setAcceptedDonation={setAcceptedDonation} />}
@@ -80,7 +89,10 @@ function Dashboard () {
                 </p>
               </div>
 
-              <button>
+              <button onClick={() => {
+                setDonationId(donation.id)
+                setVisible(true)
+              }}>
                 Mais detalhes
               </button>
             </li>

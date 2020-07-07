@@ -1,0 +1,162 @@
+.details-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000B;
+  z-index: 10;
+}
+
+.details-container > .details-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 910px;
+  width: 100%;
+  max-height: 530px;
+  height: 100%;
+  background-color: #FFF;
+  border-radius: 8px;
+  padding: 40px 45px;
+}
+
+.details-container > .details-content > #close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.details-container > .details-content > #close-button:hover {
+  opacity: 0.6;
+}
+
+.details-container > .details-content > .donation-info,
+.details-container > .details-content > .receiver-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+}
+
+.details-container > .details-content > .donation-info {
+  border-right: 1px solid #CCC;
+}
+
+.details-container > .details-content > .donation-info > img {
+  height: 210px;
+  width: 210px;
+  border-radius: 8px;
+}
+
+.details-container > .details-content > .donation-info > strong {
+  font-size: 24px;
+  color: #111;
+  margin: 10px 0;
+}
+
+.details-container > .details-content > .donation-info > label {
+  font-size: 12px;
+  font-weight: bold;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.details-container > .details-content > .donation-info > p {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.details-container > .details-content > .donation-info > .announcement-date {
+  margin-top: 25px;
+  font-size: 16px;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.details-container > .details-content > .receiver-info {
+  padding: 0 20px;
+}
+
+.details-container > .details-content > .receiver-info > .empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.details-container > .details-content > .receiver-info > .empty > strong {
+  font-size: 19px;
+  color: #666;
+  font-weight: bold;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.details-container > .details-content > .receiver-info > .empty > p {
+  font-size: 16px;
+  color: #888;
+  line-height: 24px;
+}
+
+.details-container > .details-content > .receiver-info > .empty > ul {
+  margin-top: 12px;
+}
+
+
+.details-container > .details-content > .receiver-info > .empty > ul > li {
+  text-align: left;
+  color: #888;
+}
+
+.details-container > .details-content > .receiver-info > strong {
+  font-size: 20px;
+  color: #111;
+  margin-top: 10px;
+}
+
+.details-container > .details-content > .receiver-info > img {
+  height: 160px;
+  width: 160px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.details-container > .details-content > .receiver-info > .acceptance-date,
+.details-container > .details-content > .receiver-info > .receivement-date {
+  margin-top: 5px;
+  font-size: 16px;
+  color: #999;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.details-container > .details-content > .receiver-info > label {
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.not-visible {
+  display: none;
+}
