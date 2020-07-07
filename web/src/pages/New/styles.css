@@ -1,31 +1,29 @@
-.new-content {
-  max-height: 520px;
+.new-container {
   height: 100%;
-  max-width: 50%;
-  width: 100%;
+  width: 50%;
   padding: 30px;
   background-color: #FFF;
-  box-shadow: 0 0 5px 0 #0004;
-  margin: 25px 0;
+  margin: 25px auto;
   border-radius: 6px;
 }
 
-.new-content > form {
+.new-container > form {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.new-content > form > label {
+.new-container > form > label {
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-bottom: 5px;
 }
 
-.new-content > form > label#select-picture {
+.new-container > form > label#select-picture {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 0;
   width: 100%;
   height: 120px;
   border: 1px dashed #999;
@@ -33,11 +31,12 @@
   cursor: pointer;
 }
 
-.new-content > form > label > input[type="file"] {
+.new-container > form > label > input[type="file"] {
   display: none;
 }
 
-.new-content > form > input {
+.new-container > form > input,
+.new-container > form > select {
   height: 42px;
   width: 100%;
   padding: 0 20px;
@@ -47,7 +46,7 @@
   background-color: #DDD;
 }
 
-.new-content > form > button {
+.new-container > form > button {
   height: 42px;
   width: 100%;
   margin-top: 50px;
@@ -58,10 +57,10 @@
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background .2s;
 }
 
-.new-content > form > button:hover {
+.new-container > form > button:hover {
   background: #FF0055DD;
 }
 

@@ -23,7 +23,7 @@ function Navbar () {
       </div>
 
       <div className="lower-bar">
-        <strong>Painel de doações {/* Nome da página */}</strong>
+        <strong>{document.title.split('|')[0]}</strong>
       </div>
     </div>
   )

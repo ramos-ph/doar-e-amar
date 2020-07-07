@@ -49,6 +49,8 @@ function Dashboard () {
     })
   }, [socket])
 
+  document.title = 'Painel de doações | Doar & Amar'
+
   return (
     <>
       <Navbar />

@@ -2,20 +2,30 @@
 import React, { useState, useMemo } from 'react'
 import { useHistory } from 'react-router-dom'
 import { FiCamera } from 'react-icons/fi'
-import './styles.css'
 
 import api from '../../services/api'
+import './styles.css'
+
+import Navbar from '../../components/Navbar'
 
 function New () {
   const [picture, setPicture] = useState(null)
   const [title, setTitle] = useState('')
   const [address, setAddress] = useState('')
+  const [category, setCategory] = useState('OUTROS')
 
   const history = useHistory()
 
   const userId = localStorage.getItem('user_id')
 
   const preview = useMemo(() => picture ? URL.createObjectURL(picture) : null, [picture])
+
+  const CATEGORIES = {
+    ALIMENTOS: 1,
+    MOVEIS: 2,
+    MEDICAMENTOS: 4,
+    OUTROS: 5
+  }
 
   async function handleSubmit (e) {
     e.preventDefault()
@@ -27,11 +37,15 @@ function New () {
       data.append('title', title)
       data.append('address', address)
 
-      await api.post(`/donations?category_id=${1}`, data, {
-        headers: {
-          authorization: userId
+      await api.post(
+        `/donations?category_id=${CATEGORIES[category]}`,
+        data,
+        {
+          headers: {
+            authorization: userId
+          }
         }
-      })
+      )
 
       alert('Nova doação feita com sucesso!')
       return history.push('/dashboard')
@@ -44,12 +58,15 @@ function New () {
     }
   }
 
-  return (
-    <div className="dashboard-container">
-      <div className="new-content">
-        <h2>Nova doação</h2>
+  document.title = 'Nova doação | Doar & Amar'
 
+  return (
+    <>
+      <Navbar />
+
+      <div className="new-container">
         <form onSubmit={handleSubmit}>
+          <label htmlFor="">FOTO DO OBJETO *</label>
           <label
             htmlFor="picture"
             id="select-picture"
@@ -73,6 +90,14 @@ function New () {
             onChange={e => setTitle(e.target.value)}
           />
 
+          <label htmlFor="">CATEGORIA *</label>
+          <select className="categories" onChange={e => setCategory(e.target.value)}>
+            <option value="ALIMENTOS">Alimentos</option>
+            <option value="MOVEIS">Móveis</option>
+            <option value="MEDICAMENTOS">Medicamentos</option>
+            <option value="OUTROS">Outros</option>
+          </select>
+
           <label htmlFor="">ENDEREÇO PARA RETIRADA *</label>
           <input
             type="text"
@@ -84,7 +109,7 @@ function New () {
           <button type="submit">Concluir</button>
         </form>
       </div>
-    </div>
+    </>
   )
 }
 
