@@ -111,7 +111,7 @@ function Dashboard () {
           </label>
           <label>
             <input type="checkbox" />
-            Entregue
+            Recebido
           </label>
 
           <strong>Categoria</strong>
