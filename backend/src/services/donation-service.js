@@ -103,6 +103,9 @@ module.exports = {
       }, {
         model: Category,
         as: 'category',
+      }, {
+        model: Donator,
+        as: 'receiver',
       }],
     });
   },
