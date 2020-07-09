@@ -18,10 +18,10 @@ export default function Header () {
           <Link className="nav-link" to="/">Dúvidas frequentes</Link>
         </nav>
 
-        <button className="header-btn">
-            Participe
+        <Link to="/signin">
+          Participe
           <FiArrowRight size={17} color="#FFF" />
-        </button>
+        </Link>
       </div>
     </header>
   )

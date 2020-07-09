@@ -1,5 +1,15 @@
 import React from 'react'
-import { FaUtensils, FaCouch, FaMoneyBillWave, FaMedkit, FaBoxes, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import {
+  FaUtensils,
+  FaCouch,
+  FaMoneyBillWave,
+  FaMedkit,
+  FaBoxes,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt
+} from 'react-icons/fa'
 import './styles.css'
 
 import Header from '../../components/Header'
@@ -26,7 +36,7 @@ export default function Main () {
             <p>Aproximando doador e recebedor com segurança e facilidade</p>
 
             <div className="buttons">
-              <a href="#go" className="bg-link">Participe</a>
+              <Link to="/signin" className="bg-link">Participe</Link>
               <a href="#go" className="cm-link">Saiba mais</a>
             </div>
           </div>

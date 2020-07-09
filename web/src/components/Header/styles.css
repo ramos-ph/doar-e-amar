@@ -49,7 +49,7 @@
   color: var(--color-primary-blu);
 }
 
-#header-home .navbar .header-btn {
+#header-home .navbar > a {
   display: flex;
   align-items: center;
   justify-content: space-around;
