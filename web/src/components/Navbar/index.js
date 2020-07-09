@@ -1,11 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { FiArrowRight } from 'react-icons/fi'
 
 import './styles.css'
 import logo from '../../assets/img/logo.png'
 
 function Navbar () {
+  const history = useHistory()
+
+  function handleLogout () {
+    localStorage.clear()
+
+    history.push('/')
+  }
+
   return (
     <div className="navbar-container">
       <div className="upper-bar">
@@ -16,7 +24,7 @@ function Navbar () {
           <Link to="/new">Nova doação</Link>
         </div>
 
-        <button>
+        <button onClick={handleLogout}>
           Sair
           <FiArrowRight size={17} color="#FFF" />
         </button>
