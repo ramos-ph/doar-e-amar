@@ -17,7 +17,7 @@ function Dashboard () {
   const [donationId, setDonationId] = useState('')
 
   const userId = localStorage.getItem('user_id')
-  const user = JSON.parse(localStorage.getItem('data'))
+  const user = JSON.parse(localStorage.getItem('user'))
 
   const socket = useMemo(() => socketio('http://localhost:3001/', {
     query: {

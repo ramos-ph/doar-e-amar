@@ -7,10 +7,12 @@ import DashboardPage from './pages/Dashboard'
 import DonationPage from './pages/Donation'
 import NewPage from './pages/New'
 import NotFoundPage from './pages/NotFound'
+import SigninPage from './pages/Signin'
 
 const MainRouter = () => (
   <Switch>
     <Route exact path="/" component={MainPage} />
+    <Route path="/signin" component={SigninPage} />
     <Route path="/signup" component={SignupPage} />
     <Route path="/dashboard" component={DashboardPage} />
     <Route path="/donations/:donation_id" component={DonationPage} />
