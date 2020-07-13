@@ -1,5 +1,5 @@
 /* eslint-disable default-case */
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useReducer, useEffect, useMemo } from 'react'
 import socketio from 'socket.io-client'
 
 import './styles.css'
@@ -11,10 +11,39 @@ import AcceptanceModal from '../../components/AcceptanceModal'
 
 function Dashboard () {
   const [acceptedDonation, setAcceptedDonation] = useState(null)
-  const [donations, setDonations] = useState([])
+  const [state, dispatch] = useReducer((prevState, action) => {
+    switch (action.type) {
+      case 'LOAD_DONATIONS':
+        return {
+          donations: action.donations,
+          allDonations: action.donations
+        }
+      case 'FILTER_DONATIONS':
+        return {
+          ...prevState,
+          donations: action.donations
+        }
+    }
+  }, {
+    allDonations: [],
+    donations: []
+  })
 
   const [visible, setVisible] = useState(false)
   const [donationId, setDonationId] = useState('')
+
+  // filters
+  const [status, setStatus] = useState({
+    PENDENTE: false,
+    ACEITO: false,
+    RECEBIDO: false
+  })
+  const [categories, setCategories] = useState({
+    ALIMENTOS: false,
+    MOVEIS: false,
+    MEDICAMENTOS: false,
+    OUTROS: false
+  })
 
   const userId = localStorage.getItem('user_id')
   const user = JSON.parse(localStorage.getItem('user'))
@@ -34,7 +63,7 @@ function Dashboard () {
           }
         })
 
-        setDonations(response.data)
+        dispatch({ type: 'LOAD_DONATIONS', donations: response.data })
       } catch (err) {
         const { response = err } = err
 
@@ -52,6 +81,44 @@ function Dashboard () {
       setAcceptedDonation(donation)
     })
   }, [socket])
+
+  useEffect(() => {
+    function filterDonations () {
+      const statusEntries = Object.entries(status)
+      const categoriesEntries = Object.entries(categories)
+
+      const statusFilters = statusEntries.filter((statusIndex) => {
+        return statusIndex[1] === true
+      })
+
+      const categoriesFilters = categoriesEntries.filter((categoryIndex) => {
+        return categoryIndex[1] === true
+      })
+
+      if (statusFilters.length === 0 && categoriesFilters.length === 0) {
+        return dispatch({ type: 'LOAD_DONATIONS', donations: state.allDonations })
+      }
+
+      const filters = [...statusFilters, ...categoriesFilters]
+
+      const filteredDonations = state.allDonations.filter((donation) => {
+        let i = -1
+
+        while (true) {
+          i++
+
+          return (
+            filters[i].includes(donation.common_donation.status) ||
+              filters[i].includes(donation.category.name)
+          )
+        }
+      })
+
+      dispatch({ type: 'FILTER_DONATIONS', donations: filteredDonations })
+    }
+
+    filterDonations()
+  }, [status, categories, state.allDonations])
 
   document.title = 'Painel de doações | Doar & Amar'
 
@@ -75,7 +142,7 @@ function Dashboard () {
         </div>
 
         <ul className="donations-list">
-          {donations.map((donation) => (
+          {state.donations.map((donation) => (
             <li key={donation.id}>
               <img src={`http://localhost:3001/public/uploads/${donation.common_donation.picture}`} alt={donation.title}/>
 
@@ -102,33 +169,33 @@ function Dashboard () {
         <div className="filters-options">
           <strong>Acompanhamento</strong>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" onChange={e => setStatus({ ...status, PENDENTE: e.target.checked })} />
             Pendente
           </label>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" onChange={e => setStatus({ ...status, ACEITO: e.target.checked })} />
             Aceito
           </label>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" onChange={e => setStatus({ ...status, RECEBIDO: e.target.checked })} />
             Recebido
           </label>
 
           <strong>Categoria</strong>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" onChange={e => setCategories({ ...categories, ALIMENTOS: e.target.checked })} />
             Alimentos
           </label>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" onChange={e => setCategories({ ...categories, MOVEIS: e.target.checked })} />
             Móveis
           </label>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" onChange={e => setCategories({ ...categories, MEDICAMENTOS: e.target.checked })} />
             Medicamentos
           </label>
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" onChange={e => setCategories({ ...categories, OUTROS: e.target.checked })} />
             Outros
           </label>
         </div>

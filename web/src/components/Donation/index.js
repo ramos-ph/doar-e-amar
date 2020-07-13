@@ -88,8 +88,12 @@ function Donation ({ donationId, visible = false, setVisible }) {
                   : `Recebido em ${dateParser(donation?.receivement_date)}`}
               </p>
 
-              <label>Código para recebimento</label>
-              <QRCode value={String(donation?.id) || 'Obtendo...'} size={124} />
+              {donation?.receivement_date === null && (
+                <>
+                  <label>Código para recebimento</label>
+                  <QRCode value={String(donation?.id) || 'Obtendo...'} size={124} />
+                </>
+              )}
             </>
           )}
         </div>
