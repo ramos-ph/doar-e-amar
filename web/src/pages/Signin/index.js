@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 import './styles.css'
 import api from '../../services/api'
@@ -34,6 +34,8 @@ function Signin () {
     }
   }
 
+  document.title = 'Doar & Amar'
+
   return (
     <div className="signin-container">
       <aside>
@@ -62,7 +64,7 @@ function Signin () {
             </button>
 
             <p>
-              Não tem uma conta? <a>Cadastre-se</a>
+              Não tem uma conta? <Link to="/signup">Cadastre-se</Link>
             </p>
           </div>
         </form>

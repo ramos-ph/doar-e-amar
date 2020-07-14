@@ -79,4 +79,5 @@
 
 .signin-container > aside > form > .options > p > a {
   color: #19a2e2;
+  text-decoration: none;
 }

@@ -12,7 +12,7 @@ function New () {
   const [picture, setPicture] = useState(null)
   const [title, setTitle] = useState('')
   const [address, setAddress] = useState('')
-  const [category, setCategory] = useState('OUTROS')
+  const [category, setCategory] = useState('ALIMENTOS')
 
   const history = useHistory()
 

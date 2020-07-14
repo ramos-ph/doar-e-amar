@@ -21,6 +21,8 @@ import vivaRio from '../../assets/img/viva_rio.png'
 import wwf from '../../assets/img/wwf.png'
 
 export default function Main () {
+  document.title = 'Doar & Amar'
+
   return (
     <>
       <Header />

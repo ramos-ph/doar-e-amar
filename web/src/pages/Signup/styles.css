@@ -1,60 +1,113 @@
 .signup-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  background: linear-gradient(90deg, #ffc0cb, #fff9fa);
   height: 100%;
-  background: #fafaf5;
+  padding-left: 380px;
 }
 
-.signup-container h1 {
-  margin-bottom: 18px;
-}
-
-.signup-container .select-type {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  margin-bottom: 35px;
-  max-width: 780px;
+.signup-container > aside {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 35px;
   width: 100%;
-  max-height: 220px;
   height: 100%;
+  background: #FFF;
+  overflow-y: scroll;
 }
 
-.signup-container .select-type button {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border-width: 4px;
-  border-style: solid;
-  border-radius: 8px;
-  background: none;
-  cursor: pointer;
-  opacity: 0.6;
-  transition: opacity 0.2s;
+.signup-container > aside > img {
+  width: 100px;
+  height: auto;
 }
 
-.signup-container .select-type button:hover {
-  opacity: 1;
+.signup-container > aside > strong {
+  font-size: 23px;
+  letter-spacing: 1px;
+  color: #1b1f2a;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
-.signup-container .select-type button .details {
+.signup-container > aside > form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  width: 380px;
 }
 
-.signup-container .select-type button .details h2 {
-  font-weight: 700;
-  font-size: 20px;
-  white-space: nowrap;
-  margin-bottom: 16px;
-}
-
-.signup-container .select-type button .details li {
-  font-size: 15px;
+.signup-container > aside > form > label {
+  display: inline-flex;
   color: #666;
-  margin-left: 40px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.signup-container > aside > form > label > p {
+  color: #999;
+  font-size: 14px;
+  margin-left: 6px;
+}
+
+.signup-container > aside > form input {
+  margin-bottom: 15px;
+  height: 38px;
+  border: 1px solid #999;
+  border-radius: 2px;
+  padding: 0 15px;
+  transition: border .2s, box-shadow .2s;
+  font-size: 16px;
+  color: #333;
+}
+
+.signup-container > aside > form > .input-group,
+.signup-container > aside > form > .address-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.signup-container > aside > form > .input-group > input {
+  width: 180px;
+}
+
+.signup-container > aside > form > .address-group > :nth-child(1) {
+  flex: 1;
+}
+
+.signup-container > aside > form > .address-group > :nth-child(2) {
+  width: 55px;
+  margin-left: 20px;
+}
+
+.signup-container > aside > form input:focus {
+  border-color: #4da0ff;
+  box-shadow: 0 0 0 3px #4da0ff66;
+}
+
+.signup-container > aside > form > .options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.signup-container > aside > form > .options > button {
+  width: 85px;
+  height: 36px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  background: #ff0055;
+  cursor: pointer;
+}
+
+.signup-container > aside > form > .options > button:hover {
+  opacity: 0.86;
+}
+
+.signup-container > aside > form > .options > p {
+  font-size: 14px;
+}
+
+.signup-container > aside > form > .options > p > a {
+  color: #19a2e2;
+  text-decoration: none;
 }
