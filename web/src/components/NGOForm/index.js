@@ -3,12 +3,13 @@ import { useHistory, Link } from 'react-router-dom'
 
 import api from '../../services/api'
 
-function CommonDonatorForm () {
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
+function NGOForm () {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [cpf, setCpf] = useState('')
+  const [cnpj, setCnpj] = useState('')
+  const [landline, setLandline] = useState('')
+  const [cellphone, setCellphone] = useState('')
   const [zipcode, setZipcode] = useState('')
   const [number, setNumber] = useState('')
   const [avatar, setAvatar] = useState('')
@@ -20,17 +21,19 @@ function CommonDonatorForm () {
 
     const data = new FormData()
 
-    data.append('name', `${firstName} ${lastName}`)
+    data.append('name', name)
     data.append('email', email)
     data.append('password', password)
-    data.append('cpf', cpf)
+    data.append('cnpj', cnpj)
+    data.append('landline', landline)
+    data.append('cellphone', cellphone)
     data.append('address', `${zipcode}, ${number}`)
     data.append('avatar', avatar)
 
     try {
-      const response = await api.post('/users', data)
+      const response = await api.post('/ngos', data)
 
-      alert('Cadastro efetuado com sucesso!')
+      alert(`Cadastro efetuado com sucesso! Um e-mail de confirmação foi enviado para ${email}.`)
 
       localStorage.setItem('user_id', response.data.id)
       localStorage.setItem('user', JSON.stringify(response.data))
@@ -47,22 +50,12 @@ function CommonDonatorForm () {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>Nome</label>
-      <article className="input-group">
-        <input
-          type="text"
-          placeholder="Nome"
-          value={firstName}
-          onChange={e => setFirstName(e.target.value)}
-        />
-
-        <input
-          type="text"
-          placeholder="Sobrenome"
-          value={lastName}
-          onChange={e => setLastName(e.target.value)}
-        />
-      </article>
+      <label>Razão social</label>
+      <input
+        type="text"
+        value={name}
+        onChange={e => setName(e.target.value)}
+      />
 
       <label>Endereço de e-mail</label>
       <input
@@ -79,13 +72,13 @@ function CommonDonatorForm () {
       />
 
       <label>
-        CPF
+        CNPJ
         <p>(somente números)</p>
       </label>
       <input
         type="text"
-        value={cpf}
-        onChange={e => setCpf(e.target.value)}
+        value={cnpj}
+        onChange={e => setCnpj(e.target.value)}
       />
 
       <label>CEP</label>
@@ -102,6 +95,26 @@ function CommonDonatorForm () {
           placeholder="Nº"
           value={number}
           onChange={e => setNumber(e.target.value)}
+        />
+      </article>
+
+      <label>
+        Contato
+        <p>(somente números)</p>
+      </label>
+      <article className="input-group">
+        <input
+          type="text"
+          placeholder="Fixo"
+          value={landline}
+          onChange={e => setLandline(e.target.value)}
+        />
+
+        <input
+          type="text"
+          placeholder="Celular"
+          value={cellphone}
+          onChange={e => setCellphone(e.target.value)}
         />
       </article>
 
@@ -124,4 +137,4 @@ function CommonDonatorForm () {
   )
 }
 
-export default CommonDonatorForm
+export default NGOForm

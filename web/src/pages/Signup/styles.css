@@ -27,6 +27,35 @@
   margin-bottom: 20px;
 }
 
+.signup-container > aside > .signup-options {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.signup-container > aside > .signup-options > label > p {
+  color: #999;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: bold;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.signup-container > aside > .signup-options > label:hover > p {
+  margin-left: 4px;
+  color: #d388a1;
+}
+
+.signup-container > aside > .signup-options > label > input {
+  display: none;
+}
+
+.signup-container > aside > .signup-options > label > input[type="radio"]:checked + p {
+  margin-left: 8px !important;
+  color: #fa5b90 !important;
+}
+
 .signup-container > aside > form {
   display: flex;
   flex-direction: column;
