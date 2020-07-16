@@ -13,4 +13,14 @@ module.exports = {
   async findNgoById(ngoId) {
     return Donator.findByPk(ngoId);
   },
+
+  async confirmMembership(ngoId) {
+    const ngo = await Donator.findByPk(ngoId);
+
+    ngo.member = true;
+
+    await ngo.save();
+
+    return ngo;
+  },
 };
