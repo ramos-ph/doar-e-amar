@@ -5,7 +5,7 @@ module.exports = {
     return Donator.create(data);
   },
 
-  async findById(userId) {
+  findById(userId) {
     return Donator.findByPk(userId);
   },
 };

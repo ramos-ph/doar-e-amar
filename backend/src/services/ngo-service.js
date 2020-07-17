@@ -10,7 +10,7 @@ module.exports = {
     });
   },
 
-  async findNgoById(ngoId) {
+  findNgoById(ngoId) {
     return Donator.findByPk(ngoId);
   },
 
