@@ -2,6 +2,7 @@
 const Donation = require('../models/Donation');
 const Donator = require('../models/Donator');
 const CommonDonation = require('../models/CommonDonation');
+const MonetaryDonation = require('../models/MonetaryDonation');
 const Category = require('../models/Category');
 
 module.exports = {
@@ -68,6 +69,18 @@ module.exports = {
 
     return Donation.create({
       common_donation_id: commonDonation.id,
+      ...data,
+    });
+  },
+
+  async createMonetaryDonation(data, ngoId) {
+    const monetaryDonation = await MonetaryDonation.create({
+      receiver_ngo_id: ngoId,
+      value: data.value,
+    });
+
+    return Donation.create({
+      monetary_donation_id: monetaryDonation.id,
       ...data,
     });
   },
