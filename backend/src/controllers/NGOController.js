@@ -57,8 +57,6 @@ module.exports = {
         contact_id: contact.id,
       });
 
-      const hashedId = bcrypt.hashSync(String(ngo.id), 6);
-
       // To refactor.
       const message = {
         from: 'contato@doareamar.com',
@@ -68,7 +66,7 @@ module.exports = {
         <br/>
         Por favor, acesse o link abaixo para confirmar seu e-mail.
         <br/><br/>
-        <a href="http://localhost:3001/api/doareamar/v1/confirm/?token=${hashedId}&?id=${ngo.id}">Acesse aqui.</a>`,
+        <a href="http://localhost:3001/api/doareamar/v1/confirm?id=${ngo.id}">Acesse aqui.</a>`,
       };
 
       const transporter = nodemailer.createTransport({

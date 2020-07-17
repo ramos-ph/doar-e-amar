@@ -5,6 +5,7 @@ router
   .use(require('./users'))
   .use(require('./categories'))
   .use(require('./donations'))
-  .use(require('./ngos'));
+  .use(require('./ngos'))
+  .use(require('./email'));
 
 module.exports = router;
