@@ -8,10 +8,12 @@ import api from '../../services/api'
 import Navbar from '../../components/Navbar'
 import Donation from '../../components/Donation'
 import AcceptanceModal from '../../components/AcceptanceModal'
+import MonetaryModal from '../../components/MonetaryModal'
 
 function Dashboard () {
   const [acceptedDonation, setAcceptedDonation] = useState(null)
   const [receivedDonation, setReceivedDonation] = useState(null)
+  const [monetaryDonation, setMonetaryDonation] = useState(null)
   const [state, dispatch] = useReducer((prevState, action) => {
     switch (action.type) {
       case 'LOAD_DONATIONS':
@@ -85,6 +87,10 @@ function Dashboard () {
     socket.on('donation_received', (donation) => {
       setReceivedDonation(donation)
     })
+
+    socket.on('monetary_donation', (donation) => {
+      setMonetaryDonation(donation)
+    })
   }, [socket])
 
   useEffect(() => {
@@ -139,6 +145,7 @@ function Dashboard () {
       <div className="dashboard-container">
         {acceptedDonation && <AcceptanceModal donation={acceptedDonation} setDonation={setAcceptedDonation} />}
         {receivedDonation && <AcceptanceModal donation={receivedDonation} setDonation={setReceivedDonation} />}
+        {monetaryDonation && <MonetaryModal donation={monetaryDonation} setDonation={setMonetaryDonation} />}
 
         <div className="user-profile">
           <img src={`http://localhost:3001/public/uploads/${user.avatar}`} alt={user.name} />
