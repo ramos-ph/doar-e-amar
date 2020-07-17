@@ -11,6 +11,7 @@ import AcceptanceModal from '../../components/AcceptanceModal'
 
 function Dashboard () {
   const [acceptedDonation, setAcceptedDonation] = useState(null)
+  const [receivedDonation, setReceivedDonation] = useState(null)
   const [state, dispatch] = useReducer((prevState, action) => {
     switch (action.type) {
       case 'LOAD_DONATIONS':
@@ -80,6 +81,10 @@ function Dashboard () {
     socket.on('donation_accepted', (donation) => {
       setAcceptedDonation(donation)
     })
+
+    socket.on('donation_received', (donation) => {
+      setReceivedDonation(donation)
+    })
   }, [socket])
 
   useEffect(() => {
@@ -132,7 +137,8 @@ function Dashboard () {
       />
 
       <div className="dashboard-container">
-        {acceptedDonation && <AcceptanceModal donation={acceptedDonation} setAcceptedDonation={setAcceptedDonation} />}
+        {acceptedDonation && <AcceptanceModal donation={acceptedDonation} setDonation={setAcceptedDonation} />}
+        {receivedDonation && <AcceptanceModal donation={receivedDonation} setDonation={setReceivedDonation} />}
 
         <div className="user-profile">
           <img src={`http://localhost:3001/public/uploads/${user.avatar}`} alt={user.name} />

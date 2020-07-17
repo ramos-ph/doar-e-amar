@@ -17,6 +17,8 @@ module.exports = {
     try {
       const validatedNgo = await NGO.confirmMembership(id);
 
+      validatedNgo.password = undefined;
+
       return res
         .status(200)
         .send({
