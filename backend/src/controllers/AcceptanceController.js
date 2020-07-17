@@ -15,6 +15,7 @@ module.exports = {
           error: 'Forbidden.',
           details: {
             authorization: 'Operation not permitted.',
+            email: 'To perform this action you must confirm your e-mail address.',
           },
         });
       }
