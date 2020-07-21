@@ -37,8 +37,7 @@ function Categories() {
 
           <View style={styles.cardInfo}>
             <Text numberOfLines={3} style={styles.description}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore,
-              quia.
+              Contamos com a você para doar alimentos não perecíveis!
             </Text>
           </View>
         </TouchableOpacity>
@@ -55,8 +54,8 @@ function Categories() {
 
           <View style={styles.cardInfo}>
             <Text numberOfLines={3} style={styles.description}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore,
-              quia.
+              Doe móveis em boas condições de uso; gere conforto à quem mais
+              precisa!
             </Text>
           </View>
         </TouchableOpacity>
@@ -73,8 +72,8 @@ function Categories() {
 
           <View style={styles.cardInfo}>
             <Text numberOfLines={3} style={styles.description}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore,
-              quia.
+              Doe medicamentos com o prazo de validade em dia; consulte o seu
+              médico!
             </Text>
           </View>
         </TouchableOpacity>
@@ -91,8 +90,7 @@ function Categories() {
 
           <View style={styles.cardInfo}>
             <Text numberOfLines={3} style={styles.description}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore,
-              quia.
+              De vestimentas a produtos para pets, doe de coração aqui!
             </Text>
           </View>
         </TouchableOpacity>
