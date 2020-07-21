@@ -1,4 +1,5 @@
 /* eslint-disable no-throw-literal */
+const { Op } = require('sequelize');
 const Donation = require('../models/Donation');
 const Donator = require('../models/Donator');
 const CommonDonation = require('../models/CommonDonation');
@@ -9,7 +10,9 @@ module.exports = {
   async getOffers() {
     return Donation.findAll({
       where: {
-        monetary_donation_id: null,
+        category_id: {
+          [Op.not]: 3,
+        },
       },
       include: [{
         model: CommonDonation,
@@ -93,6 +96,9 @@ module.exports = {
     return Donation.findAll({
       where: {
         donator_id: donatorId,
+        category_id: {
+          [Op.not]: 3,
+        },
       },
       include: [{
         model: CommonDonation,
