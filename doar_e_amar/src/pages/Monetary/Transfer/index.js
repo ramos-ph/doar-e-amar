@@ -33,7 +33,7 @@ function Transfer() {
 
     Alert.alert('Oba!', 'Agradecemos pela sua doação!');
 
-    return navigate('Donations');
+    return navigate('Donations', {screen: 'Donations'});
   }
 
   return (

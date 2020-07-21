@@ -48,7 +48,7 @@ function Details() {
       Alert.alert(
         'Ops..',
         response.status === 403
-          ? 'Por enquanto, você não tem permissão para aceitar doações.\n\nSaiba mais sobre nossa assinatura.'
+          ? 'Para aceitar a oferta, você deve verificar seu e-mail.'
           : 'Houve um erro ao tentar realizar o processo.',
       );
     }
