@@ -8,6 +8,7 @@ import Profile from '../pages/Profile';
 import Receive from '../pages/Receive';
 import Details from '../pages/Details';
 import * as New from '../pages/New';
+import * as Monetary from '../pages/Monetary';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -23,6 +24,23 @@ function NewOfferRoutes() {
       <Stack.Screen
         name="Donation"
         component={New.Donation}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function MonetaryDonationsRoutes() {
+  return (
+    <Stack.Navigator initialRouteName="Ngos">
+      <Stack.Screen
+        name="Ngos"
+        component={Monetary.Ngos}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Transfer"
+        component={Monetary.Transfer}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
@@ -65,9 +83,19 @@ function AuthRoutes() {
         name="Donate"
         component={NewOfferRoutes}
         options={{
-          title: 'Nova doação',
+          title: 'Doar',
           tabBarIcon: ({color, size}) => (
             <Icon name="heart" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Transfer"
+        component={MonetaryDonationsRoutes}
+        options={{
+          title: 'Transferir',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="money" size={size} color={color} />
           ),
         }}
       />
