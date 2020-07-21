@@ -8,7 +8,6 @@ export default StyleSheet.create({
   legend: {
     ...common.legend,
     color: '#000',
-    marginTop: 10,
     marginBottom: 2,
   },
 

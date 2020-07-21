@@ -15,6 +15,7 @@ export default StyleSheet.create({
     height: 86,
     width: 86,
     borderRadius: 43,
+    marginTop: 30,
   },
 
   title: {

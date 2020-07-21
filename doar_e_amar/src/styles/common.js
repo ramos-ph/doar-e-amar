@@ -7,7 +7,7 @@ const common = {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     backgroundColor: colors.white,
-    paddingTop: 40,
+    paddingTop: 20,
     paddingHorizontal: 20,
   },
 

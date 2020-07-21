@@ -15,28 +15,31 @@ import styles from './styles';
 import api from '../../services/api';
 
 function Donations() {
-  const [state, dispatch] = useReducer((prevState, action) => {
-    switch (action.type) {
-      case 'RESTORE_OFFERS':
-        return {
-          offers: action.offers,
-          allOffers: action.offers
-        }
-      case 'SEARCH_OFFERS':
-        return {
-          ...prevState,
-          offers: action.searchResult
-        }
-      case 'CLEAR_SEARCH':
-        return {
-          ...prevState,
-          offers: action.offers
-        }
-    }
-  }, {
-    offers: [],
-    allOffers: []
-  });
+  const [state, dispatch] = useReducer(
+    (prevState, action) => {
+      switch (action.type) {
+        case 'RESTORE_OFFERS':
+          return {
+            offers: action.offers,
+            allOffers: action.offers,
+          };
+        case 'SEARCH_OFFERS':
+          return {
+            ...prevState,
+            offers: action.searchResult,
+          };
+        case 'CLEAR_SEARCH':
+          return {
+            ...prevState,
+            offers: action.offers,
+          };
+      }
+    },
+    {
+      offers: [],
+      allOffers: [],
+    },
+  );
 
   const [search, setSearch] = useState('');
 
@@ -54,29 +57,29 @@ function Donations() {
         },
       });
 
-      dispatch({ type: 'RESTORE_OFFERS', offers: response.data });
+      dispatch({type: 'RESTORE_OFFERS', offers: response.data});
     }
 
     restoreOffers();
   }, []);
 
   useEffect(() => {
-    function searchDonations () {
+    function searchDonations() {
       if (!search) {
-        return dispatch({ type: 'CLEAR_SEARCH', offers: state.allOffers })
+        return dispatch({type: 'CLEAR_SEARCH', offers: state.allOffers});
       }
 
-      const result = state.allOffers.filter(offer => {
-        const re = new RegExp(search, 'i')
+      const result = state.allOffers.filter((offer) => {
+        const re = new RegExp(search, 'i');
 
-        return re.test(offer.title)
-      })
+        return re.test(offer.title);
+      });
 
-      dispatch({ type: 'SEARCH_OFFERS', searchResult: result })
+      dispatch({type: 'SEARCH_OFFERS', searchResult: result});
     }
 
-    searchDonations()
-  }, [search])
+    searchDonations();
+  }, [search, state.allOffers]);
 
   function renderItem({item}) {
     return (
