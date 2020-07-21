@@ -1,0 +1,142 @@
+.monetary-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  height: 60%;
+  width: 70%;
+  padding: 30px;
+  background-color: #FFF;
+  margin: 25px auto;
+  border-radius: 6px;
+}
+
+.monetary-container > .ngos-selector {
+  width: 50%;
+  margin-right: 15px;
+}
+
+.monetary-container > .ngos-selector > ul {
+  list-style: none;
+  overflow-y: scroll;
+  height: 350px;
+  padding: 8px 0;
+}
+
+.monetary-container > .ngos-selector > ul > li > label {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.monetary-container > .ngos-selector > ul > li > label > .ngo {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 90%;
+  border-radius: 4px;
+  box-shadow: 0 0 5px 0 #0004;
+  padding: 8px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.monetary-container > .ngos-selector > ul > li > label > .ngo > img {
+  height: 86px;
+  width: 86px;
+  border-radius: 4px;
+  margin-right: 12px;
+}
+
+.monetary-container > .ngos-selector > ul > li > label > .ngo > .details {
+  display: flex;
+  flex-direction: column;
+}
+
+.monetary-container > .ngos-selector > ul > li > label > .ngo > .details > strong {
+  font-size: 18px;
+  color: #222;
+}
+
+.monetary-container > .ngos-selector > ul > li > label > .ngo > .details > p {
+  margin-top: 4px;
+  color: #666;
+  font-size: 16px;
+}
+
+.monetary-container > form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.monetary-container > form > label {
+  display: inline-flex;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.monetary-container > form > label > p {
+  color: #999;
+  font-size: 14px;
+  margin-left: 6px;
+}
+
+.monetary-container > form > label#select-picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  width: 100%;
+  height: 120px;
+  border: 1px dashed #999;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.monetary-container > form > label > input[type="file"] {
+  display: none;
+}
+
+.monetary-container > form > input,
+.monetary-container > form > select {
+  height: 42px;
+  width: 100%;
+  padding: 0 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #DDD;
+}
+
+.monetary-container > form > button {
+  height: 42px;
+  width: 100%;
+  margin-top: 50px;
+  background: #FF0055;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.monetary-container > form > button:hover {
+  background: #FF0055DD;
+}
+
+.preview {
+  border: none !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 50%;
+}
+
+.preview > svg {
+  display: none !important;
+}

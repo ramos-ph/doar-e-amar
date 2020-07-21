@@ -22,6 +22,7 @@ function Navbar () {
 
           <Link to="/dashboard">Início</Link>
           <Link to="/new">Nova doação</Link>
+          <Link to="/monetary">Doação monetária</Link>
         </div>
 
         <button onClick={handleLogout}>
